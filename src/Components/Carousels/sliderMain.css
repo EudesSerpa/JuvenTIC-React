@@ -1,0 +1,29 @@
+/* Slider */
+.carousel-img {
+    object-fit: cover;
+    height: 60vh;
+    width: 100%;
+}
+
+.carousel-caption{
+    position: absolute;
+    top: 10%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.carousel-caption img {
+    max-width: 270px;
+    margin: 0 auto;
+}
+
+.carousel-caption p {
+    max-width: 95%;
+    margin: 30px auto 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 10px #310101, 0 0 1em #f73600, 0 0 0.2em #cc2b2b;
+}
