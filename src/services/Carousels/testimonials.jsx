@@ -22,7 +22,7 @@ const clientTestimonials = [
 
 const SlidesTestimonials = clientTestimonials.map((slide, i) => {
     return (
-        <div className='slide'>
+        <div className="slide" key={`${i}-${slide.img}`}>
             <article className="testimonial">
                 <figure className="testimonial-data">
                     <img src={ slide.img } alt="Client profile" loading='lazy' />
@@ -30,7 +30,7 @@ const SlidesTestimonials = clientTestimonials.map((slide, i) => {
                         <p className="detail">
                             <i className="icon-left fas fa-quote-left"></i>
                             { slide.text }
-                            <i class="icon-right fas fa-quote-right"></i>
+                            <i className="icon-right fas fa-quote-right"></i>
                         </p>
                         <p className="client">
                             { slide.name }
