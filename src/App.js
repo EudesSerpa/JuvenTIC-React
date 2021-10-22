@@ -1,14 +1,17 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import { Carousel } from './Components/Carousel';
+import About from './Components/about/about'
 
 function App() {
   return (
-    <div className="App">
-      <Carousel type='Images' />
-      <Carousel type='Testimonials' intervalTime='7000' speedTransition='900' />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={About}/>
+      </Switch>
+    </Router>
   );
-}
+} 
 
 export default App;
