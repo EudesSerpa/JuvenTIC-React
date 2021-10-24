@@ -3,7 +3,7 @@ import Navbar from '../layout/Navbar'
 import History from './History'
 import Card from './Card'
 import Footer from '../layout/Footer'
-import {Carousel} from '../Carousel'
+// import {Carousel} from '../Carousel'
 
 const About = ()=>{
 	return(
@@ -11,10 +11,10 @@ const About = ()=>{
 			<Navbar/>
 			<History/>
 			<Card/>
-			<Carousel/>
+			{/* <Carousel/> */}
 			<Footer/>
 		</div>
 	)
 }
 
-export default About;
+export {About};
