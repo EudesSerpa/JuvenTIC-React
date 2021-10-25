@@ -3,6 +3,7 @@
     object-fit: cover;
     height: 60vh;
     width: 100%;
+    pointer-events: none;
 }
 
 .carousel-caption{
@@ -27,4 +28,30 @@
     font-weight: 700;
     color: #fff;
     text-shadow: 1px 1px 10px #310101, 0 0 1em #f73600, 0 0 0.2em #cc2b2b;
+}
+
+
+
+@media (min-width: 510px) {
+    .carousel-caption img {
+        max-width: 300px;
+    }
+    .carousel-caption p {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 653px) {
+    .carousel-caption p {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1020px) {
+    .carousel-caption img {
+        max-width: 320px;
+    }
+    .carousel-caption p {
+        margin-top: 5vh;
+    }
 }

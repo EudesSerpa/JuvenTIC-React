@@ -1,6 +1,6 @@
 import React from "react";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import './testimonials.css';
-
 
 const clientTestimonials = [
     {
@@ -20,26 +20,25 @@ const clientTestimonials = [
     }
 ];
 
-const SlidesTestimonials = clientTestimonials.map((slide, i) => {
-    return (
-        <div className="slide" key={`${i}-${slide.img}`}>
-            <article className="testimonial">
-                <figure className="testimonial-data">
-                    <img src={ slide.img } alt="Client profile" loading='lazy' />
-                    <figcaption>
-                        <p className="detail">
-                            <i className="icon-left fas fa-quote-left"></i>
-                            { slide.text }
-                            <i className="icon-right fas fa-quote-right"></i>
-                        </p>
-                        <p className="client">
-                            { slide.name }
-                        </p>
-                    </figcaption>
-                </figure>
-            </article>
-        </div>
-    );
-});
+
+const SlidesTestimonials = clientTestimonials.map((slide, i) => (
+    <div className="slide" key={`${i}-${slide.img}`}>
+        <article className="testimonial wrapper wrapper-xxl">
+            <figure className="testimonial-data">
+                <img src={ slide.img } alt="Client profile" loading='lazy' />
+                <figcaption>
+                    <p className="detail">
+                        <FaQuoteLeft className="icon-left" />
+                        { slide.text }
+                        <FaQuoteRight className="icon-right" />
+                    </p>
+                    <p className="client">
+                        { slide.name }
+                    </p>
+                </figcaption>
+            </figure>
+        </article>
+    </div>
+));
 
 export { SlidesTestimonials };

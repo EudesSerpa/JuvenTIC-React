@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { GoPlus } from 'react-icons/go';
 import './events.css';
 
 const services = [
@@ -30,7 +31,7 @@ export default function Events() {
     const serviceCards = services.map(service => (
         <article className="card">
             <header>
-                <img src={ service.img } className="card-img-top" alt={`Event ${service.service} icon`} />
+                <img src={ service.img } className="card-img-top" alt={`Event ${service.service} icon`} loading='lazy' />
                 <p className="card--title">{ service.service }</p>
             </header>
             <p className="card-details">
@@ -38,7 +39,7 @@ export default function Events() {
             </p>
             <footer>
                 <NavLink to="/services" className="icon" aria-label={`Más información sobre ${service.service}`}>
-                    <i className="fa fa-plus"></i>
+                    <GoPlus />
                 </NavLink>
             </footer>
         </article>
@@ -47,7 +48,7 @@ export default function Events() {
     return (
         <section className="events-section">
             <div className="wrapper-xxl wrapper">
-                <h2 className="events-section--title">Organizamos tu evento</h2>
+                <h2 className="events-section--title titles">Organizamos tu evento</h2>
 
                 <div className="wrapper-cards">
                     { serviceCards }

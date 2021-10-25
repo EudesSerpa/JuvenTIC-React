@@ -28,7 +28,7 @@ const navLinks = [
     }
 ];
 
-const NavBar = () => {
+const NavBar = ({ fixed= false }) => {
     // const { navLinks } = props;
     const [isMenuActive, setStateMenu] = useState(false);
 
@@ -47,7 +47,7 @@ const NavBar = () => {
     ));
 
     return (
-        <header className="header">
+        <header className={ fixed ? "header fixed" : "header" }>
             <nav className="navbar wrapper wrapper-xxl">
                 <div className="navbar__logo--container">
                     <NavLink to="/" className="navbar__logo">
