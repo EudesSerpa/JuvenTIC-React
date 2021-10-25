@@ -20,7 +20,7 @@ const Footer = ()=>{
 	              reservas@salysalsa.com <br/>
 	              31232525321
 	            </p>
-	            <p>&copy Copyright 2020.</p>
+	            <p>&copy; Copyright 2020.</p>
 	          </div>
 	        </div>
 	      </div>
