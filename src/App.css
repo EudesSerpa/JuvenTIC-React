@@ -32,24 +32,6 @@ a {
 }
 
 
-/* Navbar */
-.header__navbar {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.header__navbar > .wrapper {
-    padding: 0;
-}
-
-.header__navbar-logo {
-    flex: 1;
-}
-
-.header__navbar-links a:hover:not(:last-child){
-    transform: translateY(-5px);
-    transition: all 0.5s ease-out;
-}
-
 
 /* Carrousel: Slides */
 .slide {
@@ -64,6 +46,7 @@ a {
 .slide img {
     vertical-align: top;
 }
+
 
 
 
