@@ -4,8 +4,7 @@ import './App.css';
 
 // import NavBar from './Components/NavBar';
 import Home from './pages/Home';
-// import About from './pages/About';
-import {About} from './Components/about/about';
+import About from './pages/About';
 import Menu from './pages/Menu';
 import Services from './pages/Services';
 import Reserves from './pages/Reserves';
