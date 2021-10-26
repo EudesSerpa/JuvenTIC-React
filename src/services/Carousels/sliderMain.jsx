@@ -22,7 +22,7 @@ const SlidesImages = imagesCarousel.map((slide, i) => {
             <img src={ slide.img } className='carousel-img' alt={`Plates Slide ${i}`} loading='lazy' />
             <div className="carousel-caption">
                 <img src="https://i.postimg.cc/5y3c0dMJ/logo-2x.png" alt="Restaurant Logo" />
-                <p>{ slide.text }</p>
+                <p className="titles">{ slide.text }</p>
             </div>
         </div>
     );

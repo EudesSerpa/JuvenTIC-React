@@ -1,9 +1,5 @@
-:root {
-    --white: #fff;
-    --orange: #f73600;
-    --orange-dark: #cc2b2b;
-    --vinotinto: #310101;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
 
 html {
     box-sizing: border-box;

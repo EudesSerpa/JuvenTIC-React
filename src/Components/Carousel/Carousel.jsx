@@ -135,7 +135,7 @@ const Controls = styled.div`
 
 const Button = styled.button`
     position: absolute;
-    width: 50px;
+    width: 20%;
     height: 100%;
     background: none;
     border: none;
@@ -147,12 +147,12 @@ const Button = styled.button`
 
     ${props => props.right ? 'right: 0': 'left: 0'};
 
-    &:hover {
+    ${'' /* &:hover {
         background: rgba(0, 0, 0, .2);
         path {
             fill: #fff;
         }
-    };
+    }; */}
 
     path {
         filter: ${props => (props.right)

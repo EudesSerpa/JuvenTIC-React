@@ -1,4 +1,5 @@
-/* Testimonials */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .testimonial {
     display: flex;
     justify-content: center;
@@ -28,7 +29,7 @@
 .testimonial-data .detail {
     position: relative;
     margin-bottom: 20px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .testimonial-data .client {
