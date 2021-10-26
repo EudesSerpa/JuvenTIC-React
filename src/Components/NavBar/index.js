@@ -28,7 +28,7 @@ const navLinks = [
     }
 ];
 
-const NavBar = ({ fixed= false }) => {
+const NavBar = ({ fixed = false }) => {
     // const { navLinks } = props;
     const [isMenuActive, setStateMenu] = useState(false);
 

@@ -10,6 +10,7 @@
 
 .header {
     position: relative;
+    background-color: #000;
 }
 
 .header.fixed {
@@ -72,8 +73,8 @@
     width: 32px;
     height: 32px;
     padding: 5px;
-    fill: var(--orange);
-    background-color: #ccc;
+    fill: var(--vinotinto);
+    background-color: rgba(255, 255, 255, .5);
     cursor: pointer;
 }
 
