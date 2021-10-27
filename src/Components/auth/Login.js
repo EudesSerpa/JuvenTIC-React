@@ -11,7 +11,7 @@ const Login = (props)=>{
 	//en caso de que el usuario este autenticado o error en el password y correo
 	useEffect(()=>{
 		if(autenticado){
-			props.history.push('/menu');
+			props.history.push('/home');
 		}
 
 		if(mensaje){

@@ -1,5 +1,4 @@
 import React, {useEffect, useContext}  from 'react';
-import Navbar from '../layout/Navbar'
 import History from './History'
 import Card from './Card'
 import Footer from '../layout/Footer'
@@ -15,7 +14,6 @@ const About = ()=>{
 	}, [])
 	return(
 		<div>
-			<Navbar/>
 			<History/>
 			<Card/>
 			<Carousel/>
