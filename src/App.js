@@ -14,10 +14,20 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
 
+// import route for dashboard
+import RutaPrivada from './Components/rutas/RutaPrivada';
+import Sidebar from './Components/layout/Sidebar'
+import HomeD from './Components/dashboar/pages/Home'
+import PlatosD from './Components/dashboar/pages/Platos'
+import ServicesD from './Components/dashboar/pages/Services'
+import UserD from './Components/dashboar/pages/User'
+import AuthState from './context/autenticacion/authState';
+
 
 function App() {
   return (
     <div className="App">
+    <AuthState>
       <Router>
         {/* <NavBar fixed={true}/> */}
 
@@ -31,10 +41,21 @@ function App() {
           <Route path="/map-site" component={MapSite} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
+          <div className="flex">
+            <Sidebar/>
+            <div className="content">
+              <RutaPrivada exact path="/homeD" component={HomeD}/>
+              <RutaPrivada exact path="/platosD" component={PlatosD}/>
+              <RutaPrivada exact path="/servicesD" component={ServicesD}/>
+              <RutaPrivada exact path="/userD" component={UserD}/>
+            </div>
+          </div>
         </Switch>
 
         <Footer />
       </Router>
+    </AuthState>
+      
     </div>
   );
 }

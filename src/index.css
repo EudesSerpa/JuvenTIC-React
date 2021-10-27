@@ -20,87 +20,58 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-/* --- Historia y Personal--- */
-.color-sup{
-    color: #E5992C
+/* --- Login --- */
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
 }
 
-.titulo{
-    font-family: 'Oswald', sans-serif;
-    font-weight: bold;
-    font-size: 7vh;
-    color: #481717;
+.btn-google {
+  color: white !important;
+  background-color: #ea4335;
 }
 
-.negrita{
-    font-weight: bold;
-    text-align: center;
+.btn-facebook {
+  color: white !important;
+  background-color: #3b5998;
 }
 
-.grid-container{
-    gap: 14px ;
-    margin: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 700px));
-    justify-content: center;
-    align-items: center;
+.enlace-cuenta {
+  margin-top: 2rem;
+  display: block;
+  opacity: .7;
 }
 
-.grid-container .our {
-    padding: 20px;
+/* --- dashboar --- */
+.sidebar{
+    width: 18rem;
+    height: calc(100vh - 52px);
+    border-right: 1px solid gray;
 }
 
-.grid-container .histori{
-    margin-top: 48px;
+.sidebar ul {
+    list-style: none;
+    padding: 1rem 2rem;
 }
 
-.grid-container-card{
-    color: white;
-    gap: 14px ;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    background-color: #C6BA9E;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px 0 #3337;
-    margin-bottom: 65px;
+.sidebar ul li{
+    margin-bottom: 1rem;
 }
 
-.grid-container img{
-    align-self: center;
-    justify-self: center;
-    box-shadow: 0 5px 10px #3337;
-    border-radius: 5px;
+.sidebar ul li a{
+    text-decoration: none; 
 }
 
-.header-card{
-    text-align: center;
-    align-self: center;
-    justify-self: center;
+.active{
+    background-color: #DAD8D8;
 }
 
-.header-card img{
-    margin-top: 20px;
-    border-radius: 100%;
-    box-shadow: 0 0 0 8px rgba(0, 0, 0, .06);
-    width:200px;
-    height:200px;
-
+.flex {
+    display: flex;
 }
 
-.header-card h5{
-    font-family: 'Oswald', sans-serif;
-    color:#4A3F26;
-    font-weight: bold;
+.content {
+    width: 100%;
 }
 
-hr {
-    background-color: #4A3F26;
-    margin: 0 60px;
-}
-
-.header-card p{
-    font-family: 'Oswald', sans-serif;
-    color:#4A3F26;
-}
