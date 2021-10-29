@@ -45,7 +45,7 @@ export default function Recomendations() {
     return (
         <section className="recommendations-section">
             <div className="wrapper-xxl wrapper">
-                <h2>Las recomendaciones del chef</h2>
+                <h2 className="titles section--title">Las recomendaciones del chef</h2>
 
                 <div className="trending-products">
                     <div className="products">

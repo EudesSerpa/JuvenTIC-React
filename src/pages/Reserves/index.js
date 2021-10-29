@@ -3,6 +3,7 @@ import './reserves.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import NavBar from '../../Components/NavBar';
+import Details from '../../Components/PageDetails';
 
 
 const regex = {
@@ -73,6 +74,15 @@ const initialValues = {
     indications: '',
 }
 
+const pageDetails = {
+        title: "Reservaciones",
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum?`,
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum?`
+
+};
+
+
 export default function Reserves() {
     const [isSubmitted, setSubmitted] = useState(false)
     const formRef = useRef(null);
@@ -83,16 +93,11 @@ export default function Reserves() {
 
             <section className="reservations-section wrapper-xxl wrapper">
                 {/* Detalles de la pagina */}
-                <div className="container--details">
-                    <h1 className="reservations-section--title">Reservaciones</h1>
-
-                    <article className="reservations-section--description">
-                        <div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum?</p>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nemo rem voluptas tenetur repudiandae consequatur omnis mollitia perferendis quia quod.</p>
-                        </div>
-                    </article>
-                </div>
+                <Details
+                    title={pageDetails.title}
+                    details={pageDetails.details}
+                    description={pageDetails.description}
+                />
 
                 <Formik
                     initialValues={initialValues}
@@ -136,25 +141,25 @@ export default function Reserves() {
                             <div className="input-wrapper">
                                 <label htmlFor="name">Nombre: </label>
                                 <ErrorMessage name="name" component="p" className="form-error" />
-                                <Field id="name" type="text" name="name" className={touched.name ? errors.name ? 'error' : 'ok' : ''} />
+                                <Field id="name" type="text" name="name" className={touched.name ? errors.name ? 'error' : 'ok' : ''} placeholder="Nombre Apellido" />
                                 <span className="validity"></span>
                             </div>
 
                             <div className="input-wrapper">
                                 <label htmlFor="email">Correo electrónico: </label>
                                 <ErrorMessage name="email" component="p" className="form-error" />
-                                <Field id="email" type="email" name="email" className={touched.email ? errors.email ? 'error' : 'ok' : ''} />
+                                <Field id="email" type="email" name="email" className={touched.email ? errors.email ? 'error' : 'ok' : ''} placeholder="correo@correo.com" />
                                 <span className="validity"></span>
                             </div>
 
                             <div className="input-wrapper">
                                 <label htmlFor="phone">Teléfono: </label>
                                 <ErrorMessage name="phone" component="p" className="form-error" />
-                                <Field id="phone" type="tel" name="phone" className={touched.phone ? errors.phone ? 'error' : 'ok' : ''} />
+                                <Field id="phone" type="tel" name="phone" className={touched.phone ? errors.phone ? 'error' : 'ok' : ''} placeholder="3203335599"/>
                                 <span className="validity"></span>
                             </div>
 
-                            <div className="input-wrapper">
+                            <div className="input-wrapper select">
                                 <ErrorMessage name="service" component="p" className="form-error" />
                                 <Field id="service" name="service" as="select" aria-label="Selecciona el servicio a reservar" className={touched.service ? errors.service ? 'error' : 'ok' : ''} >
                                     <option value="" hidden>Selecciona el servicio</option>
@@ -172,7 +177,7 @@ export default function Reserves() {
                             <div className="input-wrapper">
                                 <label htmlFor="quantity">Cantidad de personas: </label>
                                 <ErrorMessage name="quantity" component="p" className="form-error" />
-                                <Field id="quantity" type="number" name="quantity" min="1" className={touched.quantity ? errors.quantity ? 'error' : 'ok' : ''} />
+                                <Field id="quantity" type="number" name="quantity" min="1" className={touched.quantity ? errors.quantity ? 'error' : 'ok' : ''} placeholder="0" />
                                 <span className="validity"></span>
                             </div>
 

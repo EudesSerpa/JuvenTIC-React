@@ -1,4 +1,4 @@
-.reservations-section {
+.contact-section {
     min-height: 80vh;
     width: 100%;
 }
@@ -144,7 +144,7 @@ select.error + span:after {
 /* Media Queries */
 
 @media screen and (min-width: 992px) {
-    .reservations-section {
+    .contact-section {
         display: flex;
     }
 

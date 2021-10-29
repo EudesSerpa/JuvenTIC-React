@@ -1,3 +1,6 @@
+/* titles */
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400;500;700&display=swap');
+
 :root {
     --white: #fff;
     --orange: #f73600;
@@ -21,6 +24,7 @@ a {
     text-decoration: none;
 }
 
+/* Container */
 .wrapper-xxl {
     width: 100%;
 }
@@ -31,11 +35,18 @@ a {
     padding: 40px 20px;
 }
 
-/* Titles del Home */
+/* Titles */
 .titles {
+    font: bold 5vh 'Yanone Kaffeesatz', sans-serif;
+}
+.section--title {
     margin: 20px auto 40px;
-    font-size: 2.4rem;
-    font-weight: bold;
+    font-weight: 500;
+}
+.page--title {
+    margin: 40px auto;
+    color: var(--vinotinto);
+    font-size: 8vh;
 }
 
 
@@ -58,31 +69,8 @@ a {
 
 
 /* Media Queries */
-@media (min-width: 653px) {
-    .titles {
-        font-size: 3rem;
-    }
-}
-@media (min-width: 700px) {
-    .titles {
-        font-size: 3.3rem;
-    }
-}
-@media (min-width: 1020px) {
-    .titles {
-        font-size: 4.4rem;
-    }
-}
-
 @media (min-width: 1200px) {
     .wrapper {
         max-width: 80%;
     }
 }
-
-/* @media (min-width: 1400px) {
-    .wrapper-xxl {
-        width: 1320px;
-    }
-} */
-

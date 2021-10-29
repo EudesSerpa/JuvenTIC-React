@@ -21,11 +21,9 @@
     margin: 0 auto;
 }
 
-.carousel-caption p {
+.carousel-caption p.section--title {
     max-width: 95%;
     margin: 30px auto 0;
-    font-size: 2.4rem;
-    font-weight: 700;
     color: #fff;
     text-shadow: 1px 1px 10px #310101, 0 0 1em #f73600, 0 0 0.2em #cc2b2b;
 }
@@ -36,14 +34,14 @@
     .carousel-caption img {
         max-width: 300px;
     }
-    .carousel-caption p {
-        margin-top: 10px;
+    .carousel-caption p.section--title {
+        margin-top: 3vh;
     }
 }
 
 @media (min-width: 653px) {
-    .carousel-caption p {
-        font-size: 3rem;
+    .carousel-caption p.section--title {
+        font-size: 7vh;
     }
 }
 
@@ -51,7 +49,7 @@
     .carousel-caption img {
         max-width: 320px;
     }
-    .carousel-caption p {
+    .carousel-caption p.section--title {
         margin-top: 5vh;
     }
 }

@@ -3,13 +3,6 @@
     width: 100%;
 }
 
-.services-section--title {
-    margin: 40px auto;
-    color: var(--vinotinto);
-    font-size: 7vh;
-    font-weight: bold;
-}
-
 .services-section--description {
     margin-bottom: 40px;
     font-size: 1.4rem;

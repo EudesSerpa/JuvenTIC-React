@@ -48,7 +48,7 @@ export default function Events() {
     return (
         <section className="events-section">
             <div className="wrapper-xxl wrapper">
-                <h2 className="events-section--title titles">Organizamos tu evento</h2>
+                <h2 className="events-section--title titles section--title">Organizamos tu evento</h2>
 
                 <div className="wrapper-cards">
                     { serviceCards }

@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-
-// import NavBar from './Components/NavBar';
+// Pages
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
@@ -19,8 +18,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <NavBar fixed={true}/> */}
-
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
@@ -31,6 +28,7 @@ function App() {
           <Route path="/map-site" component={MapSite} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
+          {/* <Route path="/something" component={noFound} /> Reservado para 404 page */}
         </Switch>
 
         <Footer />

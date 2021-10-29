@@ -37,6 +37,13 @@ const services = [
     },
 ];
 
+const pageDetails = {
+        title: "Servicios",
+        details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum?`,
+        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum?`
+
+};
 
 export default function Services() {
     const showCards = () => {
@@ -57,6 +64,7 @@ export default function Services() {
     }
 
     useEffect(() => {
+        console.log(services);
         window.addEventListener('scroll', showCards);
 
         return () => {
@@ -85,7 +93,7 @@ export default function Services() {
             <NavBar />
 
             <section className="services-section wrapper wrapper-xxl">
-                <h1 className="services-section--title">Servicios</h1>
+                <h1 className="titles page--title">Servicios</h1>
                 <article className="services-section--description">
                     <div className="description-intro">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni velit sint tempora alias modi odio facere deserunt doloremque. Laborum autem et necessitatibus, magni sit inventore optio, laboriosam saepe exercitationem obcaecati illo, cum sapiente magnam porro reiciendis eius placeat dolorum?</p>
