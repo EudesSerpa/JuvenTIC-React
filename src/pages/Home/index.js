@@ -3,7 +3,7 @@ import { Carousel } from '../../Components/Carousel/Carousel';
 import Events from '../../Components/Home/Events';
 import OurProposal from '../../Components/Home/OurProposal';
 import Recomendations from '../../Components/Home/Recomendations';
-import NavBar from '../../Components/NavBar';
+
 import AuthContext from '../../context/autenticacion/authContext';
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
     }, [])
     return (
         <>
-            <NavBar fixed={true} />
+            {/*<NavBar fixed={true} />*/}
 
             <Carousel type='Images' />
 

@@ -46,7 +46,6 @@ a {
     max-height: fit-content;
     overflow: hidden;
     transition: .3s ease all;
-    z-index: 10;
 }
 .slide .wrapper {
     padding: 0 40px;
