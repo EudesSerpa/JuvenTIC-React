@@ -30,7 +30,7 @@ export default class Header extends Component {
                         </ul>
                     </div>
                     <div className="iconoPerfil">
-                        <button className="iconoHP" ><img src={this.state.image} alt="Perfil"/></button>
+                        <button className="iconoHP" ><Link to="/sign-in"><img src={this.state.image} alt="Perfil"/></Link></button>
                     </div>
                 </div>
         </div>
