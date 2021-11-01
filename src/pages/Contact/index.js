@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
 import './contact.css'
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
 import NavBar from '../../Components/NavBar';
 import Details from '../../Components/PageDetails';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
 const regex = {
@@ -57,8 +58,11 @@ const pageDetails = {
 };
 
 
+
+
 export default function Contact() {
     const [isSubmitted, setSubmitted] = useState(false)
+
     const formRef = useRef(null);
 
     return (
@@ -95,13 +99,10 @@ export default function Contact() {
                                 resetForm();
                                 setSubmitted(true);
                                 setSubmitting(false);
-                                // showModal("Ok");
                             } else {
-                                // showModal("Error");
                             }
                         } catch (error) {
-                                console.log('No se pudo enviar el email', error.message);
-                                // showModal("Error");
+                            console.log('No se pudo enviar el email', error.message);
                         }
 
                         setTimeout(() => {
