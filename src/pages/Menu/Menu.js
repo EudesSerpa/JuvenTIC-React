@@ -112,7 +112,7 @@ class Menu extends Component{
                 <div className='opciones'>
                     <h3>Bienvenido Admin</h3>
                     <div className="botonesM">
-                        <a className="bDesc" href="https://drive.google.com/file/d/190VNnC8JhdfQesbN3-yG-KiEmyhjdcMx/view?usp=sharing">
+                        <a className="bDesc" href="https://drive.google.com/file/d/1a9NeTbStyBchNz6gmaGM61If4AkFcZJw/view?usp=sharing">
                             <ion-icon name="document-text-outline"></ion-icon>
                         </a>
                         <button className="bAgregar" onClick={this.agregarF}>

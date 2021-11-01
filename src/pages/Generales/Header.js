@@ -21,11 +21,11 @@ export default class Header extends Component {
                     <div className="headerLinks">
                         <ul>
                             <li><Link className="link" to="/">Home</Link></li>
-                            <li><Link className="link" to="/servicio">Servicios</Link></li>
+                            <li><Link className="link" to="/services">Servicios</Link></li>
                             <li><Link className="link" to="/menu">Menu</Link></li>
                             <li><Link className="link" to="/carrito">Carrito</Link></li>
                             <li><Link className="link" to="/aboutus">Nosotros</Link></li>
-                            <li><Link className="link" to="/contacto">Contacto</Link></li>
+                            <li><Link className="link" to="/contact">Contacto</Link></li>
                             <li><Link className="link" to="/mapa">Mapa</Link></li>
                         </ul>
                     </div>
