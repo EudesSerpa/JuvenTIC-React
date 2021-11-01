@@ -5,7 +5,7 @@ import './App.css';
 // import NavBar from './Components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
-import Menu from './pages/Menu/Menu';
+import Menu from './pages/Menu';
 import Carrito from './pages/Carrito/Carrito'
 import Services from './pages/Services';
 import Reserves from './pages/Reserves';
