@@ -1,17 +1,27 @@
 import React, { useRef, useEffect, useCallback} from 'react';
-import { ReactComponent as ArrowLeft } from "../assets/arrowLeft.svg";
-import { ReactComponent as ArrowRight } from "../assets/arrowRight.svg";
-import { SlidesImages } from './Carousels/sliderMain';
-import { SlidesTestimonials } from './Carousels/testimonials';
+
+import { ReactComponent as ArrowLeft } from "../../assets/arrowLeft.svg";
+import { ReactComponent as ArrowRight } from "../../assets/arrowRight.svg";
+
+import { SlidesImages } from '../../services/Carousels/sliderMain';
+import { SlidesTestimonials } from '../../services/Carousels/testimonials';
+
 import styled from 'styled-components';
 
 
-const Carousel = (props) => {
+
+const Carousel = ({
+        controls = true,
+        autoPlay = true,
+        speedTransition = '700',
+        intervalTime = '5000',
+        type='Images',
+    }) => {
     const slides = useRef(null);
     const intervalID = useRef(null);
 
     const previousSlide = () => {
-        let hasChildren = slides.current.children.length > 0;
+        let hasChildren = slides.current?.children.length > 0;
 
         if(hasChildren) {
             // Obtenemos la ultima slide
@@ -26,20 +36,20 @@ const Carousel = (props) => {
             slides.current.style.transform = `translateX(-${sizeSlide}px)`;
 
             setTimeout(() => {
-                slides.current.style.transition = `${props.speedTransition}ms ease-out all`;
+                slides.current.style.transition = `${speedTransition}ms ease-out all`;
                 slides.current.style.transform = `translateX(0px)`;
             }, 30);
         }
     }
 
     const nextSlide = useCallback(() => {
-        let hasChildren = slides.current.children.length > 0;
+        let hasChildren = slides.current?.children.length > 0;
 
         if(hasChildren) {
             // Obtenemos la primera slide
             const firstSlide = slides.current.children[0];
             // Establecemos la transition
-            slides.current.style.transition = `${props.speedTransition}ms ease-out all`;
+            slides.current.style.transition = `${speedTransition}ms ease-out all`;
 
             // Movemos el slide
             const sizeSlide = firstSlide.offsetWidth;
@@ -60,12 +70,12 @@ const Carousel = (props) => {
             // Event Listener para cuando termine la transition del slide
             slides.current.addEventListener('transitionend', transitionEnded);
         }
-    }, [props.speedTransition]);
+    }, [speedTransition]);
 
 
     useEffect(() => {
-        if(props.autoPlay) {
-            intervalID.current = setInterval(() => { nextSlide() }, props.intervalTime);
+        if(autoPlay) {
+            intervalID.current = setInterval(() => { nextSlide() }, intervalTime);
 
             // Limpiar el intervalo
             slides.current.addEventListener('mouseenter', () => {
@@ -74,19 +84,19 @@ const Carousel = (props) => {
 
             // Iniciar de nuevo el intervalo
             slides.current.addEventListener('mouseleave', () => {
-                intervalID.current = setInterval(() => { nextSlide() }, props.intervalTime);
+                intervalID.current = setInterval(() => { nextSlide() }, intervalTime);
             });
         }
-    }, [props.autoPlay, props.intervalTime, nextSlide]);
+    }, [autoPlay, intervalTime, nextSlide]);
 
 
     return (
         <WrapperCarousel>
             <WrapperSlides ref={slides}>
-                { props.type === 'Images' ? SlidesImages : SlidesTestimonials}
+                { type === 'Images' ? SlidesImages : SlidesTestimonials}
             </WrapperSlides>
 
-            {props.controls &&
+            {controls &&
                 <Controls>
                     <Button left onClick={previousSlide}>
                         <ArrowLeft />
@@ -99,14 +109,6 @@ const Carousel = (props) => {
     );
 }
 
-
-// Props por defecto
-Carousel.defaultProps = {
-    controls: true,
-    autoPlay: true,
-    speedTransition: '700',
-    intervalTime: '5000',
-};
 
 
 // Estilos
@@ -133,7 +135,7 @@ const Controls = styled.div`
 
 const Button = styled.button`
     position: absolute;
-    width: 50px;
+    width: 20%;
     height: 100%;
     background: none;
     border: none;
@@ -145,12 +147,12 @@ const Button = styled.button`
 
     ${props => props.right ? 'right: 0': 'left: 0'};
 
-    &:hover {
+    ${'' /* &:hover {
         background: rgba(0, 0, 0, .2);
         path {
             fill: #fff;
         }
-    };
+    }; */}
 
     path {
         filter: ${props => (props.right)
@@ -162,3 +164,4 @@ const Button = styled.button`
 
 
 export { Carousel };
+React.memo( Carousel );

@@ -3,8 +3,8 @@ import React from 'react';
 const History = ()=>{
 	return(
 		<div className="grid-container">
-          <img src="https://res.cloudinary.com/universidad-de-cartagena/image/upload/v1631316668/restaurant-691397_640_mdcyzz.jpg" width="500px" height="400px" alt="" class="image"/>
-          
+          <img src="https://res.cloudinary.com/universidad-de-cartagena/image/upload/v1631316668/restaurant-691397_640_mdcyzz.jpg" width="500px" height="400px" alt="" className="image"/>
+
           <div className="our">
             <h3 className="color-sup">NUESTRA</h3>
             <h1 className="titulo">Historia</h1>
