@@ -4,6 +4,13 @@
 }
 
 
+/* Swal Popup Modal */
+.swal2-container.swal2-center > .swal2-popup {
+    max-width: 500px;
+    font-size: 2vh;
+}
+
+
 /* Form */
 .main--form {
     flex: 1;
