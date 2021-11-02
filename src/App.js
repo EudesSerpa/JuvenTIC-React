@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
-
-// import NavBar from './Components/NavBar';
+// Pages
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
@@ -13,6 +12,7 @@ import MapSite from './pages/MapSite'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
+import NotFound from './pages/notFound';
 
 // import route for dashboard
 import RutaPrivada from './Components/rutas/RutaPrivada';
@@ -29,14 +29,12 @@ function App() {
     <div className="App">
     <AuthState>
       <Router>
-        {/* <NavBar fixed={true}/> */}
-
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
           <Route path="/menu" component={Menu} />
           <Route path="/services" component={Services} />
-          <Route path="/reserves" component={Reserves} />
+          <Route path="/reserve" component={Reserves} />
           <Route path="/contact" component={Contact} />
           <Route path="/map-site" component={MapSite} />
           <Route path="/sign-in" component={SignIn} />
@@ -50,8 +48,8 @@ function App() {
               <RutaPrivada exact path="/userD" component={UserD}/>
             </div>
           </div>
+          <Route path="*" component={NotFound} />
         </Switch>
-
         <Footer />
       </Router>
     </AuthState>

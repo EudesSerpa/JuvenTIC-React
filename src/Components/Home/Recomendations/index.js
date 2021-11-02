@@ -27,7 +27,7 @@ const trendingProducts = [
 
 export default function Recomendations() {
     const plates = trendingProducts.map(plate => (
-        <Link key={ plate.img } to="/menu" classNameName="plate">
+        <Link key={ plate.img } to="/menu" className="plate">
             <figure className="plate-image">
                 <img src={plate.img} alt={ plate.name } loading="lazy" />
 
@@ -45,7 +45,7 @@ export default function Recomendations() {
     return (
         <section className="recommendations-section">
             <div className="wrapper-xxl wrapper">
-                <h2>Las recomendaciones del chef</h2>
+                <h2 className="titles section--title">Las recomendaciones del chef</h2>
 
                 <div className="trending-products">
                     <div className="products">
