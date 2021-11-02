@@ -12,6 +12,7 @@ import MapSite from './pages/MapSite'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
+import NotFound from './pages/notFound';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
           <Route path="/map-site" component={MapSite} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
-          {/* <Route path="/something" component={noFound} /> Reservado para 404 page */}
+          <Route path="*" component={NotFound} />
         </Switch>
 
         <Footer />

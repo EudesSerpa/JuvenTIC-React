@@ -29,7 +29,7 @@ const services = [
 export default function Events() {
 
     const serviceCards = services.map(service => (
-        <article className="card">
+        <article key={service.img} className="card">
             <header>
                 <img src={ service.img } className="card-img-top" alt={`Event ${service.service} icon`} loading='lazy' />
                 <p className="card--title">{ service.service }</p>
