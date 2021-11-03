@@ -12,19 +12,19 @@ const Sidebar = ()=>{
 			<div className="sidebar bg-light">
 				<ul>
 					<li>
-						<NavLink to={"/home"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
+						<NavLink to={"/homeD"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
 						activeClassname="active"><FaIcons.FaHome className="me-2"/> Inicio</NavLink>
 					</li>
 					<li>
-						<NavLink to={"/platos"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
+						<NavLink to={"/platosD"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
 						activeClassname="active"><FaIcons.FaHamburger className="me-2"/>Platos</NavLink>
 					</li>
 					<li>
-						<NavLink to={"/services"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
+						<NavLink to={"/servicesD"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
 						activeClassname="active"><FaIcons.FaServicestack className="me-2"/>Servicios</NavLink>
 					</li>
 					<li>
-						<NavLink to={"/user"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
+						<NavLink to={"/userD"} className="text-dark rounded py-2 w-100 d-inline-block px-3" 
 						activeClassname="active"><FaIcons.FaUserFriends className="me-2"/> Usuarios</NavLink>
 					</li>
 					<li>
