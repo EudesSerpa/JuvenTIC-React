@@ -5,6 +5,7 @@ import OurProposal from '../../Components/Home/OurProposal';
 import Recomendations from '../../Components/Home/Recomendations';
 import NavBar from '../../Components/NavBar';
 
+
 export default function Home() {
     return (
         <>

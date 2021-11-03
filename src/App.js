@@ -13,28 +13,32 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
+// Contexts
+import { ServicesContextProvider } from './Context/ServicesContext';
 
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      <ServicesContextProvider>
+        <Router>
 
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/menu" component={Menu} />
-          <Route path="/services" component={Services} />
-          <Route path="/reserve" component={Reserves} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/map-site" component={MapSite} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="*" component={NotFound} />
-        </Switch>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/menu" component={Menu} />
+            <Route path="/services" component={Services} />
+            <Route path="/reserve" component={Reserves} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/map-site" component={MapSite} />
+            <Route path="/sign-in" component={SignIn} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route path="*" component={NotFound} />
+          </Switch>
 
-        <Footer />
-      </Router>
+          <Footer />
+        </Router>
+      </ServicesContextProvider>
     </div>
   );
 }
