@@ -16,11 +16,11 @@ export default function Home() {
 
     return (
         <>
-            {/*<div style={{width: '100%', height: '70px'}}>
-                {usuario ? cambiarol() : null}
+            <div style={{width: '100%', height: '70px'}}>
+                {/*{usuario ? cambiarol() : null}
                 {usuario ? <h1> Hola {usuario.nombre}</h1> : null}
-                console.log(usuario.rol)
-            </div>*/}
+                console.log(usuario.rol)*/}
+            </div>
             <Carousel type='Images' />
 
             <OurProposal />
