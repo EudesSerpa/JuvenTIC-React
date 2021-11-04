@@ -76,7 +76,10 @@ class App extends Component{
           {/* <NavBar fixed={true}/> */}
           <Header/>
           <Switch>
-            <Route path="/" exact component={Home} />
+            {/*<Route path="/" exact component={Home} />*/}
+            <Route path="/" exact render={() => {
+              return <Home cambiarRol = {this.cambiarRol}/>
+            }} />
             <Route path="/about" component={About} />
             <Route path="/menu" render={() => {
                 return <Menu 
@@ -103,11 +106,11 @@ class App extends Component{
             <Route path="/mapa" render={() => {
               return <MapSite/>
             }}/> 
-            {/*<Route path="/sign-in" component={SignIn} />*/}
-            <Route path={this.state.login} render={() => {
+            <Route path="/sign-in" component={SignIn} />
+            {/*<Route path={this.state.login} render={() => {
               {console.log(this.state.rol)}
               return <SignIn cambiarRol={this.cambiarRol} history={this.cambiarLogin} />
-            }} />
+            }} />*/}
             <Route path="/sign-up" component={SignUp} />
             <div className="flex">
               <Sidebar/>

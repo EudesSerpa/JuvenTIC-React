@@ -6,20 +6,12 @@ import Swal from 'sweetalert2';
 const Login = (props)=>{
 
   const authContext = useContext(AuthContext);
-  const {autenticado, mensaje, iniciarSesion, usuario} = authContext;
+  const {autenticado, mensaje, iniciarSesion} = authContext;
 
   //en caso de que el usuario este autenticado o error en el password y correo
   useEffect(()=>{
       if(autenticado){
-          //props.history.push('/homeD');
-          props.history('/')
-          console.log(usuario.usuario.rol)
-          /*if(usuario.rol == 'ADMIN_ROLE' || usuario.rol == 'USER_ROLE'){
-            props.cambiarRol(usuario.rol)
-          }
-          else{
-            props.cambiarRol('NONE_ROlE')
-          }*/
+          props.history.push('/homeD');
       }
 
       if(mensaje){

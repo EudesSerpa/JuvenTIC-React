@@ -8,20 +8,26 @@ import AuthContext from '../../context/autenticacion/authContext';
 
 export default function Home() {
     const authContext = useContext(AuthContext);
-    const {usuarioAutenticado} = authContext;
+    const {usuarioAutenticado, usuario} = authContext;
 
     useEffect(()=>{
         usuarioAutenticado()
     }, [])
+
     return (
         <>
-            {/*<NavBar fixed={true} />*/}
-
+            {/*<div style={{width: '100%', height: '70px'}}>
+                {usuario ? cambiarol() : null}
+                {usuario ? <h1> Hola {usuario.nombre}</h1> : null}
+                console.log(usuario.rol)
+            </div>*/}
             <Carousel type='Images' />
 
             <OurProposal />
 
             <Recomendations />
+
+            
 
             <Events />
 
