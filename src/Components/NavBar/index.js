@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './navbar.css';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as CloseMenu} from '../../assets/menuClose.svg';
 import { ReactComponent as MenuIcon} from '../../assets/menuHamburger.svg';
+import AuthContext from '../../context/autenticacion/authContext';
 
 
 const navLinks = [
@@ -29,6 +30,10 @@ const navLinks = [
 ];
 
 const NavBar = ({ fixed = false }) => {
+
+    const authContext = useContext(AuthContext);
+    const {autenticado, usuarioAutenticado} = authContext;
+
     // const { navLinks } = props;
     const [isMenuActive, setStateMenu] = useState(false);
 
