@@ -1,43 +1,15 @@
-import React, { useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect } from 'react';
 import './services.css';
-import NavBar from '../../Components/NavBar'
 
+import NavBar from '../../Components/NavBar';
 
-const services = [
-    {
-        img: "https://i.postimg.cc/FKRrHWtg/celebrations.jpg",
-        title: "Celebración de cumpleaños",
-        details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam magnam earum mollitia ipsum, praesentium animi eius sunt dolores dolor!",
-    },
-    {
-        img: "https://i.postimg.cc/FKRrHWtg/celebrations.jpg",
-        title: "Aniversarios",
-        details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam magnam earum mollitia ipsum, praesentium animi eius sunt dolores dolor!",
-    },
-    {
-        img: "https://i.postimg.cc/FKRrHWtg/celebrations.jpg",
-        title: "Feistas infantiles",
-        details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam magnam earum mollitia ipsum, praesentium animi eius sunt dolores dolor!",
-    },
-    {
-        img: "https://i.postimg.cc/FKRrHWtg/celebrations.jpg",
-        title: "Declaraciones o Propuestas",
-        details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam magnam earum mollitia ipsum, praesentium animi eius sunt dolores dolor!",
-    },
-    {
-        img: "https://i.postimg.cc/FKRrHWtg/celebrations.jpg",
-        title: "Despedidas",
-        details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam magnam earum mollitia ipsum, praesentium animi eius sunt dolores dolor!",
-    },
-    {
-        img: "https://i.postimg.cc/FKRrHWtg/celebrations.jpg",
-        title: "Cenas con amigos",
-        details: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veniam magnam earum mollitia ipsum, praesentium animi eius sunt dolores dolor!",
-    },
-];
+import ListOfServices from '../../Components/Services/ListOfServices';
+import { useServices } from '../../Hooks/useServices';
+
 
 export default function Services() {
+    const { services } = useServices();
+
     const showCards = () => {
         const cardsAnimated = document.querySelectorAll('.animationCard');
 
@@ -46,7 +18,7 @@ export default function Services() {
             const cardPosition = card.getBoundingClientRect().top;
 
             //Altura de la ventana
-            const viewportHeight = window.innerHeight / 1.5;
+            const viewportHeight = window.innerHeight / 1.25;
 
             if(cardPosition < viewportHeight){
                 card.style.opacity = 1;
@@ -56,7 +28,6 @@ export default function Services() {
     }
 
     useEffect(() => {
-        console.log(services);
         window.addEventListener('scroll', showCards);
 
         return () => {
@@ -64,21 +35,6 @@ export default function Services() {
         }
     }, [])
 
-
-    const cardServices = services.map(service => (
-        <article key={service.title} className="service-card animationCard">
-            <img className="service-card--img" src={service.img} alt={service.title} />
-
-            <div className="service-card--body">
-                <h5 className="service-card--title">{service.title}</h5>
-                <p className="service-card--details">{service.details}</p>
-
-                <NavLink to="/reserve" className="contact-btn">
-                    ¿PREGUNTAS? CONTÁCTANOS
-                </NavLink>
-            </div>
-        </article>
-    ));
 
     return (
         <>
@@ -98,9 +54,7 @@ export default function Services() {
                 </article>
 
                 {/* Services Grid */}
-                <div className="grid-container--services">
-                    { cardServices }
-                </div>
+                <ListOfServices services={services} />
             </section>
         </>
     )

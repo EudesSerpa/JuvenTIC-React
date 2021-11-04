@@ -6,6 +6,7 @@ import Recomendations from '../../Components/Home/Recomendations';
 import NavBar from '../../Components/NavBar';
 import AuthContext from '../../context/autenticacion/authContext';
 
+
 export default function Home() {
     const authContext = useContext(AuthContext);
     const {usuarioAutenticado} = authContext;

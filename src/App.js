@@ -15,12 +15,15 @@ import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
 import RutaPrivada from './Components/rutas/RutaPrivada';
 import AuthState from './context/autenticacion/authState';
+// Contexts
+import { ServicesContextProvider } from './Context/ServicesContext';
 
 
 function App() {
   return (
     <div className="App">
     <AuthState>
+    <ServicesContextProvider>
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -36,8 +39,8 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      </ServicesContextProvider>
     </AuthState>
-      
     </div>
   );
 }
