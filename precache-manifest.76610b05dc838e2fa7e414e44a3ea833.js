@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "322703c1bd52449e8345b310628b5a48",
+    "revision": "bc6dd8ae577e7de068c55d97509a51c3",
     "url": "/JuvenTIC-React/index.html"
   },
   {
-    "revision": "eb36d63247c7879c928e",
+    "revision": "dbb9fb021ff180311daa",
     "url": "/JuvenTIC-React/static/css/main.cbd4d529.chunk.css"
   },
   {
-    "revision": "f85f7611d49e429ce99a",
-    "url": "/JuvenTIC-React/static/js/2.b9e4f99e.chunk.js"
+    "revision": "f3f9a12a3981f2c6c7c4",
+    "url": "/JuvenTIC-React/static/js/2.bcf762d9.chunk.js"
   },
   {
     "revision": "8f06b9e0c45e6669bf287c6947cdbc57",
-    "url": "/JuvenTIC-React/static/js/2.b9e4f99e.chunk.js.LICENSE.txt"
+    "url": "/JuvenTIC-React/static/js/2.bcf762d9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "eb36d63247c7879c928e",
-    "url": "/JuvenTIC-React/static/js/main.ad35ea9c.chunk.js"
+    "revision": "dbb9fb021ff180311daa",
+    "url": "/JuvenTIC-React/static/js/main.692553cd.chunk.js"
   },
   {
     "revision": "1171114da0d3a7938855",
