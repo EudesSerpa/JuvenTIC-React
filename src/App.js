@@ -14,7 +14,7 @@ import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
 import RutaPrivada from './Components/rutas/RutaPrivada';
-import AuthState from './context/autenticacion/authState';
+import AuthState from './Context/autenticacion/authState';
 // Contexts
 import { ServicesContextProvider } from './Context/ServicesContext';
 

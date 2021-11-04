@@ -20,7 +20,7 @@
     right: 0;
 }
 
-.navbar {
+.navbar-main {
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import AuthContext from '../../context/autenticacion/authContext';
+import AuthContext from '../../Context/autenticacion/authContext';
 import Swal from 'sweetalert2';
 import NavBar from '../../Components/NavBar/index';
 

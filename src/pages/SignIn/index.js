@@ -1,6 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import AuthContext from '../../context/autenticacion/authContext';
+import AuthContext from '../../Context/autenticacion/authContext';
 import Swal from 'sweetalert2';
 import NavBar from '../../Components/NavBar/index'
 
@@ -20,7 +20,7 @@ const Login = (props)=>{
               icon: 'error',
               title: 'Correo o contraseña incorrectos',
               showConfirmButton: false,
-              timer: 2500
+              timer: 1800
             })
         }
     }, [mensaje, autenticado, props.history])
@@ -48,7 +48,7 @@ const Login = (props)=>{
               icon: 'error',
               title: 'Todos los campos son obligatorios',
               showConfirmButton: false,
-              timer: 2500
+              timer: 1800
             })
             return
         }
@@ -61,6 +61,7 @@ const Login = (props)=>{
     return(
         <div>
             <NavBar/>
+
             <div class="container">
                 <div class="row">
                   <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -69,10 +70,10 @@ const Login = (props)=>{
                         <h4 class="text-center mb-5 ">Sign In</h4>
                         <form onSubmit={onSubmit}>
                           <div class="form-floating mb-3">
-                            <input 
-                                type="email" 
-                                class="form-control" 
-                                id="floatingInput" 
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="floatingInput"
                                 placeholder="name@example.com"
                                 name="correo"
                                 value={correo}
@@ -81,10 +82,10 @@ const Login = (props)=>{
                             <label for="floatingInput">Email address</label>
                           </div>
                           <div class="form-floating mb-3">
-                            <input 
-                                type="password" 
-                                class="form-control" 
-                                id="floatingPassword" 
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="floatingPassword"
                                 placeholder="Password"
                                 name="password"
                                 value={password}
@@ -115,15 +116,16 @@ const Login = (props)=>{
                             </button>
                           </div>
                         </form>
+
                         <Link to={'/sign-up'} className="enlace-cuenta">
-                            Obtener Cuenta
+                            Registrar cuenta
                         </Link>
                       </div>
                     </div>
                   </div>
                 </div>
             </div>
-        </div>     
+        </div>
     );
 }
 
