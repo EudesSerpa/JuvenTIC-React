@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
@@ -31,7 +31,8 @@ import comentario from './samples/Comentarios.json'
 class App extends Component{
   
   state = {
-    rol: "ADMIN_ROLE",
+    rol: "NONE_ROLE",
+    login: "/sign-in",
     productos: [],
     comentarios: comentario,
     compras: [],
@@ -45,6 +46,10 @@ class App extends Component{
     this.setState({
       productos: datos
     })
+  }
+
+  cambiarLogin = (loginN)=>{
+    this.setState({login: loginN})
   }
 
   cambiarRol = (newRol) => {
@@ -70,8 +75,6 @@ class App extends Component{
         <Router>
           {/* <NavBar fixed={true}/> */}
           <Header/>
-          {console.log(this.state.authContext)}
-
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
@@ -100,7 +103,11 @@ class App extends Component{
             <Route path="/mapa" render={() => {
               return <MapSite/>
             }}/> 
-            <Route path="/sign-in" component={SignIn} />
+            {/*<Route path="/sign-in" component={SignIn} />*/}
+            <Route path={this.state.login} render={() => {
+              {console.log(this.state.rol)}
+              return <SignIn cambiarRol={this.cambiarRol} history={this.cambiarLogin} />
+            }} />
             <Route path="/sign-up" component={SignUp} />
             <div className="flex">
               <Sidebar/>
@@ -110,7 +117,7 @@ class App extends Component{
                 <RutaPrivada exact path="/servicesD" component={ServicesD}/>
                 <RutaPrivada exact path="/userD" component={UserD}/>
               </div>
-            </div>
+            </div> 
           </Switch>
 
           <Footer />

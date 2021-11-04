@@ -10,12 +10,11 @@ export default class Header extends Component {
         image: imagenD
     }
 
-    
-
     render() {
         return <div className="headerGenery">
                 <div className="headerLogo">
-                    <h1>LOGO</h1>
+                    {/*<h1>LOGO</h1>*/}
+                    <img src="https://i.postimg.cc/05wqCRbC/logo-2x.png" alt="...." />
                 </div>
                 <div className="contetHeader">
                     <div className="headerLinks">
@@ -24,7 +23,7 @@ export default class Header extends Component {
                             <li><Link className="link" to="/services">Servicios</Link></li>
                             <li><Link className="link" to="/menu">Menu</Link></li>
                             <li><Link className="link" to="/carrito">Carrito</Link></li>
-                            <li><Link className="link" to="/aboutus">Nosotros</Link></li>
+                            <li><Link className="link" to="/about">Nosotros</Link></li>
                             <li><Link className="link" to="/contact">Contacto</Link></li>
                             <li><Link className="link" to="/mapa">Mapa</Link></li>
                         </ul>

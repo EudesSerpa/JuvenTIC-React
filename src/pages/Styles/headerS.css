@@ -12,6 +12,7 @@
 }
 
 .headerLogo{
+    width: 100px;
     position: relative;
     margin-left: 20px;
     height: 100%;
@@ -24,6 +25,10 @@
 
 .headerLogo h1{
     color: #fff;
+}
+
+.headerLogo img{
+    width: 100%;
 }
 
 .contetHeader{

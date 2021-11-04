@@ -7,7 +7,6 @@ import NavBar from '../../Components/NavBar';
 const About = ()=>{
 	return(
 		<div>
-			<NavBar />
 			<History />
 			<Card />
 			<Carousel type="Testimonials" />

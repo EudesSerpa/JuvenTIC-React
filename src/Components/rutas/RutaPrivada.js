@@ -5,7 +5,7 @@ import AuthContext from '../../context/autenticacion/authContext';
 const RutaPrivada = ({component: Component, ...props})=>{
 
 	const authContext = useContext(AuthContext);
-	const {autenticado, usuarioAutenticado, usuario} = authContext;
+	const {autenticado, usuarioAutenticado/*, usuario*/} = authContext;
 
 	useEffect(()=>{
 		usuarioAutenticado()

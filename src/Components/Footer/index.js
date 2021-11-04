@@ -14,13 +14,13 @@ export default function Footer() {
                     <div className="footer-credentials--nav">
                         <ul>
                             <li>
-                                <NavLink to="/map-site">Mapa Sitio</NavLink>
+                                <NavLink to="/mapa">Mapa Sitio</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/contact">Contáctanos</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/reserve">Reservaciones</NavLink>
+                                <NavLink to="/reserves">Reservaciones</NavLink>
                             </li>
                         </ul>
                     </div>

@@ -1,3 +1,5 @@
+
+
 .color-sup{
     color: #E5992C
 }
@@ -21,6 +23,7 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 700px));
     justify-content: center;
     align-items: center;
+    margin-top: 80px;
 }
 
 .grid-container .our {

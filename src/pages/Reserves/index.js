@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import './reserves.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import NavBar from '../../Components/NavBar';
+//import NavBar from '../../Components/NavBar';
 import Details from '../../Components/PageDetails';
 
 
@@ -10,7 +10,7 @@ const regex = {
     namePerson: /^([a-z]+)\s[a-z]+(\s[a-z]+|\s[a-z]+\s[a-z]+|\s[a-z]+\s[a-z]+\s[a-z]+)?$/,
     phoneNumber: /^[3]\d{9}$/,
     quantityPeople: /^[1-9]\d*$/,
-    email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    email: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     date: /[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}/,
 };
 
