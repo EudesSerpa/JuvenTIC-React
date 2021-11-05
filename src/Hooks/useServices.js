@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import getServices from "../services/Services/getServices";
-import ServicesContext from '../Context/ServicesContext';
+import ServicesContext from '../context/ServicesContext';
 
 
 export function useServices() {

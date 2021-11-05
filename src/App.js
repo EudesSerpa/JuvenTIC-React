@@ -15,31 +15,34 @@ import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
 import RutaPrivada from './Components/rutas/RutaPrivada';
 import AuthState from './context/autenticacion/authState';
+import ComentState from './context/comentarios/comentState'
 // Contexts
-import { ServicesContextProvider } from './Context/ServicesContext';
+import { ServicesContextProvider } from './context/ServicesContext';
 
 
 function App() {
   return (
     <div className="App">
     <AuthState>
-    <ServicesContextProvider>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/menu" component={Menu} />
-          <Route path="/services" component={Services} />
-          <Route path="/reserve" component={Reserves} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/map-site" component={MapSite} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/sign-up" component={SignUp} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-        <Footer />
-      </Router>
-      </ServicesContextProvider>
+      <ComentState>
+        <ServicesContextProvider>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/menu" component={Menu} />
+            <Route path="/services" component={Services} />
+            <Route path="/reserve" component={Reserves} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/map-site" component={MapSite} />
+            <Route path="/sign-in" component={SignIn} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route path="*" component={NotFound} />
+          </Switch>
+          <Footer />
+        </Router>
+        </ServicesContextProvider>
+      </ComentState>
     </AuthState>
     </div>
   );
