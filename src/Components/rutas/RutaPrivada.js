@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {Route, Redirect} from 'react-router-dom';
-import AuthContext from '../../context/autenticacion/authContext';
+import AuthContext from '../../Context/autenticacion/authContext';
 
 const RutaPrivada = ({component: Component, ...props})=>{
 

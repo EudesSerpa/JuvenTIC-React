@@ -3,8 +3,7 @@ import './navbar.css';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as CloseMenu} from '../../assets/menuClose.svg';
 import { ReactComponent as MenuIcon} from '../../assets/menuHamburger.svg';
-import AuthContext from '../../context/autenticacion/authContext';
-
+import AuthContext from '../../Context/autenticacion/authContext';
 
 const navLinks = [
     {
@@ -20,6 +19,10 @@ const navLinks = [
         field: "Menú",
     },
     {
+        path: "/carrito",
+        field: "carrito",
+    },
+    {
         path: "/contact",
         field: "Contáctanos",
     },
@@ -32,8 +35,7 @@ const navLinks = [
 const NavBar = ({ fixed = false }) => {
 
     const authContext = useContext(AuthContext);
-    const {autenticado, usuarioAutenticado} = authContext;
-
+    const {autenticado, usuarioAutenticado, cerrarSesion} = authContext;
     // const { navLinks } = props;
     const [isMenuActive, setStateMenu] = useState(false);
 
@@ -53,9 +55,9 @@ const NavBar = ({ fixed = false }) => {
 
     return (
         <header className={ fixed ? "header fixed" : "header" }>
-            <nav className="navbar wrapper wrapper-xxl">
+            <nav className="navbar-main wrapper wrapper-xxl">
                 <div className="navbar__logo--container">
-                    <NavLink to="/" className="navbar__logo">
+                    <NavLink to="/JuvenTIC-React" className="navbar__logo">
                         <img src="https://i.postimg.cc/5y3c0dMJ/logo-2x.png" alt="Restaurant Logo" width="70" height="60" />
                     </NavLink>
                 </div>
@@ -63,13 +65,19 @@ const NavBar = ({ fixed = false }) => {
                 <ul className={isMenuActive ? "header__options active" : "header__options"}>
                     { links }
 
-                    {/* Cambiaran segun el estado de la sesion */}
-                    <li className="header__options-sigup" onClick={handleCloseMobileMenu}>
-                        <NavLink to="/sign-up">Registrarse</NavLink>
-                    </li>
-                    <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
-                        <NavLink to="/sign-in">Iniciar Sesión</NavLink>
-                    </li>
+                    {autenticado
+                        ?   <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
+                                <NavLink to="/sign-in" onClick={() => cerrarSesion()}>Cerrar Sesión</NavLink>
+                            </li>
+                        :   <>
+                                <li className="header__options-sigup" onClick={handleCloseMobileMenu}>
+                                    <NavLink to="/sign-up">Registrarse</NavLink>
+                                </li>
+                                <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
+                                    <NavLink to="/sign-in">Iniciar Sesión</NavLink>
+                                </li>
+                            </>
+                    }
                 </ul>
 
                 <div className="mobile__menu-icons" onClick={handleClick}>
