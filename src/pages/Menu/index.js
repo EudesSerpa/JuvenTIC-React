@@ -101,7 +101,7 @@ class MenuClass extends Component{
         /*const newComentario = {
             id: this.props.comentarios + 1 ,
             id_user: 2,
-            nombre_user: "Rosemb",
+            nombre_user: this.props.nombre,
             id_plato: idPlato,
             comentario: comentario,
         }
@@ -129,6 +129,7 @@ class MenuClass extends Component{
                     {datos.map((dato) => <Producto 
                         dato = {dato} 
                         rol = {rol} 
+                        nombre = {this.props.nombre}
                         key={dato.id} 
                         deleteP = {this.deleteProducto} 
                         updateP = {this.updateProoducto} 
@@ -145,13 +146,14 @@ class MenuClass extends Component{
                 <div className='opciones'>
                     <h3>Bienvenido {this.props.nombre}</h3>
                     <div className="botonesM">
-                        <a className="bDesc" href="https://drive.google.com/file/d/190VNnC8JhdfQesbN3-yG-KiEmyhjdcMx/view?usp=sharing">D</a>
+                        <a className="bDesc" href="https://drive.google.com/file/d/1a9NeTbStyBchNz6gmaGM61If4AkFcZJw/view?usp=sharing">D</a>
                     </div>
                 </div>
                 <div className="containerM">
                     {datos.map((dato) => <Producto 
                         dato = {dato} 
                         rol = {rol} 
+                        nombre = {this.props.nombre}
                         key={dato.id}
                         addC = {this.addComentario}
                         comentariosL = {this.props.comentarios}
@@ -165,13 +167,14 @@ class MenuClass extends Component{
                 <div className='opciones'>
                     <h3>Bienvenido</h3>
                     <div className="botonesM">
-                        <a className="bDesc" href="https://drive.google.com/file/d/190VNnC8JhdfQesbN3-yG-KiEmyhjdcMx/view?usp=sharing">D</a>
+                        <a className="bDesc" href="https://drive.google.com/file/d/1a9NeTbStyBchNz6gmaGM61If4AkFcZJw/view?usp=sharing">D</a>
                     </div>
                 </div>
                 <div className="containerM">
                     {datos ? datos.map((dato) => <Producto 
                         dato = {dato} 
                         rol = {rol} 
+                        nombre = {this.props.nombre}
                         key={dato.id}
                         addC = {this.addComentario}
                         comentariosL = {this.props.comentarios}

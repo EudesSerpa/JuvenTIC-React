@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { useContext, useEffect, Component } from 'react'
 import NavBar from '../../Components/NavBar/index';
 import RealizarComprar from './RealizarComprar'
+import AuthContext from '../../Context/autenticacion/authContext';
 
 import '../Styles/carritoS.css'
 
@@ -113,7 +114,7 @@ class CarritoClass extends Component {
 
     realizarCompra = ( ) => {
         if(this.state.comprar){
-            return <RealizarComprar doCompra = {this.doCompra}/>
+            return <RealizarComprar doCompra = {this.doCompra} usuario = {this.props.usuario}/>
         }
         else{
             return <div>
@@ -203,8 +204,17 @@ class CarritoClass extends Component {
 
 
 export default function Carrito(){
+
+    const authContext = useContext(AuthContext);
+    const {usuario, usuarioAutenticado} = authContext;
+
+    useEffect(()=>{
+        // Es asincrono? El nombre no aparece en la 1° ejecucion per se
+        usuarioAutenticado();
+    }, [])
+
     return <>
         <NavBar/>
-        <CarritoClass compras={compras}/>
+        <CarritoClass compras={compras} usuario = {usuario ? usuario : null}/>
     </>
 }

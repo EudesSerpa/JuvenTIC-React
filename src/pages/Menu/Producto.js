@@ -32,6 +32,7 @@ class Producto extends Component{
                     <Modal 
                         dato = {dato} 
                         rol = {rol} 
+                        nombre = {this.props.nombre}
                         estado = {this.state.estado} 
                         abrirModal = {this.abrirModal}
                         delete = {this.props.deleteP}
