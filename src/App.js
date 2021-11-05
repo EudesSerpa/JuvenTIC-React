@@ -16,7 +16,8 @@ import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
 import RutaPrivada from './Components/rutas/RutaPrivada';
 import AuthState from './Context/autenticacion/authState';
-import ComentState from './Context/comentarios/comentState'
+import ComentState from './Context/comentarios/comentState';
+import PlatosState from './Context/platos/platosState';
 // Contexts
 import { ServicesContextProvider } from './Context/ServicesContext';
 
@@ -25,29 +26,31 @@ function App() {
     <div className="App">
       <AuthState>
         <ComentState>
-          <ServicesContextProvider>
-            <Router>
-              <Switch>
-                <Route path="/JuvenTIC-React" exact component={Home} />
-                <Route path="/" exact component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/menu"render={() => {
-                  return <Menu/>
-                }}/>
-                <Route path="/carrito" render={() => {
-                  return <Carrito/>
-                }}/>
-                <Route path="/services" component={Services} />
-                <Route path="/reserve" component={Reserves} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/map-site" component={MapSite} />
-                <Route path="/sign-in" component={SignIn} />
-                <Route path="/sign-up" component={SignUp} />
-                <Route path="*" component={NotFound} />
-              </Switch>
-              <Footer />
-            </Router>
-          </ServicesContextProvider>
+          <PlatosState>
+            <ServicesContextProvider>
+              <Router>
+                <Switch>
+                  <Route path="/JuvenTIC-React" exact component={Home} />
+                  <Route path="/" exact component={Home} />
+                  <Route path="/about" component={About} />
+                  <Route path="/menu"render={() => {
+                    return <Menu/>
+                  }}/>
+                  <Route path="/carrito" render={() => {
+                    return <Carrito/>
+                  }}/>
+                  <Route path="/services" component={Services} />
+                  <Route path="/reserve" component={Reserves} />
+                  <Route path="/contact" component={Contact} />
+                  <Route path="/map-site" component={MapSite} />
+                  <Route path="/sign-in" component={SignIn} />
+                  <Route path="/sign-up" component={SignUp} />
+                  <Route path="*" component={NotFound} />
+                </Switch>
+                <Footer />
+              </Router>
+            </ServicesContextProvider>
+          </PlatosState>
         </ComentState>
       </AuthState>
     </div>
