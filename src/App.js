@@ -28,19 +28,19 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/menu"render={() => {
+          <Route path="/about" exact component={About} />
+          <Route path="/menu" exact render={() => {
             return <Menu/>
           }}/>
           <Route path="/carrito" render={() => {
             return <Carrito/>
           }}/>
-          <Route path="/services" component={Services} />
-          <Route path="/reserve" component={Reserves} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/map-site" component={MapSite} />
-          <Route path="/sign-in" component={SignIn} />
-          <Route path="/sign-up" component={SignUp} />
+          <Route path="/services" exact component={Services} />
+          <Route path="/reserve" exact component={Reserves} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/map-site" exact component={MapSite} />
+          <Route path="/sign-in" exact component={SignIn} />
+          <Route path="/sign-up" exact component={SignUp} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
