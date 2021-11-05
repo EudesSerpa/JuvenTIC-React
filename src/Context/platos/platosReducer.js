@@ -32,7 +32,11 @@ export default (state, action)=>{
 				...state,
 				platos: state.platos.map(plato=>{
 					if(plato._id === action.payload._id){
-						
+						plato.nombre = action.payload.nombre,
+						plato.descripcion = action.payload.descripcion,
+						plato.precio = action.payload.precio,
+						plato.imgURL = action.payload.imgURL,
+						plato.public_id = action.payload.public_id
 					}
 				})
 			}
