@@ -103,8 +103,9 @@ const NuevaCuenta = (props) =>{
                                 value={nombre}
                                 onChange={onChange}
                                 />
-                            <label htmlFor="floatingInput">Name</label>
+                            <label for="floatingInput">Name</label>
                           </div>
+                          
                           <div className="form-floating mb-3">
                             <input 
                                 type="email" 
@@ -115,31 +116,32 @@ const NuevaCuenta = (props) =>{
                                 value={correo}
                                 onChange={onChange}
                                 />
-                            <label htmlFor="floatingInput">Email address</label>
+                            <label for="floatingInput">Email address</label>
                           </div>
+                          
                           <div className="form-floating mb-3">
                             <input 
                                 type="password" 
-                                className="form-control" 
+                                className="form-control"
                                 id="floatingPassword" 
                                 placeholder="Password"
                                 name="password"
                                 value={password}
                                 onChange={onChange}
                                 />
-                            <label htmlFor="floatingPassword">Password</label>
+                            <label for="floatingPassword">Password</label>
                           </div>
                           <div className="form-floating mb-3">
                             <input 
                                 type="password" 
-                                className="form-control" 
+                                className="form-control"
                                 id="floatingPassword" 
                                 placeholder="Password"
                                 name="confirmar"
                                 value={confirmar}
                                 onChange={onChange}
                                 />
-                            <label htmlFor="floatingPassword">Confirm Password</label>
+                            <label for="floatingPassword">Confirm Password</label>
                           </div>
                           <div className="d-grid">
                             <button className="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign up

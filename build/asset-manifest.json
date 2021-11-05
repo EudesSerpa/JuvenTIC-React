@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/JuvenTIC-React/static/css/main.8a9292e7.chunk.css",
+    "main.css": "/JuvenTIC-React/static/css/main.6364681f.chunk.css",
     "main.js": "/JuvenTIC-React/static/js/main.519fc411.chunk.js",
     "main.js.map": "/JuvenTIC-React/static/js/main.519fc411.chunk.js.map",
     "runtime-main.js": "/JuvenTIC-React/static/js/runtime-main.eca9bc02.js",
@@ -8,9 +8,9 @@
     "static/js/2.d9996fdc.chunk.js": "/JuvenTIC-React/static/js/2.d9996fdc.chunk.js",
     "static/js/2.d9996fdc.chunk.js.map": "/JuvenTIC-React/static/js/2.d9996fdc.chunk.js.map",
     "index.html": "/JuvenTIC-React/index.html",
-    "precache-manifest.c99c0dd7a7c95d9cbdb540a79f53e152.js": "/JuvenTIC-React/precache-manifest.c99c0dd7a7c95d9cbdb540a79f53e152.js",
+    "precache-manifest.f10280882c2aa181c21465ee4a745e63.js": "/JuvenTIC-React/precache-manifest.f10280882c2aa181c21465ee4a745e63.js",
     "service-worker.js": "/JuvenTIC-React/service-worker.js",
-    "static/css/main.8a9292e7.chunk.css.map": "/JuvenTIC-React/static/css/main.8a9292e7.chunk.css.map",
+    "static/css/main.6364681f.chunk.css.map": "/JuvenTIC-React/static/css/main.6364681f.chunk.css.map",
     "static/js/2.d9996fdc.chunk.js.LICENSE.txt": "/JuvenTIC-React/static/js/2.d9996fdc.chunk.js.LICENSE.txt",
     "static/media/arrowLeft.35e24a76.svg": "/JuvenTIC-React/static/media/arrowLeft.35e24a76.svg",
     "static/media/arrowRight.5bede857.svg": "/JuvenTIC-React/static/media/arrowRight.5bede857.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.eca9bc02.js",
     "static/js/2.d9996fdc.chunk.js",
-    "static/css/main.8a9292e7.chunk.css",
+    "static/css/main.6364681f.chunk.css",
     "static/js/main.519fc411.chunk.js"
   ]
 }

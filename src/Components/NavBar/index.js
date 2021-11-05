@@ -5,7 +5,6 @@ import { ReactComponent as CloseMenu} from '../../assets/menuClose.svg';
 import { ReactComponent as MenuIcon} from '../../assets/menuHamburger.svg';
 import AuthContext from '../../Context/autenticacion/authContext';
 
-
 const navLinks = [
     {
         path: "/about",
@@ -37,7 +36,6 @@ const NavBar = ({ fixed = false }) => {
 
     const authContext = useContext(AuthContext);
     const {autenticado, usuarioAutenticado, cerrarSesion} = authContext;
-
     // const { navLinks } = props;
     const [isMenuActive, setStateMenu] = useState(false);
 
