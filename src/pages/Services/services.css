@@ -1,0 +1,132 @@
+.services-section {
+    min-height: 80vh;
+    width: 100%;
+}
+
+.services-section--description {
+    margin-bottom: 40px;
+    font-size: 1.4rem;
+}
+
+
+.grid-container--services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    place-items: center;
+    gap: 20px;
+}
+
+.services-section--description {
+    padding: 10px;
+    font-size: 1.5rem;
+}
+.description-intro {
+    margin-bottom: 20px;
+}
+
+
+/* Card */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    min-height: 280px;
+    padding-bottom: 15px;
+    background-color: #e8dde3;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    text-align: center;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.service-card--img {
+    object-fit: cover;
+}
+
+.service-card--body {
+    padding: 20px;
+}
+
+.service-card--title {
+    margin-bottom: 20px;
+    color: var(--vinotinto);
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.service-card--details {
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    text-align: justify;
+}
+
+.contact-btn {
+    margin: 0 auto;
+    padding: 8px;
+    color: var(--white);
+    background-color: var(--orange);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    letter-spacing: 0.01em;
+}
+
+
+/* Animacion */
+.animationCard {
+    opacity: 0;
+    transition: all 0.5s;
+}
+.showCardFromLeft { animation: showFromLeft 1s; }
+
+@keyframes showFromLeft {
+    0% { transform: translateX(-60px); }
+    100% { transform: translateX(0); }
+}
+
+
+
+/* Media Queries */
+@media (min-width: 600px) {
+    .grid-container--services {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .service-card {
+        flex-direction: row;
+        max-width: 90%;
+        padding: 0;
+    }
+
+    .service-card--body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        max-width: 90%;
+    }
+
+    .service-card--img {
+        max-width: 50%;
+    }
+}
+
+
+
+@media (min-width: 992px) {
+    .services-section--description {
+        display: flex;
+    }
+    .description-intro {
+        margin: 0 10px 0 0;
+    }
+
+    .grid-container--services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-card {
+        max-width: 100%;
+        height: 100%;
+    }
+}
