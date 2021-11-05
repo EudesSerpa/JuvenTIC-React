@@ -20,6 +20,10 @@ const navLinks = [
         field: "Menú",
     },
     {
+        path: "/carrito",
+        field: "carrito",
+    },
+    {
         path: "/contact",
         field: "Contáctanos",
     },

@@ -5,6 +5,7 @@ import './App.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Menu from './pages/Menu';
+import Carrito from './pages/Carrito';
 import Services from './pages/Services';
 import Reserves from './pages/Reserves';
 import Contact from './pages/Contact';
@@ -28,7 +29,12 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/menu" component={Menu} />
+          <Route path="/menu"render={() => {
+            return <Menu/>
+          }}/>
+          <Route path="/carrito" render={() => {
+            return <Carrito/>
+          }}/>
           <Route path="/services" component={Services} />
           <Route path="/reserve" component={Reserves} />
           <Route path="/contact" component={Contact} />
