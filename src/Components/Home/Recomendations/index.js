@@ -43,7 +43,7 @@ export default function Recomendations() {
 
 
     return (
-        <section className="recommendations-section">
+        <section id="recomendations" className="recommendations-section">
             <div className="wrapper-xxl wrapper">
                 <h2 className="titles section--title">Las recomendaciones del chef</h2>
 

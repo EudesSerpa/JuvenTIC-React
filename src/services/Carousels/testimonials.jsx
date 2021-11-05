@@ -22,7 +22,7 @@ const clientTestimonials = [
 
 
 const SlidesTestimonials = clientTestimonials.map((slide, i) => (
-    <div className="slide" key={`${i}-${slide.img}`}>
+    <div id="testimonials" className="slide" key={`${i}-${slide.img}`}>
         <article className="testimonial wrapper wrapper-xxl">
             <figure className="testimonial-data">
                 <img src={ slide.img } alt="Client profile" loading='lazy' />
