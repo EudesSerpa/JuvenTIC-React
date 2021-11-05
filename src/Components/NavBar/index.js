@@ -59,7 +59,7 @@ const NavBar = ({ fixed = false }) => {
         <header className={ fixed ? "header fixed" : "header" }>
             <nav className="navbar-main wrapper wrapper-xxl">
                 <div className="navbar__logo--container">
-                    <NavLink to="/" className="navbar__logo">
+                    <NavLink to="/JuvenTIC-React" className="navbar__logo">
                         <img src="https://i.postimg.cc/5y3c0dMJ/logo-2x.png" alt="Restaurant Logo" width="70" height="60" />
                     </NavLink>
                 </div>

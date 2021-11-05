@@ -14,7 +14,6 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
-import RutaPrivada from './Components/rutas/RutaPrivada';
 import AuthState from './Context/autenticacion/authState';
 // Contexts
 import { ServicesContextProvider } from './Context/ServicesContext';
@@ -27,6 +26,7 @@ function App() {
     <ServicesContextProvider>
       <Router>
         <Switch>
+          <Route path="/JuvenTIC-React" exact component={Home} />
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
           <Route path="/menu" exact render={() => {

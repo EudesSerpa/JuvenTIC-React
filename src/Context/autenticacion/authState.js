@@ -25,7 +25,7 @@ const AuthState = props =>{
 	//Registrar usuarios
 	const registrarUsuario = async (datos)=>{
 		try{
-			const res = await axios.post('https://api-restauran.herokuapp.com/api/usuarios', datos);
+			const res = await axios.post('https://api-restauran.herokuapp.com/api/usuarios/', datos);
 			console.log(res.data);
 
 			dispatch({
@@ -48,7 +48,7 @@ const AuthState = props =>{
 		const token = localStorage.getItem('token')
 		if(token){
 			try{
-				const res = await axios.get('https://api-restauran.herokuapp.com/api/auth/login',{
+				const res = await axios.get('https://api-restauran.herokuapp.com/api/auth/login/',{
 					headers: {
 						'x-token': token
 					}
@@ -71,7 +71,7 @@ const AuthState = props =>{
 	//iniciar sesion
 	const iniciarSesion = async (datos)=>{
 		try{
-			const res = await axios.post('https://api-restauran.herokuapp.com/api/auth/login', datos)
+			const res = await axios.post('https://api-restauran.herokuapp.com/api/auth/login/', datos)
 			console.log(res)
 			dispatch({
 				type: LOGIN_EXITOSO,

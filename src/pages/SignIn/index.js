@@ -62,57 +62,57 @@ const Login = (props)=>{
         <div>
             <NavBar/>
 
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                    <div class="card border-0 shadow rounded-3 my-5">
-                      <div class="card-body p-4 p-sm-5">
-                        <h4 class="text-center mb-5 ">Sign In</h4>
+            <div className="container">
+                <div className="row">
+                  <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div className="card border-0 shadow rounded-3 my-5">
+                      <div className="card-body p-4 p-sm-5">
+                        <h4 className="text-center mb-5 ">Sign In</h4>
                         <form onSubmit={onSubmit}>
-                          <div class="form-floating mb-3">
+                          <div className="form-floating mb-3">
                             <input
                                 type="email"
-                                class="form-control"
+                                className="form-control"
                                 id="floatingInput"
                                 placeholder="name@example.com"
                                 name="correo"
                                 value={correo}
                                 onChange={onChange}
                                 />
-                            <label for="floatingInput">Email address</label>
+                            <label htmlFor="floatingInput">Email address</label>
                           </div>
-                          <div class="form-floating mb-3">
+                          <div className="form-floating mb-3">
                             <input
                                 type="password"
-                                class="form-control"
+                                className="form-control"
                                 id="floatingPassword"
                                 placeholder="Password"
                                 name="password"
                                 value={password}
                                 onChange={onChange}
                                 />
-                            <label for="floatingPassword">Password</label>
+                            <label htmlFor="floatingPassword">Password</label>
                           </div>
 
-                          <div class="form-check mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck"/>
-                            <label class="form-check-label" for="rememberPasswordCheck">
+                          <div className="form-check mb-3">
+                            <input className="form-check-input" type="checkbox" value="" id="rememberPasswordCheck"/>
+                            <label className="form-check-label" htmlFor="rememberPasswordCheck">
                               Remember password
                             </label>
                           </div>
-                          <div class="d-grid">
-                            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign in
+                          <div className="d-grid">
+                            <button className="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign in
                             </button>
                           </div>
-                          <hr class="my-4"/>
-                          <div class="d-grid mb-2">
-                            <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
-                              <i class="fab fa-google me-2"></i> Sign in with Google
+                          <hr className="my-4"/>
+                          <div className="d-grid mb-2">
+                            <button className="btn btn-google btn-login text-uppercase fw-bold" type="submit">
+                              <i className="fab fa-google me-2"></i> Sign in with Google
                             </button>
                           </div>
-                          <div class="d-grid">
-                            <button class="btn btn-facebook btn-login text-uppercase fw-bold" type="submit">
-                              <i class="fab fa-facebook-f me-2"></i> Sign in with Facebook
+                          <div className="d-grid">
+                            <button className="btn btn-facebook btn-login text-uppercase fw-bold" type="submit">
+                              <i className="fab fa-facebook-f me-2"></i> Sign in with Facebook
                             </button>
                           </div>
                         </form>

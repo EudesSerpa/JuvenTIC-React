@@ -5,9 +5,9 @@ import Swal from 'sweetalert2';
 export default class RealizarComprar extends Component {
 
     state = {
-        nombre: '',
-        correo: '',
-        mensaje:''
+        nombre: this.props.usuario ? this.props.usuario.nombre : '',
+        correo: this.props.usuario ? this.props.usuario.correo : '',
+        mensaje: ''
     }
 
     onSubmit = (e) => {
