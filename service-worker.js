@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/JuvenTIC-React/precache-manifest.76610b05dc838e2fa7e414e44a3ea833.js"
+  "/JuvenTIC-React/precache-manifest.7b4f9569e87fee797ca1be678c573f1d.js"
 );
 
 self.addEventListener('message', (event) => {

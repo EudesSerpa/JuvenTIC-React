@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc6dd8ae577e7de068c55d97509a51c3",
+    "revision": "19e52eb0d7bba0e91a90369feb3891eb",
     "url": "/JuvenTIC-React/index.html"
   },
   {
