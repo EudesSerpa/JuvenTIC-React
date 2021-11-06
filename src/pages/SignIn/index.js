@@ -61,68 +61,48 @@ const Login = (props)=>{
     return(
         <div>
             <NavBar/>
-            <div className="container">
-                <div className="row">
-                  <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                    <div className="card border-0 shadow rounded-3 my-5">
-                      <div className="card-body p-4 p-sm-5">
-                        <h4 className="text-center mb-5 ">Sign In</h4>
-                        <form onSubmit={onSubmit}>
-                          <div className="form-floating mb-3">
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="floatingInput"
-                                placeholder="name@example.com"
-                                name="correo"
-                                value={correo}
-                                onChange={onChange}
-                                />
-                            <label htmlFor="floatingInput">Email address</label>
-                          </div>
-                          <div className="form-floating mb-3">
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="floatingPassword"
-                                placeholder="Password"
-                                name="password"
-                                value={password}
-                                onChange={onChange}
-                                />
-                            <label htmlFor="floatingPassword">Password</label>
-                          </div>
 
-                          <div className="form-check mb-3">
-                            <input className="form-check-input" type="checkbox" value="" id="rememberPasswordCheck"/>
-                            <label className="form-check-label" htmlFor="rememberPasswordCheck">
-                              Remember password
-                            </label>
-                          </div>
-                          <div className="d-grid">
-                            <button className="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign in
-                            </button>
-                          </div>
-                          <hr className="my-4"/>
-                          <div className="d-grid mb-2">
-                            <button className="btn btn-google btn-login text-uppercase fw-bold" type="submit">
-                              <i className="fab fa-google me-2"></i> Sign in with Google
-                            </button>
-                          </div>
-                          <div className="d-grid">
-                            <button className="btn btn-facebook btn-login text-uppercase fw-bold" type="submit">
-                              <i className="fab fa-facebook-f me-2"></i> Sign in with Facebook
-                            </button>
-                          </div>
-                        </form>
+            <div className="wrapperrr fadeInDown">
+              <div className="formContent">
+                
+                <h2 className="active"> Sign In </h2>
+                <Link to={'/sign-up'} className="active link">
+                    Sign In
+                </Link>
+                <Link to={'/sign-up'} className="inactive underlineHover link">
+                    Sign Up 
+                </Link>
+                
+                <form onSubmit={onSubmit}>
+                  <input 
+                    type="mail" 
+                    id="login" 
+                    className="fadeIn second" 
+                    name="login" 
+                    placeholder="login"
+                    name="correo"
+                    value={correo}
+                    onChange={onChange}
+                    />
+                  <input 
+                    type="password" 
+                    id="password" 
+                    className="fadeIn third" 
+                    name="login" 
+                    placeholder="password"
+                    name="password"
+                    value={password}
+                    onChange={onChange}
+                    />
+                  <input type="submit" className="fadeIn fourth" value="Log In"/>
+                </form>
 
-                        <Link to={'/sign-up'} className="enlace-cuenta">
-                            Registrar cuenta
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+                
+                <div className="formFooter">
+                  <a className="underlineHover" href="#">Forgot Password?</a>
                 </div>
+
+              </div>
             </div>
         </div>     
     );
