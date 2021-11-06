@@ -38,8 +38,6 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    padding-left: 0;
-    margin-bottom: 0;
     opacity: 0;
     background-color: rgba(0, 0, 0, .5);
     list-style-type: none;

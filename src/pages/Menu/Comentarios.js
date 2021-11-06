@@ -28,7 +28,7 @@ export default class Comentarios extends Component {
 
     ponerComentarios = (coment) => {
         if(coment.id_plato === this.props.idPlato){
-            return <Comentario comentario = {coment} key={coment.id}/>
+            return <Comentario comentario = {coment} key={coment._id}/>
         }
     }
 

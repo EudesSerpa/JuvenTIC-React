@@ -32,7 +32,6 @@ class CarritoClass extends Component {
 
     restablecerState = () => {
         this.setState({
-            c: 0, 
             total: 0,
             cantindad: 0
         })

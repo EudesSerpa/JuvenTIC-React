@@ -17,7 +17,7 @@ export default (state, action)=>{
 		case OBTENER_PLATOS:
 			return{
 				...state,
-				paltos: action.payload
+				platos: action.payload
 			}
 		
 		case BORRAR_PLATOS:

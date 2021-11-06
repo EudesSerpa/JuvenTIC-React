@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
-} */
+}
 
 .bodyMS {
     display: flex;
@@ -13,11 +13,15 @@
     align-items: center;
     flex-direction: column;
     min-height: 90vh;
-    font-family: 'Poppins', sans-serif;
 }
 
 .bodyMS .contTitle{
     width: 80%;
+    margin-bottom: 30px;
+}
+
+.bodyMS .contTitle h2{
+    font-size: 70px;
 }
 
 .containerMS{
@@ -36,7 +40,6 @@
 .cardMS h4{
     margin-bottom: 15px;
     font-size: 20px;
-    font-weight: 700;
 }
 
 .cardMS ul{
@@ -51,7 +54,4 @@
 .cardMS .link{
     text-decoration: none;
     color: black;
-}
-.cardMS .link:hover {
-    color: var(--orange-dark)
 }

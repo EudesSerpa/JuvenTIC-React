@@ -3,7 +3,7 @@ import './card.css'
 
 const Card = ()=>{
 	return(
-		<div id="collaborators" className="grid-container-card wrapper">
+		<div className="grid-container-card wrapper">
           <div className="header-card">
               <img src="https://res.cloudinary.com/universidad-de-cartagena/image/upload/v1631326381/personal1_2x_sdbx7o.png" className="card-img-top" alt="..."/>
               <div className="card-body">

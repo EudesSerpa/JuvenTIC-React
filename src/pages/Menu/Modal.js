@@ -12,10 +12,10 @@ export default class Modal extends Component {
         aComent: false,
         pComent: false,
         edit: false,
-        title: this.props.dato.title,
+        title: this.props.dato.nombre,
         precio: this.props.dato.precio,
-        descricion: this.props.dato.descrip,
-        imagen: this.props.dato.thumbnailUrl,
+        descricion: this.props.dato.descripcion,
+        imagen: this.props.dato.imgURL,
         nameImagen: ''
     }
 
@@ -55,16 +55,16 @@ export default class Modal extends Component {
 
     actualizar = ( title, precio, description ) => {
         const datosE = {
-            title: title,
+            nombre: title,
             precio: precio,
-            descrip: description,
+            descricion: description,
             urlImg: this.state.imagen
         }
-        this.props.update(this.props.dato.id, datosE)
+        this.props.update(this.props.dato._id, datosE)
     }
 
     agregarCompra = (dato) => {
-        this.props.agregarCarrito(dato.id, dato.title, dato.precio)
+        this.props.agregarCarrito(dato._id, dato.nombre, dato.precio)
         this.props.abrirModal()
         Swal.fire({
             icon: 'success',
@@ -77,7 +77,7 @@ export default class Modal extends Component {
     botonesModal = () => {
         if(this.props.rol === 'ADMIN_ROLE'){
             return <div className="buttonModal">
-                <button className="abrirComentarios" onClick={this.eliminar.bind(this, this.props.dato.id)} >
+                <button className="abrirComentarios" onClick={this.eliminar.bind(this, this.props.dato._id)} >
                     <ion-icon name="trash-outline"></ion-icon>
                 </button>
                 <button className="abrirComentarios" onClick={this.editarF}>
@@ -176,12 +176,12 @@ export default class Modal extends Component {
         else{
             return <div className="form modal">
                 <div id="info">
-                    <h2 className="tituloP i">{dato.title}</h2>
+                    <h2 className="tituloP i">{dato.nombre}</h2>
                     <div className="contImgP">
-                        <img className="imgP" src={dato.thumbnailUrl} alt="..." ></img>
+                        <img className="imgP" src={dato.imgURL} alt="..." ></img>
                     </div>
                     <h3 className="precioP">{"$"+dato.precio}</h3>
-                    <p className="descP">{dato.descrip}</p>
+                    <p className="descP">{dato.descripcion}</p>
                 </div>
                 <div className="contButton">
                     <button 
@@ -217,7 +217,7 @@ export default class Modal extends Component {
                             mComentar = {this.state.aComent} 
                             addC = {this.props.addC}
                             comentariosL = {this.props.comentariosL}
-                            idPlato = {dato.id}
+                            idPlato = {dato._id}
                             puedoComentar = {this.state.pComent}
                         />
                     </div>
