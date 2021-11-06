@@ -18,6 +18,7 @@ import RutaPrivada from './Components/rutas/RutaPrivada';
 import AuthState from './Context/autenticacion/authState';
 import ComentState from './Context/comentarios/comentState';
 import PlatosState from './Context/platos/platosState';
+import Ejemplo from './samples/ejemplo'
 // Contexts
 import { ServicesContextProvider } from './Context/ServicesContext';
 
@@ -33,6 +34,7 @@ function App() {
                   <Route path="/JuvenTIC-React" exact component={Home} />
                   <Route path="/" exact component={Home} />
                   <Route path="/about" component={About} />
+                  <Route path="/ejemplo" component={Ejemplo} />
                   <Route path="/menu"render={() => {
                     return <Menu/>
                   }}/>

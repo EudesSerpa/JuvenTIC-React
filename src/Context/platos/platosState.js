@@ -28,6 +28,7 @@ const PlatoState = props =>{
 					'x-token': token
 					}
 				});
+				console.log(res)
 
 				dispatch({
 					type: CREAR_PLATOS,

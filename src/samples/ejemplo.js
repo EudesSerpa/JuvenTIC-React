@@ -1,53 +1,54 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import AuthContext from '../../Context/autenticacion/authContext';
+import AuthContext from '../Context/autenticacion/authContext';
+import PlatosContext from '../Context/platos/platosContext'
 import Swal from 'sweetalert2';
-import NavBar from '../../Components/NavBar/index';
+import NavBar from '../Components/NavBar/index';
 
-const NuevaCuenta = (props) =>{
+const Ejemplo = (props) =>{
 
     const authContext = useContext(AuthContext);
-    const {autenticado, mensaje, registrarUsuario} = authContext;
+    const { usuarioAutenticado } = authContext;
+
+    //context para traer la funcion de crear platos
+    const platosContext = useContext(PlatosContext);
+    const { crearPlatos } = platosContext;
 
     //en caso de que el usuario este autenticado o registrado o haya un error
     useEffect(()=>{
-        if(autenticado){
-            props.history.push('/menu');
-        }
+        usuarioAutenticado()
+    }, [])
 
-        if(mensaje){
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'Este correo ya esta registrado',
-              showConfirmButton: false,
-              timer: 2500
-            })
-        }
-    }, [mensaje, autenticado, props.history])
-
-    //state para inicio de sesión
-    const [usuario, guardarUsuario] = useState({
+    //state para los datos del plato
+    const [plato, guardarPlato] = useState({
         nombre:'',
-        correo: '',
-        password: '',
-        confirmar: ''
+        precio:'',
+        descripcion: ''
     });
 
-    const {nombre, correo, password, confirmar} = usuario;
+    //state para la imagen del plato
+    const [file, setFile] = useState()
 
+    const {nombre, precio, descripcion, image} = plato;
+
+    //funcion para capturar el valor de los campos
     const onChange = (e)=>{
-        guardarUsuario({
-            ...usuario,
+        guardarPlato({
+            ...plato,
             [e.target.name] : e.target.value
         })
     }
 
+    //funcion para obtener la informacion de la imagen
+    const handleChange = (e)=>{
+        setFile(e.target.files[0])
+    }
+
+    //funcion para enviar los datos
     const onSubmit = (e)=>{
         e.preventDefault()
 
-        if(nombre.trim() === '' || correo.trim() === '' || password.trim() === '' ||
-        confirmar.trim() === ''){
+        if(nombre.trim() === '' || precio.trim() === '' || descripcion.trim() === ''){
             Swal.fire({
               icon: 'error',
               title: 'Todos los campos son obligatorios',
@@ -57,30 +58,17 @@ const NuevaCuenta = (props) =>{
             return
         }
 
-        if(password.length < 6){
-            Swal.fire({
-              icon: 'error',
-              title: 'Contraseña menor de 6 caracteres',
-              showConfirmButton: false,
-              timer: 2500
-            })
-            return
-        }
+        //se deben poner los datos dentro de formData para que funcione
+        const formData = new FormData()
 
-        if (password !== confirmar) {
-            Swal.fire({
-              icon: 'error',
-              title: 'Las contraseñas deben ser iguales',
-              showConfirmButton: false,
-              timer: 2500
-            })
-            return
-        }
-        registrarUsuario({
-            nombre,
-            correo,
-            password
-        });
+        formData.append('image', file);
+        formData.append('nombre', nombre);
+        formData.append('descripcion', descripcion);
+        formData.append('precio', precio);
+
+        //aqui se llama la funcion de crear platos y se le pasan los datos como parametros
+        crearPlatos(formData)
+
     }
     return(
         <div>
@@ -91,7 +79,7 @@ const NuevaCuenta = (props) =>{
                     <div className="card border-0 shadow rounded-3 my-5">
                       <div className="card-body p-4 p-sm-5">
                         <h5 className="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
-                        <form onSubmit={onSubmit}>
+                        <form onSubmit={onSubmit} enctype="multipart/form-data">
                         <div className="form-floating mb-3">
                             <input 
                                 type="text" 
@@ -107,40 +95,36 @@ const NuevaCuenta = (props) =>{
                           
                           <div className="form-floating mb-3">
                             <input 
-                                type="email" 
+                                type="number" 
                                 className="form-control" 
                                 id="floatingInput" 
                                 placeholder="name@example.com"
-                                name="correo"
-                                value={correo}
+                                name="precio"
+                                value={precio}
                                 onChange={onChange}
                                 />
-                            <label for="floatingInput">Email address</label>
+                            <label for="floatingInput">Precio</label>
                           </div>
                           
                           <div className="form-floating mb-3">
                             <input 
-                                type="password" 
+                                type="text" 
                                 className="form-control"
                                 id="floatingPassword" 
                                 placeholder="Password"
-                                name="password"
-                                value={password}
+                                name="descripcion"
+                                value={descripcion}
                                 onChange={onChange}
                                 />
-                            <label for="floatingPassword">Password</label>
+                            <label for="floatingPassword">descripcion</label>
                           </div>
                           <div className="form-floating mb-3">
                             <input 
-                                type="password" 
+                                type="file" 
                                 className="form-control"
-                                id="floatingPassword" 
-                                placeholder="Password"
-                                name="confirmar"
-                                value={confirmar}
-                                onChange={onChange}
+                                id="floatingPassword"
+                                onChange={handleChange}
                                 />
-                            <label for="floatingPassword">Confirm Password</label>
                           </div>
                           <div className="d-grid">
                             <button className="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign up
@@ -159,4 +143,4 @@ const NuevaCuenta = (props) =>{
     )
 }
 
-export default NuevaCuenta;
+export default Ejemplo;
