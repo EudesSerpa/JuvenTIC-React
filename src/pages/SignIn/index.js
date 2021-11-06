@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import AuthContext from '../../Context/autenticacion/authContext';
 import Swal from 'sweetalert2';
 import NavBar from '../../Components/NavBar/index'
+import '../Styles/signin.css'
 
 const Login = (props)=>{
 
@@ -12,7 +13,7 @@ const Login = (props)=>{
     //en caso de que el usuario este autenticado o error en el password y correo
     useEffect(()=>{
         if(autenticado){
-            props.history.push('/menu');
+            props.history.push('/menu'); 
         }
 
         if(mensaje){
@@ -64,12 +65,11 @@ const Login = (props)=>{
 
             <div className="wrapperrr fadeInDown">
               <div className="formContent">
-                
-                <h2 className="active"> Sign In </h2>
-                <Link to={'/sign-up'} className="active link">
+
+                <Link to={'/sign-in'} className="activado linke">
                     Sign In
                 </Link>
-                <Link to={'/sign-up'} className="inactive underlineHover link">
+                <Link to={'/sign-up'} className="inactive underlineHover linke">
                     Sign Up 
                 </Link>
                 
@@ -77,9 +77,9 @@ const Login = (props)=>{
                   <input 
                     type="mail" 
                     id="login" 
-                    className="fadeIn second" 
+                    className="fadeIn second form" 
                     name="login" 
-                    placeholder="login"
+                    placeholder="mail"
                     name="correo"
                     value={correo}
                     onChange={onChange}
@@ -87,14 +87,14 @@ const Login = (props)=>{
                   <input 
                     type="password" 
                     id="password" 
-                    className="fadeIn third" 
+                    className="fadeIn third form" 
                     name="login" 
                     placeholder="password"
                     name="password"
                     value={password}
                     onChange={onChange}
                     />
-                  <input type="submit" className="fadeIn fourth" value="Log In"/>
+                  <input type="submit" className="fadeIn fourth botones" value="Ingresar"/>
                 </form>
 
                 

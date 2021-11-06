@@ -85,75 +85,63 @@ const NuevaCuenta = (props) =>{
     return(
         <div>
             <NavBar/>
-            <div className="container">
-                <div className="row">
-                  <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-                    <div className="card border-0 shadow rounded-3 my-5">
-                      <div className="card-body p-4 p-sm-5">
-                        <h5 className="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
-                        <form onSubmit={onSubmit}>
-                        <div className="form-floating mb-3">
-                            <input 
-                                type="text" 
-                                className="form-control" 
-                                id="floatingInput" 
-                                placeholder="name@example.com"
-                                name="nombre"
-                                value={nombre}
-                                onChange={onChange}
-                                />
-                            <label for="floatingInput">Name</label>
-                          </div>
-                          
-                          <div className="form-floating mb-3">
-                            <input 
-                                type="email" 
-                                className="form-control" 
-                                id="floatingInput" 
-                                placeholder="name@example.com"
-                                name="correo"
-                                value={correo}
-                                onChange={onChange}
-                                />
-                            <label for="floatingInput">Email address</label>
-                          </div>
-                          
-                          <div className="form-floating mb-3">
-                            <input 
-                                type="password" 
-                                className="form-control"
-                                id="floatingPassword" 
-                                placeholder="Password"
-                                name="password"
-                                value={password}
-                                onChange={onChange}
-                                />
-                            <label for="floatingPassword">Password</label>
-                          </div>
-                          <div className="form-floating mb-3">
-                            <input 
-                                type="password" 
-                                className="form-control"
-                                id="floatingPassword" 
-                                placeholder="Password"
-                                name="confirmar"
-                                value={confirmar}
-                                onChange={onChange}
-                                />
-                            <label for="floatingPassword">Confirm Password</label>
-                          </div>
-                          <div className="d-grid">
-                            <button className="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign up
-                            </button>
-                          </div>
-                        </form>
-                        <Link to={'/sign-in'} className="enlace-cuenta">
-                            Iniciar Sesión
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+            <div className="wrapperrr fadeInDown">
+              <div className="formContent">
+
+                <Link to={'/sign-in'} className="inactive underlineHover linke">
+                    Sign In
+                </Link>
+                <Link to={'/sign-up'} className="activado linke">
+                    Sign Up 
+                </Link>
+                
+                <form onSubmit={onSubmit}>
+                    <input 
+                    type="text" 
+                    className="fadeIn second form"
+                    placeholder="name"
+                    name="nombre"
+                    value={nombre}
+                    onChange={onChange}
+                    />
+
+                  <input 
+                    type="mail" 
+                    id="login" 
+                    className="fadeIn second form" 
+                    placeholder="mail"
+                    name="correo"
+                    value={correo}
+                    onChange={onChange}
+                    />
+                  <input 
+                    type="password" 
+                    id="password" 
+                    className="fadeIn third form"
+                    placeholder="password"
+                    name="password"
+                    value={password}
+                    onChange={onChange}
+                    />
+
+                    <input 
+                    type="password" 
+                    id="password2" 
+                    className="fadeIn third form"
+                    placeholder="confirm password"
+                    name="confirmar"
+                    value={confirmar}
+                    onChange={onChange}
+                    />
+                  <input type="submit" className="fadeIn fourth botones" value="registrar"/>
+                </form>
+
+                
+                <div className="formFooter">
+                  <a className="underlineHover" href="#">Forgot Password?</a>
                 </div>
+
+              </div>
             </div>
         </div>   
     )
