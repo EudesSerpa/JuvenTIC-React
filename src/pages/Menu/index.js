@@ -1,6 +1,8 @@
 import React, {useContext, useEffect, Component} from 'react'
 import NavBar from '../../Components/NavBar/index';
 import AuthContext from '../../Context/autenticacion/authContext';
+import ComentContext from '../../Context/comentarios/comentContext'
+import PlatosContext from '../../Context/platos/platosContext'
 
 import '../Styles/styleM.css'
 
@@ -18,43 +20,39 @@ class MenuClass extends Component{
     }
 
 
-    addProductos = (nombre, precio, descricion, imagen) => {
-        /*const newProducto = {
-        precio: precio,
-        id: this.props.datos.length + 1,
-        title: nombre,
-        descrip: descricion,
-        thumbnailUrl: imagen
+    addProductos = (nombre, precio, descripcion, imagen) => {
+        const newProducto = {
+            precio: precio,
+            nombre: nombre,
+            descripcion: descripcion,
+            imgURL: "https://res.cloudinary.com/universidad-de-cartagena/image/upload/v1632686841/salmon-518032__340_nbjntu.jpg"
         }
-    
-        const productosList = [...this.props.datos, newProducto]
 
-        this.props.actualizarDatos(productosList)*/
+        console.log(this.props.actualizarDatos)
+        this.props.actualizarDatos("add", newProducto)
     
     }
     
     deleteProducto = (id) => {
-        /*const newProductos = this.props.datos.filter(dato => dato.id !== id);
-        this.props.actualizarDatos(newProductos)*/
+        this.props.actualizarDatos("delea", id)
     }
     
     updateProoducto = (id, cambios) => {
-        /*const newProductos = this.props.datos.map( (producto) => {
-        if(producto.id === id){
-            producto.title = cambios.title
-            producto.precio = cambios.precio
-            producto.descrip = cambios.descrip
-            producto.thumbnailUrl = cambios.urlImg
-        }
-        return producto
+        const newProductos = this.props.datos.map( (producto) => {
+            if(producto.id === id){
+                producto.title = cambios.title
+                producto.precio = cambios.precio
+                producto.descrip = cambios.descrip
+                producto.thumbnailUrl = cambios.urlImg
+            }
+            return producto
         })
     
-        this.props.actualizarDatos(newProductos)*/
-    
+        this.props.actualizarDatos("edit", newProductos)    
     }
 
     addCompra = (id, nombrePlato, precio) => {
-        /*var existe = false;
+        var existe = false;
         const comprasLis = this.props.compras.map( compra => {
             if(id === compra.id_plato){
                 existe = true;
@@ -79,7 +77,7 @@ class MenuClass extends Component{
         }
         else{
             this.props.actualizarCompras(comprasLis)
-        }*/
+        }
     }
 
     agregarF = () => {
@@ -88,7 +86,7 @@ class MenuClass extends Component{
 
     agregarProducto = () => {
         if(this.state.agregar){
-            return <AddProducto agregar ={this.agregarF}/>
+            return <AddProducto agregar ={this.agregarF} agregarFunc={this.addProductos}/>
         }
         else {
             return <div>
@@ -98,17 +96,12 @@ class MenuClass extends Component{
     }
 
     addComentario = (idPlato, comentario) => {
-        /*const newComentario = {
-            id: this.props.comentarios + 1 ,
-            id_user: 2,
-            nombre_user: this.props.nombre,
+        const newComentario = {
             id_plato: idPlato,
             comentario: comentario,
         }
     
-        const comentList = [...this.props.comentarios, newComentario]
-
-        this.props.actualizarComent(comentList)*/
+        this.props.actualizarcomentario("add", newComentario)
     }
 
     servicio = ( rol, datos ) =>{
@@ -130,7 +123,7 @@ class MenuClass extends Component{
                         dato = {dato} 
                         rol = {rol} 
                         nombre = {this.props.nombre}
-                        key={dato.id} 
+                        key={dato._id} 
                         deleteP = {this.deleteProducto} 
                         updateP = {this.updateProoducto} 
                         addC = {this.addComentario}
@@ -154,7 +147,7 @@ class MenuClass extends Component{
                         dato = {dato} 
                         rol = {rol} 
                         nombre = {this.props.nombre}
-                        key={dato.id}
+                        key={dato._id}
                         addC = {this.addComentario}
                         comentariosL = {this.props.comentarios}
                         agregarCarrito = {this.addCompra}
@@ -175,7 +168,7 @@ class MenuClass extends Component{
                         dato = {dato} 
                         rol = {rol} 
                         nombre = {this.props.nombre}
-                        key={dato.id}
+                        key={dato._id}
                         addC = {this.addComentario}
                         comentariosL = {this.props.comentarios}
                         agregarCarrito = {this.addCompra}
@@ -188,7 +181,6 @@ class MenuClass extends Component{
     render(){
         const datos = this.props.datos
         const rol = this.props.rol
-        console.log(datos)
         return <>
             <NavBar/>
             <div className="bodyM">
@@ -206,17 +198,45 @@ export default function Menu() {
     const authContext = useContext(AuthContext);
     const {autenticado, usuario, usuarioAutenticado} = authContext;
 
+    const platosContext = useContext(PlatosContext);
+    const {crearPlatos, obtenerPlatos, borrarPlato, editarPlato, platos} = platosContext
+
+    const comentContext = useContext(ComentContext);
+    const {obtenerComentarios, crearComentarios, comentarios} = comentContext
+
     useEffect(()=>{
         // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         usuarioAutenticado();
+        obtenerPlatos();
+        obtenerComentarios();
     }, [])
 
+    let productosActualizar = (typeFuncion, dato) => {
+        if(typeFuncion === "delea"){
+            borrarPlato(dato)
+        }
+        else if(typeFuncion === "edit"){
+            editarPlato(dato)
+        }
+        else if(typeFuncion === "add"){
+            crearPlatos(dato)
+            console.log(dato)
+        }
+    }
+
+    let comentariosActualizar = (typeFuncion, dato) => {
+        if(typeFuncion === "add"){
+            crearComentarios(dato)
+        }
+    }
 
     return <MenuClass 
         rol = {usuario ? usuario.rol : 'NONE_ROLE'} 
         nombre = {usuario ? usuario.nombre : ''} 
-        datos = {productos}
-        comentarios = {Comentarios}
+        datos = {platos}
+        comentarios = {comentarios}
+        actualizarDatos = {productosActualizar}
+        actualizarcomentario = {comentariosActualizar}
     />
         
 }

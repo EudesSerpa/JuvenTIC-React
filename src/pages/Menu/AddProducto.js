@@ -39,7 +39,7 @@ export default class AddProducto extends Component {
     onSubmit = (e) => {
         e.preventDefault()
         this.props.agregar()
-        //this.props.agregarFunc(this.state.title, this.state.precio, this.state.descricion, this.state.imagen)
+        this.props.agregarFunc(this.state.title, this.state.precio, this.state.descricion, this.state.imagen)
         Swal.fire({
             icon: 'success',
             title: 'Producto Agregado',

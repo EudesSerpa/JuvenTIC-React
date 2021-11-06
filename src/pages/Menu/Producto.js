@@ -20,11 +20,11 @@ class Producto extends Component{
 
         return <div className="cards">
                 <div className="imgBx">
-                    <img src={dato.thumbnailUrl} alt=""></img>
+                    <img src={dato.imgURL} alt=""></img>
                 </div>
                 <div className="content">
                     <div className="details">
-                        <h2>{dato.title}<br/><span>{"$"+dato.precio}</span></h2>
+                        <h2>{dato.nombre}<br/><span>{"$"+dato.precio}</span></h2>
                         <button className="vermas" onClick={this.abrirModal}>Ver mas</button>
                     </div>
                 </div>
