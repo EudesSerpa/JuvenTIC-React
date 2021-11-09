@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/JuvenTIC-React/static/css/main.6364681f.chunk.css",
-    "main.js": "/JuvenTIC-React/static/js/main.69f53ea9.chunk.js",
-    "main.js.map": "/JuvenTIC-React/static/js/main.69f53ea9.chunk.js.map",
-    "runtime-main.js": "/JuvenTIC-React/static/js/runtime-main.eca9bc02.js",
-    "runtime-main.js.map": "/JuvenTIC-React/static/js/runtime-main.eca9bc02.js.map",
-    "static/js/2.83ec8bc8.chunk.js": "/JuvenTIC-React/static/js/2.83ec8bc8.chunk.js",
-    "static/js/2.83ec8bc8.chunk.js.map": "/JuvenTIC-React/static/js/2.83ec8bc8.chunk.js.map",
-    "index.html": "/JuvenTIC-React/index.html",
-    "precache-manifest.f1197ffde43576200d672a8e6c86a383.js": "/JuvenTIC-React/precache-manifest.f1197ffde43576200d672a8e6c86a383.js",
-    "service-worker.js": "/JuvenTIC-React/service-worker.js",
-    "static/css/main.6364681f.chunk.css.map": "/JuvenTIC-React/static/css/main.6364681f.chunk.css.map",
-    "static/js/2.83ec8bc8.chunk.js.LICENSE.txt": "/JuvenTIC-React/static/js/2.83ec8bc8.chunk.js.LICENSE.txt",
-    "static/media/arrowLeft.35e24a76.svg": "/JuvenTIC-React/static/media/arrowLeft.35e24a76.svg",
-    "static/media/arrowRight.5bede857.svg": "/JuvenTIC-React/static/media/arrowRight.5bede857.svg",
-    "static/media/menuClose.62eefd11.svg": "/JuvenTIC-React/static/media/menuClose.62eefd11.svg",
-    "static/media/menuHamburger.00b27c6b.svg": "/JuvenTIC-React/static/media/menuHamburger.00b27c6b.svg"
+    "main.css": "/static/css/main.a5a7628e.chunk.css",
+    "main.js": "/static/js/main.c76ef5f4.chunk.js",
+    "main.js.map": "/static/js/main.c76ef5f4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c650c80d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c650c80d.js.map",
+    "static/js/2.7aa2fc62.chunk.js": "/static/js/2.7aa2fc62.chunk.js",
+    "static/js/2.7aa2fc62.chunk.js.map": "/static/js/2.7aa2fc62.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.63f899cfd131c7c9ba0dd71da211bf2f.js": "/precache-manifest.63f899cfd131c7c9ba0dd71da211bf2f.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.a5a7628e.chunk.css.map": "/static/css/main.a5a7628e.chunk.css.map",
+    "static/js/2.7aa2fc62.chunk.js.LICENSE.txt": "/static/js/2.7aa2fc62.chunk.js.LICENSE.txt",
+    "static/media/arrowLeft.35e24a76.svg": "/static/media/arrowLeft.35e24a76.svg",
+    "static/media/arrowRight.5bede857.svg": "/static/media/arrowRight.5bede857.svg",
+    "static/media/menuClose.62eefd11.svg": "/static/media/menuClose.62eefd11.svg",
+    "static/media/menuHamburger.00b27c6b.svg": "/static/media/menuHamburger.00b27c6b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.eca9bc02.js",
-    "static/js/2.83ec8bc8.chunk.js",
-    "static/css/main.6364681f.chunk.css",
-    "static/js/main.69f53ea9.chunk.js"
+    "static/js/runtime-main.c650c80d.js",
+    "static/js/2.7aa2fc62.chunk.js",
+    "static/css/main.a5a7628e.chunk.css",
+    "static/js/main.c76ef5f4.chunk.js"
   ]
 }
