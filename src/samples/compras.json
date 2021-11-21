@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "id_plato": 2,
+        "nombrePlto": "pescado",
+        "cantidad": 1,
+        "precio": 3
+    },
+    {
+        "id": 2,
+        "id_plato": 5,
+        "nombrePlto": "sushi",
+        "cantidad": 5,
+        "precio": 2
+    }    
+]

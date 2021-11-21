@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.testimonial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 5% auto;
+    text-align: center;
+}
+
+.testimonial-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    color: #310101;
+}
+
+.testimonial-data img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 3%;
+    border: 7px double rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.testimonial-data .detail {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.testimonial-data .client {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+.icon-left,
+.icon-right {
+    position: absolute;
+    font-size: 3.3rem;
+    opacity: 0.1;
+}
+
+.icon-left {
+    margin-top: -20px;
+    left: 0;
+}
+
+.icon-right {
+    margin: 5px;
+}

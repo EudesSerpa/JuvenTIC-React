@@ -1,0 +1,146 @@
+.modalAP{
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+.modalAP .obtenerDatos{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.modalAP .obtenerDatos::-webkit-scrollbar{
+    width: 12px;
+}
+
+.modalAP .obtenerDatos::-webkit-scrollbar-thumb{
+    background: linear-gradient(transparent, #028f77);
+    border-radius: 6px;
+}
+
+.modalAP .titleAP{
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.modalAP .enviar{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalAP .enviar .buttonAP{
+    position: relative;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+    display: inline-flex;
+    padding: 10px 15px;
+    background: #363636;
+    color: #fff;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+.modalAP .enviar .buttonAP span{
+    position: relative;
+    z-index: 1;
+}
+
+.modalAP .enviar .buttonAP::before{
+    content: '';
+    position: absolute;
+    top: var('--y');
+    left: var('--x');
+    transform: translate(-50%, -50%);
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    background: #2196f3;
+    transition: width 0.5s, height 0.5s;
+}
+
+.modalAP .enviar .buttonAP:hover::before{
+    width: 300px;
+    height: 300px;
+}
+
+.modalAP .obtenerDatos .opcInput{
+    width: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: rgb(22, 21, 21);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 5px 0px;
+}
+
+.modalAP .obtenerDatos .textArea{
+    height: 150px;
+    resize: none;
+    border-radius: 15px;
+}
+
+.contentImagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: rgb(22, 21, 21);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 5px 0px;
+}
+
+.contentImagen input[type="file"] {
+    display: none;
+}
+
+.contentImagen .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 12px;
+    cursor: pointer;    
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background: #b5c0ff;
+    color: #000;
+}
+
+.contentImagen .custom-file-upload:hover{    
+    background: #023158;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.329);
+    color: #fff;
+}
+
+.contentImagen img{
+    width: 98%;
+    margin-bottom: 10px;
+}
+
+.contentImagen p{
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+}
