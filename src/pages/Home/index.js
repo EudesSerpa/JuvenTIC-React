@@ -4,6 +4,7 @@ import Events from '../../Components/Home/Events';
 import OurProposal from '../../Components/Home/OurProposal';
 import Recomendations from '../../Components/Home/Recomendations';
 import NavBar from '../../Components/NavBar';
+import Footer from '../../Components/Footer'
 import AuthContext from '../../Context/autenticacion/authContext';
 
 
@@ -32,6 +33,8 @@ export default function Home() {
                 intervalTime='7000'
                 speedTransition='900'
             />
+
+            <Footer/>
         </>
     )
 }

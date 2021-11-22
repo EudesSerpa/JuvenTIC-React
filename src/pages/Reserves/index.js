@@ -2,6 +2,7 @@ import React from 'react'
 import './reserves.css';
 
 import NavBar from '../../Components/NavBar';
+import Footer from '../../Components/Footer'
 import Details from '../../Components/PageDetails';
 import ReserveForm from '../../Components/Forms/ReserveForm';
 
@@ -30,6 +31,8 @@ export default function Reserves() {
 
                 <ReserveForm />
             </section>
+
+            <Footer/>
         </>
     )
 }

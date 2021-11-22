@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, Component} from 'react'
 import NavBar from '../../Components/NavBar/index';
+import Footer from '../../Components/Footer'
 
 import AuthContext from '../../Context/autenticacion/authContext';
 import ComentContext from '../../Context/comentarios/comentContext'
@@ -179,6 +180,7 @@ class MenuClass extends Component{
                 </div>
                 {this.servicio(rol, datos)}
             </div>
+            <Footer/>
         </>
     }
 }

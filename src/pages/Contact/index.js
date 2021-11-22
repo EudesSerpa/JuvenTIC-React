@@ -2,6 +2,7 @@ import React from 'react'
 import './contact.css'
 
 import NavBar from '../../Components/NavBar';
+import Footer from '../../Components/Footer'
 import Details from '../../Components/PageDetails';
 import ContactForm from '../../Components/Forms/ContactForm';
 
@@ -29,6 +30,8 @@ export default function Contact() {
 
                 <ContactForm />
             </section>
+
+            <Footer/>
         </>
     )
 }

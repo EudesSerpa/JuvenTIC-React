@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, Component } from 'react'
 import NavBar from '../../Components/NavBar/index';
+import Footer from '../../Components/Footer'
 import RealizarComprar from './RealizarComprar'
 import AuthContext from '../../Context/autenticacion/authContext';
 import CarritoContext from '../../Context/carrtio/CarritoContext';
@@ -238,5 +239,6 @@ export default function Carrito(){
             usuario = {usuario ? usuario : null}
             actualizarCompras = {actualizarCompras}
         />
+        <Footer/>
     </>
 }
