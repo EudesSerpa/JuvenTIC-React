@@ -6,6 +6,7 @@ import axios from 'axios';
  import {
 	CREAR_PLATOS,
 	OBTENER_PLATOS,
+	OBTENER_PLATOID,
 	EDITAR_PLATOS,
 	BORRAR_PLATOS
 } from '../../types'
@@ -46,6 +47,20 @@ const PlatoState = props =>{
 
 			dispatch({
 				type: OBTENER_PLATOS,
+				payload: res.data.plato
+			}) 
+		}catch(error){
+			console.log(error)
+		}	
+	}
+	
+	//obtener un plato en especifico por id
+	const obtenerPlatosID = async (id)=>{
+		try{
+			const res = await axios.get(`https://api-restauran.herokuapp.com/api/platos/${id}`);
+
+			dispatch({
+				type: OBTENER_PLATOID,
 				payload: res.data.plato
 			}) 
 		}catch(error){
