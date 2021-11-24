@@ -2,7 +2,8 @@
 	CREAR_PLATOS,
 	OBTENER_PLATOS,
 	EDITAR_PLATOS,
-	BORRAR_PLATOS
+	BORRAR_PLATOS,
+	OBTENER_PLATOID
 } from '../../types'
 
 export default (state, action)=>{
@@ -18,6 +19,12 @@ export default (state, action)=>{
 			return{
 				...state,
 				platos: action.payload
+			}
+		
+		case OBTENER_PLATOID:
+			return{
+				...state,
+				plato: action.payload
 			}
 		
 		case BORRAR_PLATOS:
