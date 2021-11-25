@@ -28,10 +28,6 @@ const ComentState = props =>{
 					'x-token': token
 					}
 				});
-<<<<<<< HEAD
-				console.log(res.data.comentario)
-=======
->>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 				dispatch({
 					type: CREAR_COMENTARIOS,
@@ -47,10 +43,6 @@ const ComentState = props =>{
 	const obtenerComentarios = async ()=>{
 		try{
 			const res = await axios.get('https://api-restauran.herokuapp.com/api/comentarios');
-<<<<<<< HEAD
-			console.log(res.data.comentario)
-=======
->>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 			dispatch({
 				type: OBTENER_COMENTARIOS,
@@ -71,10 +63,6 @@ const ComentState = props =>{
 					'x-token': token
 					}
 				});
-<<<<<<< HEAD
-				console.log(res)
-=======
->>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 				dispatch({
 					type: BORRAR_COMENTARIOS,
@@ -96,10 +84,6 @@ const ComentState = props =>{
 					'x-token': token
 					}
 				});
-<<<<<<< HEAD
-				console.log(res)
-=======
->>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 				dispatch({
 					type: EDITAR_COMENTARIOS,

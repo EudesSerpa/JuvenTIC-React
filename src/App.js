@@ -58,11 +58,11 @@ function App() {
                     <Route path="/sign-up" component={SignUp} />
 
                     {/* Privada */}
-                    <PrivateRoute exact path="/home" component={Home}/>
+                    {/* <PrivateRoute exact path="/home" component={Home}/> */}
 
-                    {/* <Route path="/admin" render={() => {
+                    <Route path="/admin" render={() => {
                       return <Admin active={'home'} />
-                    }} /> */}
+                    }} />
                     <Route path="/menuAdmin" render={() => {
                       return <Admin active={'menu'} />
                     }} />

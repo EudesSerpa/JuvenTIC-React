@@ -12,14 +12,6 @@ function PrivateRoute({component: Component, ...rest}) {
 	}, [])
 
     return (
-        // <Route {...rest}>
-        //     {autenticado
-        //         ? <Component />
-        //         : <Redirect to='/'/>
-        //     }
-        // </Route>
-
-        // Llamando al compoente Admin y pasarle la propiedad active
         <Route {...rest}>
             {autenticado
                 ? usuario==='ADMIN_ROLE'
