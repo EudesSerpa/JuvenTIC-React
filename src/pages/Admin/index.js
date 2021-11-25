@@ -17,7 +17,6 @@ import CarritoContext from '../../Context/carrtio/CarritoContext';
 import './StyleAdmin/adminS.css'
 
 export default function Admin(props) {
-
     const platosContext = useContext(PlatosContext);
     const {crearPlatos, obtenerPlatos, borrarPlato, editarPlato, platos} = platosContext
 
@@ -25,14 +24,15 @@ export default function Admin(props) {
     const {obtenerComentarios, borrarComentarios, comentarios} = comentContext
 
     useEffect(()=>{
-        // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         obtenerPlatos();
         obtenerComentarios();
     }, [])
 
     function activeComponent(){
-        if(props.active == 'menu'){
-            return <Menu 
+        console.log(props.active);
+
+        if(props.active === 'menu'){
+            return <Menu
                 obtenerPlatos = {obtenerPlatos}
                 platos = {platos}
                 addPlato = {crearPlatos}
@@ -40,32 +40,32 @@ export default function Admin(props) {
                 editPlato = {editarPlato}
             />
         }
-        else if(props.active == 'home'){
+        else if(props.active === 'home'){
             return <Home
                 totalUsuer = {0}
-                totalPlatos = {platos.length} 
+                totalPlatos = {platos.length}
                 totalComentarios = {comentarios.length}
                 totalReservas = {5}
             />
         }
-        else if(props.active == 'user'){
+        else if(props.active === 'user'){
             return <Usuarios/>
         }
-        else if(props.active == 'servicios'){
+        else if(props.active === 'servicios'){
             return <Servicios />
         }
-        else if(props.active == 'comentarios'){
-            return <Comentarios 
+        else if(props.active === 'comentarios'){
+            return <Comentarios
                 comentarios = {comentarios}
                 platos = {platos}
                 obtenerComentarios = {obtenerComentarios}
                 deleteComentario = {borrarComentarios}
             />
         }
-        else if(props.active == 'reservas'){
+        else if(props.active === 'reservas'){
             return <Reservas/>
         }
-        else if(props.active == 'nosotros'){
+        else if(props.active === 'nosotros'){
             return <Nosotros/>
         }
     }
@@ -74,7 +74,7 @@ export default function Admin(props) {
         <div className="body_Admin">
             <div className="container_Admin">
 
-                <NavBar/>            
+                <NavBar/>
 
                 <div className="main">
                     <div className="topbar">
@@ -97,7 +97,6 @@ export default function Admin(props) {
                     {activeComponent()}
 
                 </div>
-                
             </div>
         </div>
     </>

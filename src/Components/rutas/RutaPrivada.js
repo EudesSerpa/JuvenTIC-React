@@ -5,21 +5,25 @@ import AuthContext from '../../Context/autenticacion/authContext';
 import Admin from '../../pages/Admin'
 
 function RutaPrivada({component, ...rest}){
-
 	const authContext = useContext(AuthContext);
-	const {autenticado, usuarioAutenticado, usuario} = authContext;
+    const {autenticado, usuario, usuarioAutenticado} = authContext;
 
-	useEffect(()=>{
-		usuarioAutenticado()
-	}, [])
+    useEffect(() => {
+        usuarioAutenticado();
+		console.group('RUTA PRIVADA');
+		console.log(component);
+		console.log(autenticado);
+		console.log(usuario?.rol);
+		console.groupEnd();
+    }, [])
 
 	return(
 		<Route {...rest}>
-			{ autenticado
-				? usuario === 'ADMIN_ROLE' || usuario === 'EMPLOYEE_ROLE'
+			{autenticado
+				? (usuario?.rol === 'ADMIN_ROLE' || usuario?.rol === 'EMPLOYEE_ROLE')
 					? <Admin active={component} />
 					: <Redirect to='/'/>
-				: <Redirect to='/sign-in'/>
+				: <h1>Fail no esta autenticado</h1>
 			}
 		</Route>
 	)

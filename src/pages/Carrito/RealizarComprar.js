@@ -15,6 +15,7 @@ export default class RealizarComprar extends Component {
         e.preventDefault()
         console.log(this.state)
         this.props.doCompra()
+        this.props.vaciarCarrito()
         Swal.fire({
             icon: 'success',
             title: 'Compra finalizada con Exito',

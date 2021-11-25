@@ -118,7 +118,11 @@ class CarritoClass extends Component {
 
     realizarCompra = ( ) => {
         if(this.state.comprar){
-            return <RealizarComprar doCompra = {this.doCompra} usuario = {this.props.usuario}/>
+            return <RealizarComprar
+                doCompra = {this.doCompra}
+                usuario = {this.props.usuario}
+                vaciarCarrito = {this.vaciarCarrito}
+            />
         }
         else{
             return <div>
