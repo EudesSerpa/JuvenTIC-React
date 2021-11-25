@@ -12,7 +12,7 @@ import NavBar from './components/NavBar'
 import AuthContext from '../../Context/autenticacion/authContext';
 import ComentContext from '../../Context/comentarios/comentContext'
 import PlatosContext from '../../Context/platos/platosContext'
-import CarritoContext from '../../Context/carrtio/CarritoContext';
+import { useServices } from '../../Hooks/useServices';
 
 import './StyleAdmin/adminS.css'
 
@@ -23,16 +23,16 @@ export default function Admin(props) {
     const comentContext = useContext(ComentContext);
     const {obtenerComentarios, borrarComentarios, comentarios} = comentContext
 
+    const { services } = useServices();
+
     useEffect(()=>{
         obtenerPlatos();
         obtenerComentarios();
     }, [])
 
     function activeComponent(){
-        console.log(props.active);
-
         if(props.active === 'menu'){
-            return <Menu
+            return <Menu 
                 obtenerPlatos = {obtenerPlatos}
                 platos = {platos}
                 addPlato = {crearPlatos}
@@ -52,10 +52,10 @@ export default function Admin(props) {
             return <Usuarios/>
         }
         else if(props.active === 'servicios'){
-            return <Servicios />
+            return <Servicios servicios = {services}/>
         }
         else if(props.active === 'comentarios'){
-            return <Comentarios
+            return <Comentarios 
                 comentarios = {comentarios}
                 platos = {platos}
                 obtenerComentarios = {obtenerComentarios}

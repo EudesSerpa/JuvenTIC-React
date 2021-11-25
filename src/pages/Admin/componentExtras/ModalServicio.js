@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
-import Swal from 'sweetalert2';
 
-import '../../Styles/styleModal.css'
-import '../../Styles/addP.css'
-
-export default class Modal extends Component {
+export default class ModalServicio extends Component {
 
     state = {
-        edit: this.props.edit,
-        title: this.props.dato.nombre,
-        precio: this.props.dato.precio,
-        descricion: this.props.dato.descripcion,
+        edit: this.props.editServ,
+        nombre: this.props.dato.nombre,
+        descripcion: this.props.dato.descripcion,
         imagen: this.props.dato.imgURL,
-        imageMustra: this.props.dato.imgURL,
+        imageView: null,
         nameImagen: ''
     }
 
@@ -24,29 +19,20 @@ export default class Modal extends Component {
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = (e) => {
                 e.preventDefault();
-                this.setState({imagen: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
+                this.setState({imageView: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
             };
         }
     };
 
     editarF = () => {
-        this.props.editarPlato()
+        this.props.editServicio()
     }
-
 
     onSubmit = (e) => {
         e.preventDefault()
         this.editarF()
 
-        const formData = new FormData()    
-        formData.append('_id', this.props.dato._id)    
-        formData.append('image', this.state.imagen);
-        formData.append('public_id', this.props.dato.public_id);
-        formData.append('nombre', this.state.title);
-        formData.append('descripcion', this.state.descricion);
-        formData.append('precio', this.state.precio);
-
-        this.props.editPlato(formData)
+        console.log('')
 
     }
 
@@ -66,27 +52,18 @@ export default class Modal extends Component {
                         <input 
                             className="opcInput" 
                             type="text" 
-                            name = "title"
-                            placeholder="Nombre del plato" 
+                            name = "nombre"
+                            placeholder="Nombre del Servicio" 
                             onChange={this.onChange} 
-                            value={this.state.title}
-                            required
-                        />
-                        <input 
-                            className="opcInput" 
-                            type="number" 
-                            name = "precio" 
-                            placeholder="Precio" 
-                            onChange={this.onChange} 
-                            value={this.state.precio}
+                            value={this.state.nombre}
                             required
                         />
                         <textarea 
                             className="opcInput textArea" 
-                            name = "descricion"
-                            placeholder="Descricion" 
+                            name = "descripcion"
+                            placeholder="Descripcion" 
                             onChange={this.onChange} 
-                            value={this.state.descricion}
+                            value={this.state.descripcion}
                             required
                         >
                         </textarea>
@@ -131,10 +108,10 @@ export default class Modal extends Component {
         if( estado ){
             return <div className="containerModal modalOpen">
                 
-                <div className="ventanaModalP">
+                <div className="ventanaModalP" >
 
                     <div className="BotonCerrar">
-                        <button className="close" onClick={this.props.abrirModal}>X</button>
+                        <button className="close" onClick={this.props.editServicio}>X</button>
                     </div>
 
                     <div className="mondalDatos">
@@ -161,4 +138,3 @@ export default class Modal extends Component {
         return this.estadoModal(dato, estado)
     }
 }
-
