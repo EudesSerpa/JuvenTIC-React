@@ -1,0 +1,87 @@
+.contentCardComent{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contentCardComent .cardComentAdmin{
+    width: 300px;
+    padding: 10px 15px;
+    margin: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+}
+
+.contentCardComent .cardComentAdmin .headerCmonetAdmin{
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.headerCmonetAdmin h2{
+    font-size: 0.9em;
+    color: rgb(105, 105, 105);
+}
+
+.headerCmonetAdmin span{
+    font-size: 0.8em;
+    color: rgb(27, 27, 27);
+}
+
+.contentCardComent .cardComentAdmin .accionComent{
+    width: 100%;
+    height: 30px;
+    text-align: end;
+}
+
+.contentCardComent .cardComentAdmin .textcomentAdmin{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 70px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.contentCardComent .cardComentAdmin .textcomentAdmin::-webkit-scrollbar{
+    width: 10px;
+}
+
+.contentCardComent .cardComentAdmin .textcomentAdmin::-webkit-scrollbar-thumb{
+    background: linear-gradient(transparent, #070f81);
+    border-radius: 6px;
+}
+
+.contentCardComent .cardComentAdmin .textcomentAdmin::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(transparent, #56ca5c);
+}
+
+
+.cardComentAdmin .namePlatoAdmin{
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 0.9;
+    font-weight: 500;
+    color: rgb(0, 67, 78);
+}
+
+.accionComent button{
+    border: none;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgb(165, 202, 226);
+}
+
+.accionComent button:hover{
+    background: red;
+    color: white;
+}
