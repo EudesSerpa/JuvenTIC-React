@@ -12,7 +12,7 @@ import NavBar from './components/NavBar'
 import AuthContext from '../../Context/autenticacion/authContext';
 import ComentContext from '../../Context/comentarios/comentContext'
 import PlatosContext from '../../Context/platos/platosContext'
-import CarritoContext from '../../Context/carrtio/CarritoContext';
+import { useServices } from '../../Hooks/useServices';
 
 import './StyleAdmin/adminS.css'
 
@@ -24,6 +24,8 @@ export default function Admin(props) {
     const comentContext = useContext(ComentContext);
     const {obtenerComentarios, borrarComentarios, comentarios} = comentContext
 
+    const { services } = useServices();
+
     useEffect(()=>{
         // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         obtenerPlatos();
@@ -31,7 +33,7 @@ export default function Admin(props) {
     }, [])
 
     function activeComponent(){
-        if(props.active == 'menu'){
+        if(props.active === 'menu'){
             return <Menu 
                 obtenerPlatos = {obtenerPlatos}
                 platos = {platos}
@@ -40,7 +42,7 @@ export default function Admin(props) {
                 editPlato = {editarPlato}
             />
         }
-        else if(props.active == 'home'){
+        else if(props.active === 'home'){
             return <Home
                 totalUsuer = {0}
                 totalPlatos = {platos.length} 
@@ -48,13 +50,13 @@ export default function Admin(props) {
                 totalReservas = {5}
             />
         }
-        else if(props.active == 'user'){
+        else if(props.active === 'user'){
             return <Usuarios/>
         }
-        else if(props.active == 'servicios'){
-            return <Servicios />
+        else if(props.active === 'servicios'){
+            return <Servicios servicios = {services}/>
         }
-        else if(props.active == 'comentarios'){
+        else if(props.active === 'comentarios'){
             return <Comentarios 
                 comentarios = {comentarios}
                 platos = {platos}
@@ -62,10 +64,10 @@ export default function Admin(props) {
                 deleteComentario = {borrarComentarios}
             />
         }
-        else if(props.active == 'reservas'){
+        else if(props.active === 'reservas'){
             return <Reservas/>
         }
-        else if(props.active == 'nosotros'){
+        else if(props.active === 'nosotros'){
             return <Nosotros/>
         }
     }
