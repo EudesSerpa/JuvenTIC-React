@@ -46,7 +46,7 @@ export default function Events() {
     ));
 
     return (
-        <section className="events-section">
+        <section id="events" className="events-section">
             <div className="wrapper-xxl wrapper">
                 <h2 className="events-section--title titles section--title">Organizamos tu evento</h2>
 

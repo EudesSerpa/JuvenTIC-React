@@ -11,8 +11,8 @@ export default class Comentario extends Component {
 
             </div>
             <div className="textComt">
-                <h5>{comentario.nombre_user}</h5>
-                <p>{comentario.comentario}</p>
+                <h5>{comentario.usuario.nombre}</h5>
+                <p>{comentario.texto}</p>
             </div>
         </div>
     }

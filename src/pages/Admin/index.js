@@ -22,33 +22,44 @@ export default function Admin(props) {
     const {crearPlatos, obtenerPlatos, borrarPlato, editarPlato, platos} = platosContext
 
     const comentContext = useContext(ComentContext);
-    const {obtenerComentarios, crearComentarios, comentarios} = comentContext
+    const {obtenerComentarios, borrarComentarios, comentarios} = comentContext
 
     useEffect(()=>{
+        // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         obtenerPlatos();
         obtenerComentarios();
     }, [])
 
     function activeComponent(){
-        console.log(props)
         if(props.active == 'menu'){
             return <Menu 
+                obtenerPlatos = {obtenerPlatos}
                 platos = {platos}
+                addPlato = {crearPlatos}
+                deletePlato = {borrarPlato}
+                editPlato = {editarPlato}
             />
         }
         else if(props.active == 'home'){
-            return <Home/>
+            return <Home
+                totalUsuer = {0}
+                totalPlatos = {platos.length} 
+                totalComentarios = {comentarios.length}
+                totalReservas = {5}
+            />
         }
         else if(props.active == 'user'){
             return <Usuarios/>
         }
         else if(props.active == 'servicios'){
-            return <Servicios/>
+            return <Servicios />
         }
         else if(props.active == 'comentarios'){
             return <Comentarios 
                 comentarios = {comentarios}
                 platos = {platos}
+                obtenerComentarios = {obtenerComentarios}
+                deleteComentario = {borrarComentarios}
             />
         }
         else if(props.active == 'reservas'){

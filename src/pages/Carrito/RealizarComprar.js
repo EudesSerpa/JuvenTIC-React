@@ -31,10 +31,9 @@ export default class RealizarComprar extends Component {
 
     render() {
         return <div className="containerModal modalOpen">
-                
+
         <div className="contBM">
             <div>
-                
                 <form className="form modal modalAP" onSubmit={this.onSubmit}>
                     <h2 className="titleAP">Finalizar Compra</h2>
                     <div className = "obtenerDatos">

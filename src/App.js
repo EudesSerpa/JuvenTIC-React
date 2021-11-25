@@ -37,55 +37,60 @@ function App() {
         <ComentState>
           <PlatosState>
             <CarritoState>
-              <ServicesContextProvider>
-                <Router>
-                  <Switch>
-                    <Route path="/home" exact component={Home} />
-                    <Route path="/" exact component={Home} />
-                    <Route path="/about" component={About} />
-                    <Route path="/ejemplo" component={Ejemplo} />
-                    <Route path="/menu"render={() => {
-                      return <Menu />
-                    }}/>
-                    <Route path="/carrito" render={() => {
-                      return <Carrito/>
-                    }}/>
-                    <Route path="/services" component={Services} />
-                    <Route path="/reserve" component={Reserves} />
-                    <Route path="/contact" component={Contact} />
-                    <Route path="/map-site" component={MapSite} />
-                    <Route path="/sign-in" component={SignIn} />
-                    <Route path="/sign-up" component={SignUp} />
+                <ServicesContextProvider>
+                  <Router>
+                    <Switch>
+                      <Route path="/" exact component={Home} />
+                      <Route path="/home" exact component={Home} />
+                      <Route path="/about" component={About} />
+                      <Route path="/ejemplo" component={Ejemplo} />
+                      <Route path="/menu"render={() => {
+                        return <Menu />
+                      }}/>
+                      <Route path="/carrito" render={() => {
+                        return <Carrito/>
+                      }}/>
+                      <Route path="/services" component={Services} />
+                      <Route path="/reserve" component={Reserves} />
+                      <Route path="/contact" component={Contact} />
+                      <Route path="/map-site" component={MapSite} />
+                      <Route path="/sign-in" component={SignIn} />
+                      <Route path="/sign-up" component={SignUp} />
 
-                    {/* Privada */}
-                    {/* <PrivateRoute exact path="/home" component={Home}/> */}
+                      {/* Rutas Privadas */}
+                      <RutaPrivada exact path='/admin' component={'home'} />
+                      {/*
+                      <RutaPrivada exact path='/usuariosAdmin' component = {'user'} />
+                      <RutaPrivada exact path='/menuAdmin' component = {'menu'} />
+                      <RutaPrivada exact path='/serviciosAdmin' component = {'servicios'} />
+                      */}
 
-                    <Route path="/admin" render={() => {
-                      return <Admin active={'home'} />
-                    }} />
-                    <Route path="/menuAdmin" render={() => {
-                      return <Admin active={'menu'} />
-                    }} />
-                    <Route path="/usuariosAdmin" render={() => {
-                      return <Admin active={'user'} />
-                    }} />
-                    <Route path="/serviciosAdmin" render={() => {
-                      return <Admin active={'servicios'} />
-                    }} />
-                    <Route path="/commentsAdmin" render={() => {
-                      return <Admin active={'comentarios'} />
-                    }} />
-                    <Route path="/bookingAdmin" render={() => {
-                      return <Admin active={'reservas'} />
-                    }} />
-                    <Route path="/aboutusAdmin" render={() => {
-                      return <Admin active={'nosotros'} />
-                    }} />
+                      {/* <Route path="/admin" render={() => {
+                        return <Admin active={'home'} />
+                      }} /> */}
+                      <Route path="/menuAdmin" render={() => {
+                        return <Admin active={'menu'} />
+                      }} />
+                      <Route path="/usuariosAdmin" render={() => {
+                        return <Admin active={'user'} />
+                      }} />
+                      <Route path="/serviciosAdmin" render={() => {
+                        return <Admin active={'servicios'} />
+                      }} />
+                      <Route path="/commentsAdmin" render={() => {
+                        return <Admin active={'comentarios'} />
+                      }} />
+                      <Route path="/bookingAdmin" render={() => {
+                        return <Admin active={'reservas'} />
+                      }} />
+                      <Route path="/aboutusAdmin" render={() => {
+                        return <Admin active={'nosotros'} />
+                      }} />
 
-                    <Route path="*" component={NotFound} />
-                  </Switch>
-                </Router>
-              </ServicesContextProvider>
+                      <Route path="*" component={NotFound} />
+                    </Switch>
+                  </Router>
+                </ServicesContextProvider>
             </CarritoState>
           </PlatosState>
         </ComentState>

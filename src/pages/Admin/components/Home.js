@@ -3,13 +3,13 @@ import React from 'react'
 import '../StyleAdmin/adminS.css'
 import '../StyleAdmin/StyleGeneral.css'
 
-export default function Home() {
+export default function Home(props) {
     return  <>
         {/* cards */}
         <div className="cardBox">
             <div className="cardAdmin">
                 <div>
-                    <div className="numbers">0</div>
+                    <div className="numbers">{props.totalUsuer}</div>
                     <div className="cardName">User</div>
                 </div>
                 <div className="iconBox">
@@ -18,7 +18,7 @@ export default function Home() {
             </div>
             <div className="cardAdmin">
                 <div>
-                    <div className="numbers">0</div>
+                    <div className="numbers">{props.totalComentarios}</div>
                     <div className="cardName">Comments</div>
                 </div>
                     <div className="iconBox">
@@ -27,7 +27,7 @@ export default function Home() {
             </div>
             <div className="cardAdmin">
                 <div>
-                    <div className="numbers">0</div>
+                    <div className="numbers">{props.totalPlatos}</div>
                     <div className="cardName">dishes</div>
                 </div>
                 <div className="iconBox">
@@ -36,7 +36,7 @@ export default function Home() {
             </div>
             <div className="cardAdmin">
                 <div>
-                    <div className="numbers">0</div>
+                    <div className="numbers">{props.totalReservas}</div>
                     <div className="cardName">reservations</div>
                 </div>
                 <div className="iconBox">

@@ -16,8 +16,8 @@
     <!-- WebFonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-     <!-- FontAwesome -->
+
+    <!-- FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
     <title>Restaurante Sal&Salsa</title>
@@ -30,7 +30,7 @@
 
 
     <script type="text/javascript">
-      window.onload = function(){ 
+      window.onload = function(){
         // Menu toggle
         let toggle = document.querySelector('.toggle')
         let navigation = document.querySelector('.navigation')
@@ -48,11 +48,17 @@
             this.classList.add('hovered')
         }
         list.forEach((item) => item.addEventListener('mouseover', activeLink))
+
+        let btn = document.querySelector('.buttonAP')
+        btn.onclick = function(e){ //window.onload - btn.onmousemove
+          const x = e.pageX - btn.offsetLeft
+          const y = e.pageY - btn.offsetTop
+
+          btn.style.setProperty('--x', x + 'px')
+          btn.style.setProperty('--y', y + 'px')
+        }
+
       };
-      
-
     </script>
-
-
   </body>
 </html>

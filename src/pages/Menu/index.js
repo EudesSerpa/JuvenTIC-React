@@ -26,7 +26,6 @@ class MenuClass extends Component{
     addProductos = (nombre, precio, descripcion, imagen) => {
         const formData = new FormData()
 
-        
         formData.append('image', imagen);
         formData.append('nombre', nombre);
         formData.append('descripcion', descripcion);
@@ -87,14 +86,12 @@ class MenuClass extends Component{
 
     addComentario = (idPlato, comentario) => {
 
-        const formData = new FormData()
-        
-        formData.append('id_plato', idPlato);
-        formData.append('comentario', comentario);
-
-        console.log('Esto llega al index = ' + idPlato)
+        const newComentario = {
+            plato: idPlato,
+            texto: comentario
+        }
     
-        this.props.actualizarcomentario("add", formData)
+        this.props.actualizarcomentario("add", newComentario)
     }
 
     servicio = ( rol, datos ) =>{
@@ -172,6 +169,10 @@ class MenuClass extends Component{
     render(){
         const datos = this.props.datos
         const rol = this.props.rol
+        
+        this.props.obtenerPlatos()
+        this.props.obtenerComentarios()
+
         return <>
             <NavBar/>
             <div className="bodyM">
@@ -231,8 +232,7 @@ export default function Menu() {
     let comentariosActualizar = (typeFuncion, dato) => {
         if(typeFuncion === "add"){
             crearComentarios(dato)
-            console.log('Esto llega a la funcion add = ')
-            console.log(dato)
+            obtenerComentarios()
         }
     }
 
@@ -245,8 +245,9 @@ export default function Menu() {
         actualizarDatos = {productosActualizar}
         actualizarcomentario = {comentariosActualizar}
         actualizarCompra = {actualizarCompras}
+        obtenerPlatos = {obtenerPlatos}
+        obtenerComentarios = {obtenerComentarios}
     />
-        
 }
 
 const admin = {

@@ -20,35 +20,11 @@ export default class Modal extends Component {
         nameImagen: ''
     }
 
-    changeImage = (e) => {
-        if (e.target.files[0] !== undefined) {
-            this.setState({nameImagen: e.target.files[0].name})
-            this.setState({imagen: e.target.files[0]})
-            const reader = new FileReader();
-            reader.readAsDataURL(e.target.files[0]);
-            reader.onload = (e) => {
-                e.preventDefault();
-                this.setState({imageMustra: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
-            };
-        }
-    };
-
     abrirComentarios = (pComentar) =>{
         this.setState({
             aComent: !this.state.aComent,
             pComent: pComentar
         })
-    }
-
-    actualizar = ( title, precio, description ) => {
-        const datosE = {
-            _id: this.props.dato._id,
-            nombre: title,
-            precio: precio,
-            descripcion: description,
-            imagen: this.state.imagen
-        }
-        this.props.update(datosE)
     }
 
     agregarCompra = (dato) => {
@@ -63,7 +39,7 @@ export default class Modal extends Component {
     }
 
     botonesModal = () => {
-        if(this.props.rol === 'USER_ROLE'){
+        if(this.props.rol === 'USER_ROLE' || this.props.rol === 'ADMIN_ROLE' || this.props.rol === 'EMPLOYEE_ROLE' ){
             return <div className="buttonModal">
                 <button className="abrirComentarios" onClick={this.abrirComentarios.bind(this, true)}>
                     <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
@@ -79,17 +55,6 @@ export default class Modal extends Component {
         }
     }
 
-    onSubmit = (e) => {
-        e.preventDefault()
-        this.editarF()
-        this.actualizar(this.state.title, this.state.precio, this.state.descricion)
-    }
-
-    onChange = e => {
-        this.setState({
-                [e.target.name]: e.target.value
-        })
-    }
 
     editDatos = (dato) => {
         return <div className="form modal">

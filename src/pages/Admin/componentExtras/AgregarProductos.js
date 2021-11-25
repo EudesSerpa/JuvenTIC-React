@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import Swal from 'sweetalert2';
 
-import '../Styles/addP.css'
-import '../Styles/styleModal.css'
+import '../../Styles/addP.css'
+import '../../Styles/styleModal.css'
 
-export default class AddProducto extends Component {
+export default class AgregarProductos extends Component {
 
     state = {
-        title: '',
+        nombre: '',
         precio: '',
-        descricion: '',
+        descripcion: '',
         imagen: null,
         imageMustra: null,
         nameImagen: ''
@@ -28,21 +28,17 @@ export default class AddProducto extends Component {
         }
     };
 
-    mouseF = () => {
-        const btn = document.querySelector('.buttonAP')
-        window.onload = function(e){ //window.onload - btn.onmousemove
-            const x = e.pageX - btn.offsetLeft
-            const y = e.pageY - btn.offsetTop
-
-            btn.style.setProperty('--x', x + 'px')
-            btn.style.setProperty('--y', y + 'px')
-        }
-    }
-
     onSubmit = (e) => {
         e.preventDefault()
         this.props.agregar()
-        this.props.agregarFunc(this.state.title, this.state.precio, this.state.descricion, this.state.imagen)
+
+        const formData = new FormData()        
+        formData.append('image', this.state.imagen);
+        formData.append('nombre', this.state.nombre);
+        formData.append('descripcion', this.state.descripcion);
+        formData.append('precio', this.state.precio);
+
+        this.props.addPlato(formData)
         Swal.fire({
             icon: 'success',
             title: 'Producto Agregado',
@@ -69,10 +65,10 @@ export default class AddProducto extends Component {
                             <input 
                                 className="opcInput" 
                                 type="text" 
-                                name = "title"
+                                name = "nombre"
                                 placeholder="Nombre del plato" 
                                 onChange={this.onChange} 
-                                value={this.state.title}
+                                value={this.state.nombre}
                                 required
                                 autoComplete="off"
                             />
@@ -88,10 +84,10 @@ export default class AddProducto extends Component {
                             />
                             <textarea 
                                 className="opcInput textArea" 
-                                name = "descricion"
-                                placeholder="Descricion" 
+                                name = "descripcion"
+                                placeholder="Descripcion" 
                                 onChange={this.onChange} 
-                                value={this.state.descricion}
+                                value={this.state.descripcion}
                                 required
                                 autoComplete="off"
                             >
@@ -119,10 +115,6 @@ export default class AddProducto extends Component {
 
                 </div>
             </div>
-
-            <script>
-                {this.mouseF()}
-            </script>
 
         </div>
     }

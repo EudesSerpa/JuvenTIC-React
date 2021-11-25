@@ -2,7 +2,9 @@ import React, {useContext, useEffect} from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import AuthContext from '../../Context/autenticacion/authContext';
 
-const RutaPrivada = ({component: Component, ...props})=>{
+import Admin from '../../pages/Admin'
+
+function RutaPrivada({component, ...rest}){
 
 	const authContext = useContext(AuthContext);
 	const {autenticado, usuarioAutenticado, usuario} = authContext;
@@ -12,11 +14,14 @@ const RutaPrivada = ({component: Component, ...props})=>{
 	}, [])
 
 	return(
-		<Route {...props} render={props => !autenticado ? (
-			<Redirect to="/" />
-		) : (
-			<Component {...props}/>
-		)}/>
+		<Route {...rest}>
+			{ autenticado
+				? usuario === 'ADMIN_ROLE' || usuario === 'EMPLOYEE_ROLE'
+					? <Admin active={component} />
+					: <Redirect to='/'/>
+				: <Redirect to='/sign-in'/>
+			}
+		</Route>
 	)
 }
 
