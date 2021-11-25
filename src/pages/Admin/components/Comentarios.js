@@ -21,7 +21,7 @@ export default class Comentarios extends Component {
                             <span>00/00/00</span>
                         </div>
 
-                        <span className="namePlatoAdmin">{(this.props.platos.filter( plato =>  plato._id === comment.plato )).nombre}</span>
+                        <span className="namePlatoAdmin">Nombre Plato</span>
         
                         <div className="textcomentAdmin">
                             <p>{comment.texto}</p>

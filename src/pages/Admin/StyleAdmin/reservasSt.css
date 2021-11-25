@@ -1,0 +1,158 @@
+.contentMenuAdmin .contectCantidad{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+}
+
+.cardTotalRAdmin{
+    width: 250px;
+    height: 120px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+    border-radius: 12px;
+    margin: 10px;
+}
+
+.contestListRCAdmin{
+    width: 100%;
+}
+
+.listDatoReservaAdmin{
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+.listDatoReservaAdmin .btnminadmin {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listDatoReservaAdmin .btnminadmin h3{
+    color: gray;
+    margin-left: 10px;
+}
+
+.listDatoReservaAdmin .btnminadmin button {
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+}
+
+.contetAdminRC{
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+
+.headerReservaAdmin{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.headerReservaAdmin p{
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    width: 250px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.headerReservaAdmin p.hN {
+    width: 250px;
+    text-align: start;
+    padding-left: 5px;
+}
+
+
+.headerReservaAdmin p.hA {
+    width: 150px;
+}
+
+
+
+
+/*
+.contentMenuAdmin table thead{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.contentMenuAdmin table tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contentMenuAdmin table tbody {
+    color: rgb(119, 119, 119);
+}
+
+.contentMenuAdmin table tr td:last-child{
+    text-align: end;
+    padding-right: 10px;
+}
+
+.contentMenuAdmin table tr td:nth-child(3),
+.contentMenuAdmin table tr td:nth-child(2){
+    text-align: center;
+}
+
+.btnVerAdm{
+    border: none;
+    padding: 2px 20px;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btnVerAdm:hover{
+    background: blue;
+    color: white;
+    padding: 2px 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contentMenuAdmin table .btnMenu {
+    border: none;
+    padding: 2px 5px 0 5px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.contentMenuAdmin table .btnMenu.menuEdit{
+    margin-right: 5px;
+    background: rgb(50, 155, 197);
+    color: white;
+}
+
+.contentMenuAdmin table .menuEdit:hover{
+    background: rgb(9, 49, 160);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contentMenuAdmin table .btnMenu.menuDel{
+    margin-left: 5px;
+    background: rgb(241, 92, 92);
+    color: white;
+}
+
+.contentMenuAdmin table .menuDel:hover{
+    background: #f00;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}*/
