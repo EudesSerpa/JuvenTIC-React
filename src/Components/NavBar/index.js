@@ -1,9 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './navbar.css';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as CloseMenu} from '../../assets/menuClose.svg';
 import { ReactComponent as MenuIcon} from '../../assets/menuHamburger.svg';
 import AuthContext from '../../Context/autenticacion/authContext';
+import Usuarios from '../../pages/Admin/components/Usuarios';
 
 const navLinks = [
     {
@@ -32,10 +33,16 @@ const navLinks = [
     }
 ];
 
+
 const NavBar = ({ fixed = false }) => {
 
     const authContext = useContext(AuthContext);
-    const {autenticado, usuarioAutenticado, cerrarSesion} = authContext;
+    const {autenticado, usuario, usuarioAutenticado, cerrarSesion} = authContext;
+
+    useEffect(() => {
+        usuarioAutenticado()
+    }, [])
+
     // const { navLinks } = props;
     const [isMenuActive, setStateMenu] = useState(false);
 
@@ -57,7 +64,7 @@ const NavBar = ({ fixed = false }) => {
         <header className={ fixed ? "header fixed" : "header" }>
             <nav className="navbar-main wrapper wrapper-xxl">
                 <div className="navbar__logo--container">
-                    <NavLink to="/JuvenTIC-React" className="navbar__logo">
+                    <NavLink to="/home" className="navbar__logo">
                         <img src="https://i.postimg.cc/5y3c0dMJ/logo-2x.png" alt="Restaurant Logo" width="70" height="60" />
                     </NavLink>
                 </div>
@@ -66,9 +73,12 @@ const NavBar = ({ fixed = false }) => {
                     { links }
 
                     {autenticado
-                        ?   <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
-                                <NavLink to="/sign-in" onClick={() => cerrarSesion()}>Cerrar Sesión</NavLink>
-                            </li>
+                        ?
+                            <>
+                                <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
+                                    <NavLink to="/sign-in" onClick={() => cerrarSesion()}>Cerrar Sesión</NavLink>
+                                </li>
+                            </>
                         :   <>
                                 <li className="header__options-sigup" onClick={handleCloseMobileMenu}>
                                     <NavLink to="/sign-up">Registrarse</NavLink>

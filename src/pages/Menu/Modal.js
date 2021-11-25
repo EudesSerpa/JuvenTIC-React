@@ -16,17 +16,19 @@ export default class Modal extends Component {
         precio: this.props.dato.precio,
         descricion: this.props.dato.descripcion,
         imagen: this.props.dato.imgURL,
+        imageMustra: this.props.dato.imgURL,
         nameImagen: ''
     }
 
     changeImage = (e) => {
         if (e.target.files[0] !== undefined) {
             this.setState({nameImagen: e.target.files[0].name})
+            this.setState({imagen: e.target.files[0]})
             const reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = (e) => {
                 e.preventDefault();
-                this.setState({imagen: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
+                this.setState({imageMustra: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
             };
         }
     };
@@ -38,29 +40,15 @@ export default class Modal extends Component {
         })
     }
 
-    editarF = () => {
-        this.setState({edit: !this.state.edit})
-    }
-
-    eliminar = (id) => {
-        this.props.delete(id)
-        this.props.abrirModal()
-        Swal.fire({
-            icon: 'success',
-            title: 'Producto Eliminado Con Exito',
-            showConfirmButton: false,
-            timer: 2000,
-        });
-    }
-
     actualizar = ( title, precio, description ) => {
         const datosE = {
+            _id: this.props.dato._id,
             nombre: title,
             precio: precio,
-            descricion: description,
-            urlImg: this.state.imagen
+            descripcion: description,
+            imagen: this.state.imagen
         }
-        this.props.update(this.props.dato._id, datosE)
+        this.props.update(datosE)
     }
 
     agregarCompra = (dato) => {
@@ -75,20 +63,7 @@ export default class Modal extends Component {
     }
 
     botonesModal = () => {
-        if(this.props.rol === 'ADMIN_ROLE'){
-            return <div className="buttonModal">
-                <button className="abrirComentarios" onClick={this.eliminar.bind(this, this.props.dato._id)} >
-                    <ion-icon name="trash-outline"></ion-icon>
-                </button>
-                <button className="abrirComentarios" onClick={this.editarF}>
-                    <ion-icon name="create-outline"></ion-icon>
-                </button>
-                <button className="abrirComentarios" onClick={this.abrirComentarios.bind(this, true)}>
-                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-                </button>
-            </div>
-        }
-        else if(this.props.rol === 'USER_ROLE'){
+        if(this.props.rol === 'USER_ROLE'){
             return <div className="buttonModal">
                 <button className="abrirComentarios" onClick={this.abrirComentarios.bind(this, true)}>
                     <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
@@ -117,64 +92,7 @@ export default class Modal extends Component {
     }
 
     editDatos = (dato) => {
-        if(this.state.edit){
-            return <div>
-                    
-                <form className="form modal modalAP" onSubmit={this.onSubmit}>
-                    <h2 className="titleAP">Editar Producto</h2>
-                    <div className = "obtenerDatos" >
-                        <input 
-                            className="opcInput" 
-                            type="text" 
-                            name = "title"
-                            placeholder="Nombre del plato" 
-                            onChange={this.onChange} 
-                            value={this.state.title}
-                            required
-                        />
-                        <input 
-                            className="opcInput" 
-                            type="number" 
-                            name = "precio" 
-                            placeholder="Precio" 
-                            onChange={this.onChange} 
-                            value={this.state.precio}
-                            required
-                        />
-                        <textarea 
-                            className="opcInput textArea" 
-                            name = "descricion"
-                            placeholder="Descricion" 
-                            onChange={this.onChange} 
-                            value={this.state.descricion}
-                            required
-                        >
-                        </textarea>
-                        <div className="contentImagen">
-                            <img src={this.state.imagen} alt="...."/>
-                            <p>{this.state.nameImagen}</p>
-                            <label className="custom-file-upload">
-                                <input 
-                                    type="file" 
-                                    onChange={(e) => {
-                                        this.changeImage(e);
-                                    }}
-                                />
-                                Cambiar Imagen
-                            </label>
-                        </div>
-                    </div>
-
-                    <div className="enviar">
-                        <button className="buttonAP opcCan" onClick={this.editarF}><span>CANCELAR</span></button> 
-                        <button className="buttonAP opcAgr"><span>EDITAR</span></button> 
-                    </div>
-                </form>
-
-            </div>
-        }
-        else{
-            return <div className="form modal">
+        return <div className="form modal">
                 <div id="info">
                     <h2 className="tituloP i">{dato.nombre}</h2>
                     <div className="contImgP">
@@ -192,7 +110,6 @@ export default class Modal extends Component {
                     </button>
                 </div>
             </div>
-        }
     }
 
     estadoModal = (dato, estado) => {

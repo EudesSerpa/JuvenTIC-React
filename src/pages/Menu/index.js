@@ -1,8 +1,11 @@
 import React, {useContext, useEffect, Component} from 'react'
 import NavBar from '../../Components/NavBar/index';
+import Footer from '../../Components/Footer'
+
 import AuthContext from '../../Context/autenticacion/authContext';
 import ComentContext from '../../Context/comentarios/comentContext'
 import PlatosContext from '../../Context/platos/platosContext'
+import CarritoContext from '../../Context/carrtio/CarritoContext';
 
 import '../Styles/styleM.css'
 
@@ -21,62 +24,49 @@ class MenuClass extends Component{
 
 
     addProductos = (nombre, precio, descripcion, imagen) => {
-        const newProducto = {
-            precio: precio,
-            nombre: nombre,
-            descripcion: descripcion,
-            imgURL: "https://res.cloudinary.com/universidad-de-cartagena/image/upload/v1632686841/salmon-518032__340_nbjntu.jpg"
-        }
+        const formData = new FormData()
 
-        console.log(this.props.actualizarDatos)
-        this.props.actualizarDatos("add", newProducto)
-    
+        
+        formData.append('image', imagen);
+        formData.append('nombre', nombre);
+        formData.append('descripcion', descripcion);
+        formData.append('precio', precio);
+
+        this.props.actualizarDatos("add", formData)
     }
-    
-    deleteProducto = (id) => {
-        this.props.actualizarDatos("delea", id)
-    }
-    
-    updateProoducto = (id, cambios) => {
-        const newProductos = this.props.datos.map( (producto) => {
-            if(producto.id === id){
-                producto.title = cambios.title
-                producto.precio = cambios.precio
-                producto.descrip = cambios.descrip
-                producto.thumbnailUrl = cambios.urlImg
-            }
-            return producto
-        })
-    
-        this.props.actualizarDatos("edit", newProductos)    
-    }
+
 
     addCompra = (id, nombrePlato, precio) => {
         var existe = false;
+        let newCompra = {}
         const comprasLis = this.props.compras.map( compra => {
             if(id === compra.id_plato){
                 existe = true;
-                return {
-                    ...compra,
-                    cantidad: compra.cantidad + 1
+                const compraExi = {
+                    id: compra.id,
+                    id_plato: id,
+                    nombrePlto: nombrePlato,
+                    cantidad: compra.cantidad + 1,
+                    precio: precio
                 }
+                newCompra = compraExi
+                return compraExi
             }
             return compra
         })
 
         if(!existe){
-            const newCompra = {
+            newCompra = {
                 id: this.props.compras.length + 1,
                 id_plato: id,
                 nombrePlto: nombrePlato,
                 cantidad: 1,
                 precio: precio
             }
-            const listCompraF = [...this.props.compras, newCompra]
-            this.props.actualizarCompras(listCompraF)
+            this.props.actualizarCompra('add', newCompra)
         }
         else{
-            this.props.actualizarCompras(comprasLis)
+            this.props.actualizarCompra('act', newCompra)
         }
     }
 
@@ -96,12 +86,15 @@ class MenuClass extends Component{
     }
 
     addComentario = (idPlato, comentario) => {
-        const newComentario = {
-            id_plato: idPlato,
-            comentario: comentario,
-        }
+
+        const formData = new FormData()
+        
+        formData.append('id_plato', idPlato);
+        formData.append('comentario', comentario);
+
+        console.log('Esto llega al index = ' + idPlato)
     
-        this.props.actualizarcomentario("add", newComentario)
+        this.props.actualizarcomentario("add", formData)
     }
 
     servicio = ( rol, datos ) =>{
@@ -124,8 +117,6 @@ class MenuClass extends Component{
                         rol = {rol} 
                         nombre = {this.props.nombre}
                         key={dato._id} 
-                        deleteP = {this.deleteProducto} 
-                        updateP = {this.updateProoducto} 
                         addC = {this.addComentario}
                         comentariosL = {this.props.comentarios}
                         agregarCarrito = {this.addCompra}
@@ -189,6 +180,7 @@ class MenuClass extends Component{
                 </div>
                 {this.servicio(rol, datos)}
             </div>
+            <Footer/>
         </>
     }
 }
@@ -204,6 +196,9 @@ export default function Menu() {
     const comentContext = useContext(ComentContext);
     const {obtenerComentarios, crearComentarios, comentarios} = comentContext
 
+    const carritoContext = useContext(CarritoContext)
+    const {compras, actualizar, add} = carritoContext
+
     useEffect(()=>{
         // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         usuarioAutenticado();
@@ -211,7 +206,16 @@ export default function Menu() {
         obtenerComentarios();
     }, [])
 
-    let productosActualizar = (typeFuncion, dato) => {
+    let actualizarCompras = (typeFunction, dato) => {
+        if(typeFunction == 'add'){
+            add(dato)
+        }
+        else if(typeFunction == 'act'){
+            actualizar(dato)
+        }
+    }
+
+    let productosActualizar = (typeFuncion, dato) => { 
         if(typeFuncion === "delea"){
             borrarPlato(dato)
         }
@@ -227,6 +231,8 @@ export default function Menu() {
     let comentariosActualizar = (typeFuncion, dato) => {
         if(typeFuncion === "add"){
             crearComentarios(dato)
+            console.log('Esto llega a la funcion add = ')
+            console.log(dato)
         }
     }
 
@@ -234,9 +240,11 @@ export default function Menu() {
         rol = {usuario ? usuario.rol : 'NONE_ROLE'} 
         nombre = {usuario ? usuario.nombre : ''} 
         datos = {platos}
+        compras = {compras}
         comentarios = {comentarios}
         actualizarDatos = {productosActualizar}
         actualizarcomentario = {comentariosActualizar}
+        actualizarCompra = {actualizarCompras}
     />
         
 }

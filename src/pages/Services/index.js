@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './services.css';
 
 import NavBar from '../../Components/NavBar';
+import Footer from '../../Components/Footer'
 
 import ListOfServices from '../../Components/Services/ListOfServices';
 import { useServices } from '../../Hooks/useServices';
@@ -56,6 +57,8 @@ export default function Services() {
                 {/* Services Grid */}
                 <ListOfServices services={services} />
             </section>
+
+            <Footer/>
         </>
     )
 }

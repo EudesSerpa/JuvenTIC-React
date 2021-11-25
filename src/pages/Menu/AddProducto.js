@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Swal from 'sweetalert2';
 
 import '../Styles/addP.css'
+import '../Styles/styleModal.css'
 
 export default class AddProducto extends Component {
 
@@ -10,17 +11,19 @@ export default class AddProducto extends Component {
         precio: '',
         descricion: '',
         imagen: null,
+        imageMustra: null,
         nameImagen: ''
     }
 
     changeImage = (e) => {
         if (e.target.files[0] !== undefined) {
             this.setState({nameImagen: e.target.files[0].name})
+            this.setState({imagen: e.target.files[0]})
             const reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = (e) => {
                 e.preventDefault();
-                this.setState({imagen: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
+                this.setState({imageMustra: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
             };
         }
     };
@@ -103,7 +106,7 @@ export default class AddProducto extends Component {
                                     />
                                     Subir Imagen
                                 </label>
-                                <img src={this.state.imagen} alt="...."/>
+                                <img src={this.state.imageMustra} alt="...."/>
                                 <p>{this.state.nameImagen}</p>
                             </div>
                         </div>

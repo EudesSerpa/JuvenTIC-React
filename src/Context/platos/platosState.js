@@ -6,6 +6,10 @@ import axios from 'axios';
  import {
 	CREAR_PLATOS,
 	OBTENER_PLATOS,
+<<<<<<< HEAD
+=======
+	OBTENER_PLATOID,
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 	EDITAR_PLATOS,
 	BORRAR_PLATOS
 } from '../../types'
@@ -28,7 +32,10 @@ const PlatoState = props =>{
 					'x-token': token
 					}
 				});
+<<<<<<< HEAD
 				console.log(res)
+=======
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 				dispatch({
 					type: CREAR_PLATOS,
@@ -44,7 +51,10 @@ const PlatoState = props =>{
 	const obtenerPlatos = async ()=>{
 		try{
 			const res = await axios.get('https://api-restauran.herokuapp.com/api/platos');
+<<<<<<< HEAD
 			console.log(res.data.plato)
+=======
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 			dispatch({
 				type: OBTENER_PLATOS,
@@ -54,6 +64,23 @@ const PlatoState = props =>{
 			console.log(error)
 		}	
 	}
+<<<<<<< HEAD
+=======
+	
+	//obtener un plato en especifico por id
+	const obtenerPlatosID = async (id)=>{
+		try{
+			const res = await axios.get(`https://api-restauran.herokuapp.com/api/platos/${id}`);
+
+			dispatch({
+				type: OBTENER_PLATOID,
+				payload: res.data.plato
+			}) 
+		}catch(error){
+			console.log(error)
+		}	
+	}
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 	//Borrar platos
 	const borrarPlato = async (id)=>{
@@ -65,7 +92,10 @@ const PlatoState = props =>{
 					'x-token': token
 					}
 				});
+<<<<<<< HEAD
 				console.log(res)
+=======
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 				dispatch({
 					type: BORRAR_PLATOS,
@@ -87,7 +117,10 @@ const PlatoState = props =>{
 					'x-token': token
 					}
 				});
+<<<<<<< HEAD
 				console.log(res)
+=======
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 
 				dispatch({
 					type: EDITAR_PLATOS,
@@ -115,4 +148,8 @@ const PlatoState = props =>{
 	);
 }
 
+<<<<<<< HEAD
 export default PlatoState;
+=======
+export default PlatoState;
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab

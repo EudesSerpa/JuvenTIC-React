@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "id": 1,
@@ -27,4 +28,35 @@
         "id_plato": 2,
         "comentario": "To create a production build"
     }
+=======
+[
+    {
+        "id": 1,
+        "id_user": 1,
+        "nombre_user": "Jhoan_D",
+        "id_plato": 2,
+        "comentario": "Note that the development build is not optimized. To create a production build, use npm run build."
+    },
+    {
+        "id": 2,
+        "id_user": 2,
+        "nombre_user": "EudesR",
+        "id_plato": 1,
+        "comentario": "To create a production build, use npm run build. Note that the development build is not optimized. To create a production build, use npm run build."
+    },
+    {
+        "id": 3,
+        "id_user": 1,
+        "nombre_user": "Jhoan_D",
+        "id_plato": 1,
+        "comentario": "Use npm run build."
+    },
+    {
+        "id": 4,
+        "id_user": 5,
+        "nombre_user": "LuisF",
+        "id_plato": 2,
+        "comentario": "To create a production build"
+    }
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 ]

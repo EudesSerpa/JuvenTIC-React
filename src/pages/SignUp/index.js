@@ -98,7 +98,7 @@ const NuevaCuenta = (props) =>{
                 <form onSubmit={onSubmit}>
                     <input 
                     type="text" 
-                    className="fadeIn second form"
+                    className="fadeIn second formSin"
                     placeholder="name"
                     name="nombre"
                     value={nombre}
@@ -108,7 +108,7 @@ const NuevaCuenta = (props) =>{
                   <input 
                     type="mail" 
                     id="login" 
-                    className="fadeIn second form" 
+                    className="fadeIn second formSin" 
                     placeholder="mail"
                     name="correo"
                     value={correo}
@@ -117,7 +117,7 @@ const NuevaCuenta = (props) =>{
                   <input 
                     type="password" 
                     id="password" 
-                    className="fadeIn third form"
+                    className="fadeIn third formSin"
                     placeholder="password"
                     name="password"
                     value={password}
@@ -127,7 +127,7 @@ const NuevaCuenta = (props) =>{
                     <input 
                     type="password" 
                     id="password2" 
-                    className="fadeIn third form"
+                    className="fadeIn third formSin"
                     placeholder="confirm password"
                     name="confirmar"
                     value={confirmar}

@@ -7,6 +7,7 @@ export default class RealizarComprar extends Component {
     state = {
         nombre: this.props.usuario ? this.props.usuario.nombre : '',
         correo: this.props.usuario ? this.props.usuario.correo : '',
+        metodoPago: '',
         mensaje: ''
     }
 
@@ -57,6 +58,13 @@ export default class RealizarComprar extends Component {
                             required
                             autoComplete="off"
                         />
+                        <select 
+                            name="metodoPago" 
+                            className="inputMetodoPago"
+                        >
+                            <option>Efectivo</option>
+                            <option>Tarjeta</option>
+                        </select>
                         <textarea 
                             className="opcInput textArea" 
                             name = "mensaje"

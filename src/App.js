@@ -14,12 +14,20 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Footer from './Components/Footer';
 import NotFound from './pages/notFound';
+import Admin from './pages/Admin'
 import RutaPrivada from './Components/rutas/RutaPrivada';
+
+import Ejemplo from './samples/ejemplo'
+
+import HomeA from './pages/Admin/components/Home'
+
+import PrivateRoute from './Components/rutas/PrivateRoute';
+
+// Contexts
 import AuthState from './Context/autenticacion/authState';
 import ComentState from './Context/comentarios/comentState';
 import PlatosState from './Context/platos/platosState';
-import Ejemplo from './samples/ejemplo'
-// Contexts
+import CarritoState from './Context/carrtio/CarritoState';
 import { ServicesContextProvider } from './Context/ServicesContext';
 
 function App() {
@@ -28,30 +36,57 @@ function App() {
       <AuthState>
         <ComentState>
           <PlatosState>
-            <ServicesContextProvider>
-              <Router>
-                <Switch>
-                  <Route path="/JuvenTIC-React" exact component={Home} />
-                  <Route path="/" exact component={Home} />
-                  <Route path="/about" component={About} />
-                  <Route path="/ejemplo" component={Ejemplo} />
-                  <Route path="/menu"render={() => {
-                    return <Menu/>
-                  }}/>
-                  <Route path="/carrito" render={() => {
-                    return <Carrito/>
-                  }}/>
-                  <Route path="/services" component={Services} />
-                  <Route path="/reserve" component={Reserves} />
-                  <Route path="/contact" component={Contact} />
-                  <Route path="/map-site" component={MapSite} />
-                  <Route path="/sign-in" component={SignIn} />
-                  <Route path="/sign-up" component={SignUp} />
-                  <Route path="*" component={NotFound} />
-                </Switch>
-                <Footer />
-              </Router>
-            </ServicesContextProvider>
+            <CarritoState>
+              <ServicesContextProvider>
+                <Router>
+                  <Switch>
+                    <Route path="/home" exact component={Home} />
+                    <Route path="/" exact component={Home} />
+                    <Route path="/about" component={About} />
+                    <Route path="/ejemplo" component={Ejemplo} />
+                    <Route path="/menu"render={() => {
+                      return <Menu />
+                    }}/>
+                    <Route path="/carrito" render={() => {
+                      return <Carrito/>
+                    }}/>
+                    <Route path="/services" component={Services} />
+                    <Route path="/reserve" component={Reserves} />
+                    <Route path="/contact" component={Contact} />
+                    <Route path="/map-site" component={MapSite} />
+                    <Route path="/sign-in" component={SignIn} />
+                    <Route path="/sign-up" component={SignUp} />
+
+                    {/* Privada */}
+                    <PrivateRoute exact path="/home" component={Home}/>
+
+                    {/* <Route path="/admin" render={() => {
+                      return <Admin active={'home'} />
+                    }} /> */}
+                    <Route path="/menuAdmin" render={() => {
+                      return <Admin active={'menu'} />
+                    }} />
+                    <Route path="/usuariosAdmin" render={() => {
+                      return <Admin active={'user'} />
+                    }} />
+                    <Route path="/serviciosAdmin" render={() => {
+                      return <Admin active={'servicios'} />
+                    }} />
+                    <Route path="/commentsAdmin" render={() => {
+                      return <Admin active={'comentarios'} />
+                    }} />
+                    <Route path="/bookingAdmin" render={() => {
+                      return <Admin active={'reservas'} />
+                    }} />
+                    <Route path="/aboutusAdmin" render={() => {
+                      return <Admin active={'nosotros'} />
+                    }} />
+
+                    <Route path="*" component={NotFound} />
+                  </Switch>
+                </Router>
+              </ServicesContextProvider>
+            </CarritoState>
           </PlatosState>
         </ComentState>
       </AuthState>

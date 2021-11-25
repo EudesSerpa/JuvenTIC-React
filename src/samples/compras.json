@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "id": 1,
@@ -13,4 +14,21 @@
         "cantidad": 5,
         "precio": 2
     }    
+=======
+[
+    {
+        "id": 1,
+        "id_plato": 2,
+        "nombrePlto": "pescado",
+        "cantidad": 1,
+        "precio": 3
+    },
+    {
+        "id": 2,
+        "id_plato": 5,
+        "nombrePlto": "sushi",
+        "cantidad": 5,
+        "precio": 2
+    }    
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 ]

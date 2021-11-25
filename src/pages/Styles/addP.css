@@ -4,7 +4,7 @@
 }
 
 .modalAP .obtenerDatos{
-    height: 400px;
+    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@
     border-radius: 20px;
     border: none;
     display: inline-flex;
-    padding: 10px 30px;
+    padding: 10px 15px;
     background: #363636;
     color: #fff;
     letter-spacing: 1px;

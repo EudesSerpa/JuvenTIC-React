@@ -77,7 +77,7 @@ const Login = (props)=>{
                   <input 
                     type="mail" 
                     id="login" 
-                    className="fadeIn second form" 
+                    className="fadeIn second formSin" 
                     name="login" 
                     placeholder="mail"
                     name="correo"
@@ -87,7 +87,7 @@ const Login = (props)=>{
                   <input 
                     type="password" 
                     id="password" 
-                    className="fadeIn third form" 
+                    className="fadeIn third formSin" 
                     name="login" 
                     placeholder="password"
                     name="password"

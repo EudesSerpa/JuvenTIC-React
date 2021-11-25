@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, Component } from 'react'
 import NavBar from '../../Components/NavBar/index';
+import Footer from '../../Components/Footer'
 import RealizarComprar from './RealizarComprar'
 import AuthContext from '../../Context/autenticacion/authContext';
+import CarritoContext from '../../Context/carrtio/CarritoContext';
 
 import '../Styles/carritoS.css'
+import '../Styles/realizarCompra.css'
 
-import compras from '../../samples/compras.json'
+/*import compras from '../../samples/compras.json'*/
 
 class CarritoClass extends Component {
 
@@ -89,26 +92,28 @@ class CarritoClass extends Component {
 
     vaciarCarrito = () => {
         this.restablecerState()
-        //this.props.actualizarCompras([])
+        this.props.actualizarCompras('vac', [])
     }
 
     updateCantidad = (id, valor) => {
+        let compraNueva = {}
         const newCompra = this.props.compras.map(compra => {
             if(compra.id === id){
-                return {
+                const comp = {
                     ...compra,
                     cantidad: (compra.cantidad + valor <= 0) ? 0 : (compra.cantidad + valor)
                 }
+                compraNueva = comp
+                return comp
             }
             return compra
         })
 
-        //this.props.actualizarCompras(newCompra)
+        this.props.actualizarCompras('act', compraNueva)
     }
 
     deleteCompra = (id) => {
-        const newCompra = this.props.compras.filter(compra => compra.id !== id)
-        //this.props.actualizarCompras(newCompra)
+        this.props.actualizarCompras('elim', id)
     }
 
     realizarCompra = ( ) => {
@@ -205,15 +210,35 @@ class CarritoClass extends Component {
 export default function Carrito(){
 
     const authContext = useContext(AuthContext);
+    const carritoContext = useContext(CarritoContext)
     const {usuario, usuarioAutenticado} = authContext;
+    const {compras, eliminar, actualizar, vaciar} = carritoContext
+
 
     useEffect(()=>{
         // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         usuarioAutenticado();
     }, [])
 
+    const actualizarCompras = (typefunction, dato) => {
+        if(typefunction == 'elim'){
+            eliminar(dato)
+        }
+        else if(typefunction == 'act') {
+            actualizar(dato)
+        }
+        else if(typefunction == 'vac') {
+            vaciar()
+        }
+    }
+
     return <>
         <NavBar/>
-        <CarritoClass compras={compras} usuario = {usuario ? usuario : null}/>
+        <CarritoClass 
+            compras={compras} 
+            usuario = {usuario ? usuario : null}
+            actualizarCompras = {actualizarCompras}
+        />
+        <Footer/>
     </>
 }

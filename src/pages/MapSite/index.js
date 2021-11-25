@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../../Components/NavBar/index';
+import Footer from '../../Components/Footer'
 
 import '../Styles/mapaS.css'
 
@@ -59,6 +60,7 @@ export default class MapaSitio extends Component{
                 </div>
             </div>
         </div>
+        <Footer/>
         </>
     }
 }

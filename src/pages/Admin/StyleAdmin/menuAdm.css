@@ -1,0 +1,118 @@
+.headerContentMenu{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 20px;   
+}
+
+.headerContentMenu h2{
+    font-size: 2.2em;
+    color: blue;
+}
+
+.headerContentMenu .iconAddAdmin{
+    border: none;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContentMenu .iconAddAdmin:hover{
+    background: blue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.headerContentMenu .iconAddAdmin ion-icon{
+    font-size: 2.1em;
+}
+
+.headerContentMenu .iconAddAdmin:hover ion-icon{
+    color: white;
+    font-size: 2.5em;
+}
+
+.listadoDatosAdmin{
+    overflow-x: auto;
+}
+
+.contentMenuAdmin .listadoDatosAdmin table{
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.contentMenuAdmin table thead{
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.contentMenuAdmin table tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contentMenuAdmin table tbody {
+    color: rgb(119, 119, 119);
+}
+
+.contentMenuAdmin table tr td:last-child{
+    text-align: end;
+    padding-right: 10px;
+}
+
+.contentMenuAdmin table tr td:nth-child(3),
+.contentMenuAdmin table tr td:nth-child(2){
+    text-align: center;
+}
+
+.btnVerAdm{
+    border: none;
+    padding: 2px 20px;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.btnVerAdm:hover{
+    background: blue;
+    color: white;
+    padding: 2px 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contentMenuAdmin table .btnMenu {
+    border: none;
+    padding: 2px 5px 0 5px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.contentMenuAdmin table .btnMenu.menuEdit{
+    margin-right: 5px;
+    background: rgb(50, 155, 197);
+    color: white;
+}
+
+.contentMenuAdmin table .menuEdit:hover{
+    background: rgb(9, 49, 160);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contentMenuAdmin table .btnMenu.menuDel{
+    margin-left: 5px;
+    background: rgb(241, 92, 92);
+    color: white;
+}
+
+.contentMenuAdmin table .menuDel:hover{
+    background: #f00;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}

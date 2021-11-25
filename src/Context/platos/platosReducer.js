@@ -2,7 +2,12 @@
 	CREAR_PLATOS,
 	OBTENER_PLATOS,
 	EDITAR_PLATOS,
+<<<<<<< HEAD
 	BORRAR_PLATOS
+=======
+	BORRAR_PLATOS,
+	OBTENER_PLATOID
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 } from '../../types'
 
 export default (state, action)=>{
@@ -20,6 +25,15 @@ export default (state, action)=>{
 				platos: action.payload
 			}
 		
+<<<<<<< HEAD
+=======
+		case OBTENER_PLATOID:
+			return{
+				...state,
+				plato: action.payload
+			}
+		
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
 		case BORRAR_PLATOS:
 			return{
 				...state,
@@ -43,4 +57,8 @@ export default (state, action)=>{
 		default:
 			return state;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2ffec6030c1a3855325563f69e913cf52d2355ab
