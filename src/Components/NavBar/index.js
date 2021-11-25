@@ -73,12 +73,20 @@ const NavBar = ({ fixed = false }) => {
                     { links }
 
                     {autenticado
-                        ?
-                            <>
+                        ? usuario?.rol === 'ADMIN_ROLE'
+                            ?
+                                <>
+                                    <li onClick={handleCloseMobileMenu}>
+                                        <NavLink to="/admin">Admin</NavLink>
+                                    </li>
+                                    <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
+                                        <NavLink to="/sign-in" onClick={() => cerrarSesion()}>Cerrar Sesión</NavLink>
+                                    </li>
+                                </>
+                            :
                                 <li className="header__options-sigin" onClick={handleCloseMobileMenu}>
                                     <NavLink to="/sign-in" onClick={() => cerrarSesion()}>Cerrar Sesión</NavLink>
                                 </li>
-                            </>
                         :   <>
                                 <li className="header__options-sigup" onClick={handleCloseMobileMenu}>
                                     <NavLink to="/sign-up">Registrarse</NavLink>

@@ -1,64 +1,69 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import AuthContext from '../../../Context/autenticacion/authContext';
 
 import '../StyleAdmin/adminS.css'
 
 export default function NavBar() {
+    const authContext = useContext(AuthContext);
+    const {cerrarSesion} = authContext;
+
     return <>
         <div className="navigation">
             <ul>
                 <li>
-                    <a href="#">
+                    <Link to="/">
                         <span className="iconAdmin"><ion-icon name="apps-outline"></ion-icon></span>
                         <span className="title">Sal&Salsa</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="admin">
+                    <Link to="/admin">
                         <span className="iconAdmin"><ion-icon name="home-outline"></ion-icon></span>
                         <span className="title">Home</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="usuariosAdmin">
+                    <Link to="/usuariosAdmin">
                         <span className="iconAdmin"><ion-icon name="people-outline"></ion-icon></span>
                         <span className="title">Customer</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="serviciosAdmin">
+                    <Link to="/serviciosAdmin">
                         <span className="iconAdmin"><ion-icon name="pricetags-outline"></ion-icon></span>
                         <span className="title">Services</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="commentsAdmin">
+                    <Link to="/commentsAdmin">
                         <span className="iconAdmin"><ion-icon name="chatbox-ellipses-outline"></ion-icon></span>
                         <span className="title">Comments</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="menuAdmin">
+                    <Link to="/menuAdmin">
                         <span className="iconAdmin"><ion-icon name="restaurant-outline"></ion-icon></span>
                         <span className="title">Menu</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="bookingAdmin">
+                    <Link to="/bookingAdmin">
                         <span className="iconAdmin"><ion-icon name="calendar-outline"></ion-icon></span>
                         <span className="title">Bookings</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="aboutusAdmin">
+                    <Link to="/aboutusAdmin">
                         <span className="iconAdmin"><ion-icon name="information-circle-outline"></ion-icon></span>
                         <span className="title">info</span>
-                    </a> 
+                    </Link>
                 </li>
                 <li>
-                    <a href="home">
+                    <Link to="/sing-in">
                         <span className="iconAdmin"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span className="title">Sign Out</span>
-                    </a> 
+                        <span onClick={() => cerrarSesion()} className="title">Sign Out</span>
+                    </Link>
                 </li>
             </ul>
         </div>
