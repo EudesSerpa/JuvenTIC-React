@@ -15,7 +15,7 @@ export default class RealizarComprar extends Component {
         e.preventDefault()
         console.log(this.state)
         this.props.doCompra()
-        this.props.vacirCarro()
+        this.props.vaciarCarrito()
         Swal.fire({
             icon: 'success',
             title: 'Compra finalizada con Exito',
@@ -32,10 +32,9 @@ export default class RealizarComprar extends Component {
 
     render() {
         return <div className="containerModal modalOpen">
-                
+
         <div className="contBM">
             <div>
-                
                 <form className="form modal modalAP" onSubmit={this.onSubmit}>
                     <h2 className="titleAP">Finalizar Compra</h2>
                     <div className = "obtenerDatos">

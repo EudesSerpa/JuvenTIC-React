@@ -6,7 +6,7 @@ import AuthContext from '../../Context/autenticacion/authContext';
 import CarritoContext from '../../Context/carrtio/CarritoContext';
 
 import '../Styles/carritoS.css'
-import '../Styles/realizarCompra.css' 
+import '../Styles/realizarCompra.css'
 
 /*import compras from '../../samples/compras.json'*/
 
@@ -118,10 +118,10 @@ class CarritoClass extends Component {
 
     realizarCompra = ( ) => {
         if(this.state.comprar){
-            return <RealizarComprar 
-                doCompra = {this.doCompra} 
+            return <RealizarComprar
+                doCompra = {this.doCompra}
                 usuario = {this.props.usuario}
-                vacirCarro = {this.vaciarCarrito}
+                vaciarCarrito = {this.vaciarCarrito}
             />
         }
         else{

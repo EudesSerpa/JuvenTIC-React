@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function OurProposal() {
     return (
-        <section style={OurProposalSection}>
+        <section id="our-proporsal" style={OurProposalSection}>
             <div className="wrapper wrapper-xxl">
                 <h2 className="titles section--title">Nuestra propuesta</h2>
 

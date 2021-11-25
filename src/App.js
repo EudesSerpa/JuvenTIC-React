@@ -17,22 +17,20 @@ import NotFound from './pages/notFound';
 import Admin from './pages/Admin'
 import RutaPrivada from './Components/rutas/RutaPrivada';
 
-import AuthState from './Context/autenticacion/authState';
-import ComentState from './Context/comentarios/comentState';
-import PlatosState from './Context/platos/platosState';
-import CarritoState from './Context/carrtio/CarritoState';
-import ServicioContext from './Context/servicio/servicioContext'
-
 import Ejemplo from './samples/ejemplo'
 
 import HomeA from './pages/Admin/components/Home'
 
+import PrivateRoute from './Components/rutas/PrivateRoute';
 
 // Contexts
+import AuthState from './Context/autenticacion/authState';
+import ComentState from './Context/comentarios/comentState';
+import PlatosState from './Context/platos/platosState';
+import CarritoState from './Context/carrtio/CarritoState';
 import { ServicesContextProvider } from './Context/ServicesContext';
 
 function App() {
-
   return (
     <div className="App">
       <AuthState>
@@ -42,8 +40,8 @@ function App() {
                 <ServicesContextProvider>
                   <Router>
                     <Switch>
-                      <Route path="/home" exact component={Home} />
                       <Route path="/" exact component={Home} />
+                      <Route path="/home" exact component={Home} />
                       <Route path="/about" component={About} />
                       <Route path="/ejemplo" component={Ejemplo} />
                       <Route path="/menu"render={() => {
@@ -58,13 +56,17 @@ function App() {
                       <Route path="/map-site" component={MapSite} />
                       <Route path="/sign-in" component={SignIn} />
                       <Route path="/sign-up" component={SignUp} />
-                      {/*
+
+                      {/* Rutas Privadas */}
                       <RutaPrivada exact path='/admin' component={'home'} />
-                      <RutaPrivada exact path='/usuariosAdmin' component = {'user'} />
-                      <RutaPrivada exact path='/menuAdmin' component = {'menu'} />
-                      <RutaPrivada exact path='/serviciosAdmin' component = {'servicios'} />
-                      */}
-                      <Route path="/admin" render={() => {
+                      <RutaPrivada path='/menuAdmin' component = {'menu'} />
+                      <RutaPrivada path='/usuariosAdmin' component = {'user'} />
+                      <RutaPrivada path='/serviciosAdmin' component = {'servicios'} />
+                      <RutaPrivada path='/commentsAdmin' component = {'comentarios'} />
+                      <RutaPrivada path='/bookingAdmin' component = {'reservas'} />
+                      <RutaPrivada path='/aboutusAdmin' component = {'nosotros'} />
+
+                      {/* <Route path="/admin" render={() => {
                         return <Admin active={'home'} />
                       }} />
                       <Route path="/menuAdmin" render={() => {
@@ -84,7 +86,7 @@ function App() {
                       }} />
                       <Route path="/aboutusAdmin" render={() => {
                         return <Admin active={'nosotros'} />
-                      }} />
+                      }} /> */}
 
                       <Route path="*" component={NotFound} />
                     </Switch>

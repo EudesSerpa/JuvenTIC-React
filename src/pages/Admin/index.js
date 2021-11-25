@@ -17,7 +17,6 @@ import { useServices } from '../../Hooks/useServices';
 import './StyleAdmin/adminS.css'
 
 export default function Admin(props) {
-
     const platosContext = useContext(PlatosContext);
     const {crearPlatos, obtenerPlatos, borrarPlato, editarPlato, platos} = platosContext
 
@@ -27,7 +26,6 @@ export default function Admin(props) {
     const { services } = useServices();
 
     useEffect(()=>{
-        // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         obtenerPlatos();
         obtenerComentarios();
     }, [])
@@ -45,7 +43,7 @@ export default function Admin(props) {
         else if(props.active === 'home'){
             return <Home
                 totalUsuer = {0}
-                totalPlatos = {platos.length} 
+                totalPlatos = {platos.length}
                 totalComentarios = {comentarios.length}
                 totalReservas = {5}
             />
@@ -76,7 +74,7 @@ export default function Admin(props) {
         <div className="body_Admin">
             <div className="container_Admin">
 
-                <NavBar/>            
+                <NavBar/>
 
                 <div className="main">
                     <div className="topbar">
@@ -99,7 +97,6 @@ export default function Admin(props) {
                     {activeComponent()}
 
                 </div>
-                
             </div>
         </div>
     </>

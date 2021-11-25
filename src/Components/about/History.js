@@ -3,7 +3,7 @@ import './history.css'
 
 const History = ()=>{
 	return(
-		<div className="grid-container">
+		<div id="our-history" className="grid-container">
           <img src="https://res.cloudinary.com/universidad-de-cartagena/image/upload/v1631316668/restaurant-691397_640_mdcyzz.jpg" width="500px" height="400px" alt="" className="image"/>
 
           <div className="our">

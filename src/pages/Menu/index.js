@@ -26,14 +26,12 @@ class MenuClass extends Component{
     addProductos = (nombre, precio, descripcion, imagen) => {
         const formData = new FormData()
 
-        
         formData.append('image', imagen);
         formData.append('nombre', nombre);
         formData.append('descripcion', descripcion);
         formData.append('precio', precio);
 
         this.props.actualizarDatos("add", formData)
-
     }
 
 
@@ -250,7 +248,6 @@ export default function Menu() {
         obtenerPlatos = {obtenerPlatos}
         obtenerComentarios = {obtenerComentarios}
     />
-        
 }
 
 const admin = {

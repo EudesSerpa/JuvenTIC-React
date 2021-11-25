@@ -33,7 +33,7 @@ const PlatoState = props =>{
 				dispatch({
 					type: CREAR_PLATOS,
 					payload: res.data.plato
-				}) 
+				})
 			}catch(error){
 				console.log(error)
 			}
@@ -48,12 +48,12 @@ const PlatoState = props =>{
 			dispatch({
 				type: OBTENER_PLATOS,
 				payload: res.data.plato
-			}) 
+			})
 		}catch(error){
 			console.log(error)
-		}	
+		}
 	}
-	
+
 	//obtener un plato en especifico por id
 	const obtenerPlatosID = async (id)=>{
 		try{
@@ -62,10 +62,10 @@ const PlatoState = props =>{
 			dispatch({
 				type: OBTENER_PLATOID,
 				payload: res.data.plato
-			}) 
+			})
 		}catch(error){
 			console.log(error)
-		}	
+		}
 	}
 
 	//Borrar platos
@@ -82,13 +82,13 @@ const PlatoState = props =>{
 				dispatch({
 					type: BORRAR_PLATOS,
 					payload: id
-				}) 
+				})
 			}catch(error){
 				console.log(error)
 			}
 		}
 	}
-	
+
 	//Editar platos
 	const editarPlato = async (plato)=>{
 		const token = localStorage.getItem('token')
@@ -121,7 +121,7 @@ const PlatoState = props =>{
 				editarPlato
 			}}
 		>{props.children}
-			
+
 		</PlatosContext.Provider>
 	);
 }
