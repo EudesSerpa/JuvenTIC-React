@@ -20,13 +20,13 @@ export default (state, action)=>{
 				...state,
 				reservas: action.payload
 			}
-		
+
 		case OBTENER_RESERVAID:
 			return{
 				...state,
 				reserva: action.payload
 			}
-		
+
 		case ELIMINAR_RESERVA:
 			return{
 				...state,

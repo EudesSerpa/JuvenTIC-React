@@ -19,10 +19,10 @@ const ReservaState = props =>{
 
 	const [state, dispatch] = useReducer(ReservaReducer, initialState);
 
-	
+
 	const crearReservas = async (datos)=>{
 		//const token = localStorage.getItem('token')
-		
+
 		try{
 			const res = await axios.post('https://api-restauran.herokuapp.com/api/reservas', datos);
 
@@ -35,7 +35,6 @@ const ReservaState = props =>{
 		}
 	}
 
-	
 	const obtenerReserva = async ()=>{
 		try{
 			const res = await axios.get('https://api-restauran.herokuapp.com/api/reservas');
@@ -49,7 +48,7 @@ const ReservaState = props =>{
 		}
 	}
 
-	const obtenerPlatosID = async (id)=>{
+	const obtenerReservaID = async (id)=>{
 		try{
 			const res = await axios.get(`https://api-restauran.herokuapp.com/api/reservas/${id}`);
 
@@ -61,10 +60,10 @@ const ReservaState = props =>{
 			console.log(error)
 		}
 	}
-	
+
 	const borrarReserva = async (id)=>{
 		//const token = localStorage.getItem('token')
-		
+
 		try{
 			const res = await axios.delete(`https://api-restauran.herokuapp.com/api/reservas/${id}`);
 
@@ -77,17 +76,17 @@ const ReservaState = props =>{
 		}
 	}
 
-	
+
 	const editarReserva = async (reserva)=>{
 		//const token = localStorage.getItem('token')
-		
+
 		try{
 			const res = await axios.put(`https://api-restauran.herokuapp.com/api/reservas/${reserva._id}`, reserva);
 
 			dispatch({
 				type: ACTULIZAR_RESERVA,
 				payload: reserva
-			}) 
+			})
 		}catch(error){
 			console.log(error)
 		}
@@ -100,7 +99,7 @@ const ReservaState = props =>{
 				reservas: state.reservas,
 				crearReservas,
 				obtenerReserva,
-				obtenerPlatosID,
+				obtenerReservaID,
 				borrarReserva,
 				editarReserva
 			}}

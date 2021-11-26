@@ -60,7 +60,7 @@ export default function NavBar(props) {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/" onClick={props.handleCloseMobileMenu}>
+                    <Link to="/sign-in" onClick={cerrarSesion}>
                         <span className="iconAdmin"><ion-icon name="log-out-outline"></ion-icon></span>
                         <span className="title">Sign Out</span>
                     </Link>

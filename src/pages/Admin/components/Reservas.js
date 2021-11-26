@@ -32,7 +32,7 @@ export default class Reservas extends Component {
         return (
             <div className="contentMenuAdmin">
                 <div className="headerContentMenu">
-                    <h2>Reservaciones</h2>
+                    <h2>Reservaciones y Preguntas</h2>
                 </div>
                 <div className="contestListRCAdmin">
                     <div className="listDatoReservaAdmin" style={{height: this.state.minimixarReservas ? '50px' : '100%'}}> 
@@ -64,13 +64,10 @@ export default class Reservas extends Component {
                                 } )
                                 : <ReservaDato reserva = {false}/>
                             }
-                            
                         </div>
-                        
                     </div>
 
-                    <div className="listDatoReservaAdmin" style={{height: this.state.minimixarContacto ? '50px' : '100%'}}> 
-                        
+                    <div className="listDatoReservaAdmin" style={{height: this.state.minimixarContacto ? '50px' : '100%'}}>
                         <div className="btnminadmin">
                             <button onClick={this.minimixarComp.bind(this, "contacto")}>{this.state.minimixarContacto
                                 ? <ion-icon name="chevron-down-circle-outline"></ion-icon>
@@ -200,7 +197,7 @@ class ContactoDato extends Component{
 
     modalResCon = () => {
         if( this.state.abrirModal ){
-            return <ModalReservas 
+            return <ModalReservas
                 abrirModal = {this.openModal}
                 tipoModal = {'Contacto'}
                 dato = {this.props.pregunta}
@@ -262,7 +259,7 @@ class ContactoDato extends Component{
     render(){
         return  <>{this.datosAMostrar()}</>
     }
-} 
+}
 
 class ModalReservas extends Component {
 
@@ -310,15 +307,12 @@ class ModalReservas extends Component {
             </>
         }
     }
-    
+
     render() {
         return <div className="containerModal modalOpen">
-                
             <div className="contBM">
                 <div className="form modal modalAP">
-                    
                     {this.verModal()}
-
                 </div>
             </div>
 
