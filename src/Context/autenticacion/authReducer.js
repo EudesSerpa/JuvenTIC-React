@@ -2,6 +2,7 @@ import {
 	REGISTRO_EXITOSO,
 	REGISTRO_ERROR,
 	OBTENER_USUARIO,
+	OBTENER_USUARIOS,
 	LOGIN_EXITOSO,
 	LOGIN_ERROR,
 	CERRAR_SESION
@@ -16,6 +17,12 @@ export default (state, action)=>{
 				...state,
 				autenticado: true,
 				mensaje: null
+			}
+
+		case OBTENER_USUARIOS:
+			return{
+				...state,
+				usuarios: action.payload
 			}
 
 		case OBTENER_USUARIO:

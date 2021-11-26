@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 
 
 export default class RealizarComprar extends Component {
-
     state = {
         nombre: this.props.usuario ? this.props.usuario.nombre : '',
         correo: this.props.usuario ? this.props.usuario.correo : '',
