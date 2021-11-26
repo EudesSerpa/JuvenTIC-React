@@ -76,7 +76,10 @@ export default function Admin(props) {
             />
         }
         else if(props.active === 'reservas'){
-            return <Reservas/>
+            return <Reservas
+                preguntas = {[]}
+                reservaciones = {[]}
+            />
         }
         else if(props.active === 'nosotros'){
             return <Nosotros/>

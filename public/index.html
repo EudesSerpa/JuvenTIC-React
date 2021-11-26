@@ -33,13 +33,15 @@
       window.onload = function(){ 
 
         // Menu toggle
-        let toggle = document.querySelector('.toggle')
+        var toggle = document.querySelector('.toggle')
         let navigation = document.querySelector('.navigation')
         let main = document.querySelector('.main')
 
+        console.log(toggle)
+
         toggle.onclick = function(){
-            navigation.classList.toggle('active')
-            main.classList.toggle('active')
+          navigation.classList.toggle('active')
+          main.classList.toggle('active')
         }
 
         // add Hovered class in selected list item
@@ -51,13 +53,13 @@
         list.forEach((item) => item.addEventListener('mouseover', activeLink))
 
         let btn = document.querySelector('.buttonAP')
-        btn.onclick = function(e){ //window.onload - btn.onmousemove
+        /*btn.onclick = function(e){ //window.onload - btn.onmousemove
           const x = e.pageX - btn.offsetLeft
           const y = e.pageY - btn.offsetTop
 
           btn.style.setProperty('--x', x + 'px')
           btn.style.setProperty('--y', y + 'px')
-        }
+        }*/
 
       };
       
