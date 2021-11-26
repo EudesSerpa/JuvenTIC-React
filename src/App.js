@@ -29,6 +29,9 @@ import ComentState from './Context/comentarios/comentState';
 import PlatosState from './Context/platos/platosState';
 import CarritoState from './Context/carrtio/CarritoState';
 import { ServicesContextProvider } from './Context/ServicesContext';
+import ContactoState from './Context/contacto/contactoState';
+import ReservaState from './Context/reserva/reservaState';
+import CompraState from './Context/registro_compra/compraState'
 
 function App() {
   return (
@@ -37,61 +40,67 @@ function App() {
         <ComentState>
           <PlatosState>
             <CarritoState>
-                <ServicesContextProvider>
-                  <Router>
-                    <Switch>
-                      <Route path="/" exact component={Home} />
-                      <Route path="/home" exact component={Home} />
-                      <Route path="/about" component={About} />
-                      <Route path="/ejemplo" component={Ejemplo} />
-                      <Route path="/menu"render={() => {
-                        return <Menu />
-                      }}/>
-                      <Route path="/carrito" render={() => {
-                        return <Carrito/>
-                      }}/>
-                      <Route path="/services" component={Services} />
-                      <Route path="/reserve" component={Reserves} />
-                      <Route path="/contact" component={Contact} />
-                      <Route path="/map-site" component={MapSite} />
-                      <Route path="/sign-in" component={SignIn} />
-                      <Route path="/sign-up" component={SignUp} />
+              <ContactoState>
+                <ReservaState>
+                  <CompraState>
+                    <ServicesContextProvider>
+                      <Router>
+                        <Switch>
+                          <Route path="/" exact component={Home} />
+                          <Route path="/home" exact component={Home} />
+                          <Route path="/about" component={About} />
+                          <Route path="/ejemplo" component={Ejemplo} />
+                          <Route path="/menu"render={() => {
+                            return <Menu />
+                          }}/>
+                          <Route path="/carrito" render={() => {
+                            return <Carrito/>
+                          }}/>
+                          <Route path="/services" component={Services} />
+                          <Route path="/reserve" component={Reserves} />
+                          <Route path="/contact" component={Contact} />
+                          <Route path="/map-site" component={MapSite} />
+                          <Route path="/sign-in" component={SignIn} />
+                          <Route path="/sign-up" component={SignUp} />
 
-                      {/* Rutas Privadas */}
-                      <RutaPrivada exact path='/admin' component={'home'} />
-                      <RutaPrivada path='/menuAdmin' component = {'menu'} />
-                      <RutaPrivada path='/usuariosAdmin' component = {'user'} />
-                      <RutaPrivada path='/serviciosAdmin' component = {'servicios'} />
-                      <RutaPrivada path='/commentsAdmin' component = {'comentarios'} />
-                      <RutaPrivada path='/bookingAdmin' component = {'reservas'} />
-                      <RutaPrivada path='/aboutusAdmin' component = {'nosotros'} />
+                          {/* Rutas Privadas */}
+                          <RutaPrivada exact path='/admin' component={'home'} />
+                          <RutaPrivada path='/menuAdmin' component = {'menu'} />
+                          <RutaPrivada path='/usuariosAdmin' component = {'user'} />
+                          <RutaPrivada path='/serviciosAdmin' component = {'servicios'} />
+                          <RutaPrivada path='/commentsAdmin' component = {'comentarios'} />
+                          <RutaPrivada path='/bookingAdmin' component = {'reservas'} />
+                          <RutaPrivada path='/aboutusAdmin' component = {'nosotros'} />
 
-                      {/* <Route path="/admin" render={() => {
-                        return <Admin active={'home'} />
-                      }} />
-                      <Route path="/menuAdmin" render={() => {
-                        return <Admin active={'menu'} />
-                      }} />
-                      <Route path="/usuariosAdmin" render={() => {
-                        return <Admin active={'user'} />
-                      }} />
-                      <Route path="/serviciosAdmin" render={() => {
-                        return <Admin active={'servicios'} />
-                      }} />
-                      <Route path="/commentsAdmin" render={() => {
-                        return <Admin active={'comentarios'} />
-                      }} />
-                      <Route path="/bookingAdmin" render={() => {
-                        return <Admin active={'reservas'} />
-                      }} />
-                      <Route path="/aboutusAdmin" render={() => {
-                        return <Admin active={'nosotros'} />
-                      }} /> */}
+                          {/* <Route path="/admin" render={() => {
+                            return <Admin active={'home'} />
+                          }} />
+                          <Route path="/menuAdmin" render={() => {
+                            return <Admin active={'menu'} />
+                          }} />
+                          <Route path="/usuariosAdmin" render={() => {
+                            return <Admin active={'user'} />
+                          }} />
+                          <Route path="/serviciosAdmin" render={() => {
+                            return <Admin active={'servicios'} />
+                          }} />
+                          <Route path="/commentsAdmin" render={() => {
+                            return <Admin active={'comentarios'} />
+                          }} />
+                          <Route path="/bookingAdmin" render={() => {
+                            return <Admin active={'reservas'} />
+                          }} />
+                          <Route path="/aboutusAdmin" render={() => {
+                            return <Admin active={'nosotros'} />
+                          }} /> */}
 
-                      <Route path="*" component={NotFound} />
-                    </Switch>
-                  </Router>
-                </ServicesContextProvider>
+                          <Route path="*" component={NotFound} />
+                        </Switch>
+                      </Router>
+                    </ServicesContextProvider>
+                  </CompraState>
+                </ReservaState>
+              </ContactoState>
             </CarritoState>
           </PlatosState>
         </ComentState>
