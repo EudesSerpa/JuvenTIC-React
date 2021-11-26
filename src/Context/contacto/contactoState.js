@@ -20,7 +20,7 @@ const ContactoState = props =>{
 	//Crear contactos
 	const crearContacto = async (datos)=>{
 		//const token = localStorage.getItem('token')
-		
+
 		try{
 			const res = await axios.post('https://api-restauran.herokuapp.com/api/contactos', datos);
 
@@ -30,7 +30,7 @@ const ContactoState = props =>{
 			})
 		}catch(error){
 			console.log(error)
-		}		
+		}
 	}
 
 	//Obtener contactos

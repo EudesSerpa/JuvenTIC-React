@@ -1,4 +1,7 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
+
+import { ReactComponent as CloseMenu} from '../../assets/menuClose.svg';
+import { ReactComponent as MenuIcon} from '../../assets/menuHamburger.svg';
 
 import Home from './components/Home'
 import Menu from './components/Menu'
@@ -20,6 +23,8 @@ import { useServices } from '../../Hooks/useServices';
 import './StyleAdmin/adminS.css'
 
 export default function Admin(props) {
+    const [isMenuActive, setStateMenu] = useState(false);
+
     const platosContext = useContext(PlatosContext);
     const {crearPlatos, obtenerPlatos, borrarPlato, editarPlato, platos} = platosContext
 
@@ -45,6 +50,14 @@ export default function Admin(props) {
         obtenerReserva();
         obtenerComentarios();
     }, [])
+
+    const handleClick = () => {
+        setStateMenu(!isMenuActive);
+    }
+
+    const handleCloseMobileMenu = () => {
+        setStateMenu(false);
+    }
 
     function activeComponent(){
         if(props.active === 'menu'){
@@ -94,13 +107,24 @@ export default function Admin(props) {
         <div className="body_Admin">
             <div className="container_Admin">
 
-                <NavBar/>
+                <NavBar
+                    active={isMenuActive}
+                    handleCloseMobileMenu={handleCloseMobileMenu}
+                />
+
 
                 <div className="main">
-                    <div className="topbar"> 
-                        <div className="toggle">
-                            <ion-icon name="menu-outline"></ion-icon>
+                    <div className="topbar">
+                        <div className="mobile__menu-icons" onClick={handleClick}>
+                            {
+                                isMenuActive
+                                    ? <CloseMenu className="menu__icon" />
+                                    : <MenuIcon className="menu__icon" />
+                            }
                         </div>
+                        {/* <div className="toggle">
+                            <ion-icon name="menu-outline"></ion-icon>
+                        </div> */}
                         {/* Search */}
                         <div className="search">
                             <label>
