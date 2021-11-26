@@ -169,8 +169,19 @@
     border-radius: none;
 }
 
+.contetInfoRevConAdmin p.mensajeRercCon span{
+    box-shadow: none;
+    border-radius: none;
+}
+
 .contetInfoRevConAdmin p.mensajeServCon{
     height: 160px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.719); 
+}
+
+.contetInfoRevConAdmin p.mensajeRercCon{
+    height: 100px;
     border-radius: 20px;
     box-shadow: 0 0 5px rgba(128, 128, 128, 0.719); 
 }

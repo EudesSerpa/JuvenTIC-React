@@ -280,7 +280,7 @@ class ModalReservas extends Component {
                     <p className="cantidaPerRevCon"><span>Cantidad De Personas</span> <span>{this.props.dato.total_personas}</span></p>
                     <p className="fechaSoliRevCon"> <span>Realizada el</span> <span>{this.props.dato.fecha_envio}</span></p>
                     <p className="fechaReserRevCon"> <span>Fecha Reservada:</span> <span>{this.props.dato.fecha_reservada}</span></p>
-                    <p className="mensajeRevCon"> <span>{this.props.dato.mensaje}</span></p>
+                    <p className="mensajeRevCon mensajeRercCon"> <span>{this.props.dato.mensaje}</span></p>
                 </div>
             </>
         }

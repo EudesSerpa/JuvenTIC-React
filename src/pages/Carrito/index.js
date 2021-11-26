@@ -123,6 +123,7 @@ class CarritoClass extends Component {
                 doCompra = {this.doCompra}
                 usuario = {this.props.usuario}
                 vaciarCarrito = {this.vaciarCarrito}
+                realizarCompras = {this.finalizarCompraF}
             />
         }
         else{
@@ -130,6 +131,19 @@ class CarritoClass extends Component {
 
             </div>
         }
+    }
+
+    finalizarCompraF = (nombre, correo, mensajeR, metodoPago) => {
+        const total = this.updateTotal()
+        const compra = {
+            estado: 'espera',
+            nombre_user: nombre,
+            total_pago: total,
+            metodo_pago: metodoPago ? metodoPago : 'card',
+            correo: correo,
+            mensaje: mensajeR
+        }
+        this.props.actualizarCompras('finCompra', compra)
     }
 
     rederProductos = () => {
