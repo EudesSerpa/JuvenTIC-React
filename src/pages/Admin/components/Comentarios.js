@@ -11,8 +11,8 @@ export default class Comentarios extends Component {
 
             return this.props.comentarios.map( comment => {
 
-                const plato = this.props.platos.filter( plato =>  plato._id === comment._id )
-                console.log(plato.nombre)
+                const plato = this.props.platos.filter( plato =>  plato._id === comment.plato )
+                const platoResultante = plato[0]
 
                 return <div className="cardComentAdmin" key={comment._id}>
                         <div className="headerCmonetAdmin">
@@ -20,7 +20,7 @@ export default class Comentarios extends Component {
                             <span>00/00/00</span>
                         </div>
             
-                        <span className="namePlatoAdmin">{ plato.nombre != "" ? plato.nombre : "Nombre Plato"}</span>
+                        <span className="namePlatoAdmin">{ platoResultante ? platoResultante.nombre : "Nombre Plato"}</span>
                     
                         <div className="textcomentAdmin">
                             <p>{comment.texto}</p>
