@@ -100,12 +100,13 @@ const PlatoState = props =>{
 					}
 				});
 
+
 				dispatch({
 					type: EDITAR_PLATOS,
 					payload: plato
-				}) 
+				})
 			}catch(error){
-				console.log(error)
+				console.log(error.message)
 			}
 		}
 	}
