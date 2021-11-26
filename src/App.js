@@ -29,6 +29,7 @@ import ComentState from './Context/comentarios/comentState';
 import PlatosState from './Context/platos/platosState';
 import CarritoState from './Context/carrtio/CarritoState';
 import { ServicesContextProvider } from './Context/ServicesContext';
+import ContactoState from './Context/contacto/contactoState';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <ComentState>
           <PlatosState>
             <CarritoState>
+              <ContactoState>
                 <ServicesContextProvider>
                   <Router>
                     <Switch>
@@ -92,6 +94,7 @@ function App() {
                     </Switch>
                   </Router>
                 </ServicesContextProvider>
+              </ContactoState>
             </CarritoState>
           </PlatosState>
         </ComentState>
