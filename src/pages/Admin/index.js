@@ -63,7 +63,10 @@ export default function Admin(props) {
             />
         }
         else if(props.active === 'reservas'){
-            return <Reservas/>
+            return <Reservas
+                preguntas = {[]}
+                reservaciones = {[]}
+            />
         }
         else if(props.active === 'nosotros'){
             return <Nosotros/>
@@ -77,7 +80,7 @@ export default function Admin(props) {
                 <NavBar/>
 
                 <div className="main">
-                    <div className="topbar">
+                    <div className="topbar"> 
                         <div className="toggle">
                             <ion-icon name="menu-outline"></ion-icon>
                         </div>

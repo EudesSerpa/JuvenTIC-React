@@ -24,6 +24,7 @@
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
 }
 
 .listDatoReservaAdmin .btnminadmin {
@@ -44,18 +45,21 @@
     border-radius: 50%;
     height: 30px;
     width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
 }
 
 .contetAdminRC{
     width: 100%;
-    height: 100%;
     margin-top: 10px;
     overflow: hidden;
     overflow-x: auto;
 }
 
 
-.headerReservaAdmin{
+.headerReservaAdmin, .bodyReservaAdmin{
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -63,99 +67,97 @@
     overflow: hidden;
 }
 
-.headerReservaAdmin p{
+.generarTableAdmin p{
     font-size: 1.1em;
     color: black;
     font-weight: 500;
     width: 250px;
-    border: 1px solid black;
     text-align: center;
 }
 
-.headerReservaAdmin p.hN {
+.bodyReservaAdmin p{
+    font-size: 1em;
+    color: rgb(87, 86, 86);
+    font-weight: 300;
+}
+
+.generarTableAdmin p.hN {
     width: 250px;
     text-align: start;
     padding-left: 5px;
 }
 
 
-.headerReservaAdmin p.hA {
-    width: 150px;
-}
-
-
-@media (max-width: 480px) {
-    
-}
-
-
-/*
-.contentMenuAdmin table thead{
-    font-size: 1.1em;
-    font-weight: 600;
-}
-
-.contentMenuAdmin table tr{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.contentMenuAdmin table tbody {
-    color: rgb(119, 119, 119);
-}
-
-.contentMenuAdmin table tr td:last-child{
+.generarTableAdmin p.hA {
+    width: 170px;
     text-align: end;
     padding-right: 10px;
 }
 
-.contentMenuAdmin table tr td:nth-child(3),
-.contentMenuAdmin table tr td:nth-child(2){
-    text-align: center;
-}
-
-.btnVerAdm{
+.generarTableAdmin p.hA button{
     border: none;
-    padding: 2px 20px;
-    border-radius: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    padding: 2px 10px;
+    border-radius: 20px;
 }
 
-.btnVerAdm:hover{
-    background: blue;
-    color: white;
-    padding: 2px 18px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+@media (max-width: 896px) {
+    .generarTableAdmin{
+        width: 900px;
+    }
 }
 
-.contentMenuAdmin table .btnMenu {
+.btnCerrarModal{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnCerrarModal button {
+    width: 30px;
+    height: 30px;
     border: none;
-    padding: 2px 5px 0 5px;
-    border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.5em;
 }
 
-.contentMenuAdmin table .btnMenu.menuEdit{
+.contetInfoRevConAdmin{
+    height: 100%;
+    width: 100%;
+}
+
+.contetInfoRevConAdmin h2{
+    width: 100%;
+}
+
+.contetInfoRevConAdmin h4{
+    width: 100%;
+}
+
+.contetInfoRevConAdmin p{
+    width: 100%;    
+    margin: 8px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.contetInfoRevConAdmin p span {
+    padding: 5px 15px;
+    text-align: start;
+    border-radius: 20px;
     margin-right: 5px;
-    background: rgb(50, 155, 197);
-    color: white;
+    margin-left: 2px;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.719);
 }
 
-.contentMenuAdmin table .menuEdit:hover{
-    background: rgb(9, 49, 160);
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.contetInfoRevConAdmin p.mensajeRevCon{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    overflow-y: auto;
 }
-
-.contentMenuAdmin table .btnMenu.menuDel{
-    margin-left: 5px;
-    background: rgb(241, 92, 92);
-    color: white;
-}
-
-.contentMenuAdmin table .menuDel:hover{
-    background: #f00;
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}*/
