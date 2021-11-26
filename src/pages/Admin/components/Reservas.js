@@ -62,7 +62,10 @@ export default class Reservas extends Component {
 
                             {this.props.reservaciones.length > 0 
                                 ?  this.props.reservaciones.map( reserva => {
-                                    return <ReservaDato reserva = {reserva} />
+                                    return <ReservaDato 
+                                        reserva = {reserva} 
+                                        borrarReserva = {this.props.borrarReserva}
+                                    />
                                 } )
                                 : <ReservaDato reserva = {false}/>
                             }
@@ -93,7 +96,10 @@ export default class Reservas extends Component {
 
                                 {this.props.reservaciones.length > 0 
                                     ?  this.props.preguntas.map( pregunta => {
-                                        return <ContactoDato pregunta = {pregunta} />
+                                        return <ContactoDato 
+                                            pregunta = {pregunta} 
+                                            borrarContacto = {this.props.borrarContacto}
+                                        />
                                     } )
                                     : <ContactoDato pregunta = {false}/>
                                 }
@@ -265,11 +271,21 @@ class ModalReservas extends Component {
     state = {
     }
 
+    eliminar = () => {
+        if(this.props.tipoModal === 'Reservas'){
+            this.props.borrarReserva(this.props.dato._id)
+        }
+        else if(this.props.tipoModal === 'Contacto'){
+            this.props.borrarContacto(this.props.dato._id)
+        }
+        this.props.abrirModal()
+    }
+
     verModal = () => {
         if(this.props.tipoModal === 'Reservas'){
             return <>
                 <div className="btnCerrarModal">
-                    <button className="btnDelRes" onClick={this.props.abrirModal}> <ion-icon name="trash-outline"></ion-icon> </button>
+                    <button className="btnDelRes" onClick={this.props.eliminar}> <ion-icon name="trash-outline"></ion-icon> </button>
                     <button onClick={this.props.abrirModal}> <ion-icon name="close-circle-outline"></ion-icon> </button>
                 </div>
                 <div className="contetInfoRevConAdmin">
@@ -287,7 +303,7 @@ class ModalReservas extends Component {
         else if(this.props.tipoModal === 'Contacto'){
             return <>
                 <div className="btnCerrarModal">
-                    <button className="btnDelRes" onClick={this.props.abrirModal}> <ion-icon name="trash-outline"></ion-icon> </button>
+                    <button className="btnDelRes" onClick={this.props.eliminar}> <ion-icon name="trash-outline"></ion-icon> </button>
                     <button onClick={this.props.abrirModal}> <ion-icon name="close-circle-outline"></ion-icon> </button>
                 </div>
                 <div className="contetInfoRevConAdmin">

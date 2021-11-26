@@ -234,7 +234,7 @@ export default function Carrito(){
     const {compras, eliminar, actualizar, vaciar} = carritoContext
 
     const compraContext = useContext(CompraContext)
-    const {crearCompra} = compraContext
+    const {crearCompra, obtenerCompra} = compraContext
 
 
     useEffect(()=>{

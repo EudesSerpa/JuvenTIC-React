@@ -75,7 +75,9 @@ export default function Admin(props) {
                 totalPlatos = {platos.length}
                 totalComentarios = {comentarios.length}
                 totalReservas = {reservas.length}
+                borrarReserva = {borrarReserva}
                 comprasRealizadas = {compras}
+                borrarContacto = {borrarContacto}
             />
         }
         else if(props.active === 'user'){
