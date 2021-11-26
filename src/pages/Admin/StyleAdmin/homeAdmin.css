@@ -38,8 +38,62 @@
     font-size: 1.5em;
 }
 
-.contetDatosCAdmin{
+.contetDatosCompAdmin{
     width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.cardCompraModal{
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.datoCompraCrudAdmin{
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.datoCompraCrudAdmin .totalMetodoPagoAdmin {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btnCrudCrompaAdmin{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnCrudCrompaAdmin .botonesCrudAdmin {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnCrudCrompaAdmin .botonesCrudAdmin button{
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
 }
 
 @media (max-width: 830px){

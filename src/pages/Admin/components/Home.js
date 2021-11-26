@@ -6,6 +6,28 @@ import '../StyleAdmin/homeAdmin.css'
 import '../../Styles/styleModal.css'
 
 export default class Home extends Component {
+
+
+    state = {
+        abrirModal: true
+    }
+
+    isOpenModal = () => {
+        this.setState({abrirModal: !this.state.abrirModal})
+    }
+
+    openModal = () => {
+        if(this.state.abrirModal){
+            return <ModalCompras
+                isOpenModal = {this.isOpenModal}
+                datos = {this.props.comprasRealizadas}
+            />
+        }
+        else{
+            return <></>
+        }
+    }
+
     render(){
 
         this.props.obtenerCompra()
@@ -57,7 +79,7 @@ export default class Home extends Component {
                 <div className="recentOrders">
                     <div className="cardHeader">
                         <h2>Recent Orders</h2>
-                        <a href="#" className="btn">View All</a>
+                        <button className="btn" onClick={this.isOpenModal}>View All</button>
                     </div>
                             
                     <table>
@@ -78,7 +100,7 @@ export default class Home extends Component {
                             }
                         </tbody>
                     </table>
-                    <ModalCompras/>
+                    
                 </div>
 
                 {/* New Customers */}
@@ -95,6 +117,8 @@ export default class Home extends Component {
                         </tbody>
                     </table>
                 </div>
+
+                {this.openModal()}
 
             </div>
         </>
@@ -152,16 +176,68 @@ class ModalCompras extends Component{
                 <div className="constComprasAdminModal">
                     
                     <div className="btnCerrarModalCompra">
-                        <button>
+                        <button onClick={this.props.isOpenModal}>
                             <ion-icon name="close-circle-outline"></ion-icon>
                         </button>
                     </div>
 
-                    <div className="contetDatosCAdmin"></div>
+                    <div className="contetDatosCompAdmin">
+                        {this.props.datos.length > 0 
+                            ? this.props.datos.map( compra => {
+                                return <CardCompraModal compra = {compra} />
+                            })
+                            : <CardCompraModal compra = {false}/>
+                        }
+                    </div>
 
                 </div>
             </div>
 
         </div>
+    }
+}
+
+
+class CardCompraModal extends Component{
+
+    datosAVer = () => {
+        if(this.props.compra){
+            return <div className="cardCompraModal">
+                <div className="datoCompraCrudAdmin">
+                    <h3>{this.props.compra.nombre_user}</h3>
+                    <h4>{this.props.compra.correo}</h4>
+                    <div className="totalMetodoPagoAdmin">
+                        <p>{'$' + this.props.compra.total_pago}</p>
+                        <p>{this.props.compra.metodo_pago}</p>
+                    </div>
+                    <p>{this.props.compra.mensaje}</p>
+                </div>
+                <div className="btnCrudCrompaAdmin">
+                    <div className="estadoCompraAdmin">
+                        <h4>{this.props.compra.estado}</h4>
+                    </div>
+                    <div className="botonesCrudAdmin">
+                        <button>
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
+                        <button>
+                            <ion-icon name="checkmark-done-outline"></ion-icon>
+                        </button>
+                        <button>
+                            <ion-icon name="checkmark-done-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+        else{
+            return <div className="cardCompraModal">
+    
+            </div>
+        }
+    }
+
+    render(){
+        return <>{this.datosAVer()}</>
     }
 }

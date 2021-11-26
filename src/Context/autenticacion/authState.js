@@ -31,7 +31,7 @@ const AuthState = props =>{
 
 			dispatch({
 				type: OBTENER_USUARIOS,
-				payload: res.data
+				payload: res.data.usuarios
 			})
 		}catch(error){
 			console.log(error.message)

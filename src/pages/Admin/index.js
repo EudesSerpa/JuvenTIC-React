@@ -11,6 +11,7 @@ import Reservas from './components/Reservas'
 import Comentarios from './components/Comentarios'
 import Nosotros from './components/Nosotros'
 import NavBar from './components/NavBar'
+import AuthContext from '../../Context/autenticacion/authContext';
 
 import ComentContext from '../../Context/comentarios/comentContext'
 import PlatosContext from '../../Context/platos/platosContext'
@@ -39,10 +40,14 @@ export default function Admin(props) {
     const compraContext = useContext(CompraContext)
     const {obtenerCompra, borrarCompra, compras} = compraContext
 
+    const authContext = useContext(AuthContext);
+    const {obtenerUsuarios, usuarios} = authContext;
+
 
     const { services } = useServices();
 
     useEffect(()=>{
+        obtenerUsuarios()
         obtenerPlatos();
         obtenerContactos();
         obtenerCompra();
@@ -72,7 +77,9 @@ export default function Admin(props) {
             />
         }
         else if(props.active === 'user'){
-            return <Usuarios/>
+            return <Usuarios
+                usuarios = {usuarios}
+            />
         }
         else if(props.active === 'servicios'){
             return <Servicios servicios = {services}/>

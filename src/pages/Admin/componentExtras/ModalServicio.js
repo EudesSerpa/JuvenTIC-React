@@ -108,7 +108,7 @@ export default class ModalServicio extends Component {
         if( estado ){
             return <div className="containerModal modalOpen">
                 
-                <div className="ventanaModalP" >
+                <div className="ventanaModalP" style={{background:'none'}}>
 
                     <div className="BotonCerrar">
                         <button className="close" onClick={this.props.editServicio}>X</button>
