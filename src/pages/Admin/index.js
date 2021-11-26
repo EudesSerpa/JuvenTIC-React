@@ -12,6 +12,9 @@ import NavBar from './components/NavBar'
 import AuthContext from '../../Context/autenticacion/authContext';
 import ComentContext from '../../Context/comentarios/comentContext'
 import PlatosContext from '../../Context/platos/platosContext'
+import ContactoContext from '../../Context/contacto/contactoContext'
+import ReservaContext from '../../Context/reserva/reservaContext'
+import CompraContext from '../../Context/registro_compra/compraContext'
 import { useServices } from '../../Hooks/useServices';
 
 import './StyleAdmin/adminS.css'
@@ -23,10 +26,23 @@ export default function Admin(props) {
     const comentContext = useContext(ComentContext);
     const {obtenerComentarios, borrarComentarios, comentarios} = comentContext
 
+    const contactoContext = useContext(ContactoContext)
+    const {obtenerContactos, borrarContacto, contactos} = contactoContext
+
+    const reservaContext = useContext(ReservaContext)
+    const {obtenerReserva, borrarReserva, reservas} = reservaContext
+
+    const compraContext = useContext(CompraContext)
+    const {obtenerCompra, borrarCompra, compras} = compraContext
+
+
     const { services } = useServices();
 
     useEffect(()=>{
         obtenerPlatos();
+        obtenerContactos();
+        obtenerCompra();
+        obtenerReserva();
         obtenerComentarios();
     }, [])
 
@@ -45,7 +61,8 @@ export default function Admin(props) {
                 totalUsuer = {0}
                 totalPlatos = {platos.length}
                 totalComentarios = {comentarios.length}
-                totalReservas = {5}
+                totalReservas = {reservas.length}
+                comprasRealizadas = {compras}
             />
         }
         else if(props.active === 'user'){
@@ -64,8 +81,8 @@ export default function Admin(props) {
         }
         else if(props.active === 'reservas'){
             return <Reservas
-                preguntas = {[]}
-                reservaciones = {[]}
+                preguntas = {contactos}
+                reservaciones = {reservas}
             />
         }
         else if(props.active === 'nosotros'){

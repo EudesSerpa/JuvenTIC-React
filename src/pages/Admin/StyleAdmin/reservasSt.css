@@ -100,17 +100,11 @@
     border-radius: 20px;
 }
 
-@media (max-width: 896px) {
-    .generarTableAdmin{
-        width: 900px;
-    }
-}
-
 .btnCerrarModal{
     width: 100%;
     height: 30px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -123,6 +117,11 @@
     align-items: center;
     border-radius: 50%;
     font-size: 1.5em;
+}
+
+.btnCerrarModal .btnDelRes{
+    background: rgb(206, 30, 30);
+    color: white;
 }
 
 .contetInfoRevConAdmin{
@@ -158,6 +157,26 @@
 .contetInfoRevConAdmin p.mensajeRevCon{
     width: 100%;
     height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     overflow: hidden;
     overflow-y: auto;
+}
+
+.contetInfoRevConAdmin p.mensajeServCon span{
+    box-shadow: none;
+    border-radius: none;
+}
+
+.contetInfoRevConAdmin p.mensajeServCon{
+    height: 160px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.719); 
+}
+
+@media (max-width: 896px) {
+    .generarTableAdmin{
+        width: 900px;
+    }
 }
