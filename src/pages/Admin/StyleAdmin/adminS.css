@@ -443,6 +443,21 @@
     color: var(--white);
 }
 
+
+.btnadminRole{
+    font-size: 1em;
+    padding: 6px 2px;
+    margin-right: 5px;
+    background: rgb(50, 155, 197);
+    color: white;
+}
+
+.btnadminRole:hover{
+    background: rgb(9, 49, 160);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 /* responsive design */
 @media screen and (min-width: 990px) {
     .sideBar__icon {

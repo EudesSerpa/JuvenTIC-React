@@ -74,9 +74,8 @@ export default function Admin(props) {
                 totalPlatos = {platos.length}
                 totalComentarios = {comentarios.length}
                 totalReservas = {reservas.length}
-                borrarReserva = {borrarReserva}
                 comprasRealizadas = {compras}
-                borrarContacto = {borrarContacto}
+                obtenerCompra = {obtenerCompra}
             />
         }
         else if(props.active === 'user'){
@@ -97,6 +96,10 @@ export default function Admin(props) {
             return <Reservas
                 preguntas = {contactos}
                 reservaciones = {reservas}
+                borrarReserva = {borrarReserva}
+                obtenerReserva = {obtenerReserva}
+                obtenerContactos = {obtenerContactos}
+                borrarContacto = {borrarContacto}
             />
         }
         else if(props.active === 'nosotros'){

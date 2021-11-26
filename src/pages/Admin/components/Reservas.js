@@ -27,6 +27,8 @@ export default class Reservas extends Component {
 
 
     render() {
+        this.props.obtenerReserva()
+        this.props.obtenerContactos()
         return (
             <div className="contentMenuAdmin">
                 <div className="contectCantidad">
@@ -63,6 +65,7 @@ export default class Reservas extends Component {
                             {this.props.reservaciones.length > 0 
                                 ?  this.props.reservaciones.map( reserva => {
                                     return <ReservaDato 
+                                        key = {reserva._id}
                                         reserva = {reserva} 
                                         borrarReserva = {this.props.borrarReserva}
                                     />
@@ -97,6 +100,7 @@ export default class Reservas extends Component {
                                 {this.props.reservaciones.length > 0 
                                     ?  this.props.preguntas.map( pregunta => {
                                         return <ContactoDato 
+                                            key = {pregunta._id}
                                             pregunta = {pregunta} 
                                             borrarContacto = {this.props.borrarContacto}
                                         />
@@ -132,6 +136,7 @@ class ReservaDato extends Component{
                 abrirModal = {this.openModal}
                 tipoModal = {'Reservas'}
                 dato = {this.props.reserva}
+                borrarReserva = {this.props.borrarReserva}
             />
         }
         else{
@@ -207,6 +212,7 @@ class ContactoDato extends Component{
                 abrirModal = {this.openModal}
                 tipoModal = {'Contacto'}
                 dato = {this.props.pregunta}
+                borrarContacto = {this.props.borrarContacto}
             />
         }
         else{
@@ -271,21 +277,14 @@ class ModalReservas extends Component {
     state = {
     }
 
-    eliminar = () => {
-        if(this.props.tipoModal === 'Reservas'){
-            this.props.borrarReserva(this.props.dato._id)
-        }
-        else if(this.props.tipoModal === 'Contacto'){
-            this.props.borrarContacto(this.props.dato._id)
-        }
-        this.props.abrirModal()
-    }
-
     verModal = () => {
         if(this.props.tipoModal === 'Reservas'){
             return <>
                 <div className="btnCerrarModal">
-                    <button className="btnDelRes" onClick={this.props.eliminar}> <ion-icon name="trash-outline"></ion-icon> </button>
+                    <button className="btnDelRes" onClick={ () => {
+                        this.props.borrarReserva(this.props.dato._id)
+                        this.props.abrirModal()
+                    }}> <ion-icon name="trash-outline"></ion-icon> </button>
                     <button onClick={this.props.abrirModal}> <ion-icon name="close-circle-outline"></ion-icon> </button>
                 </div>
                 <div className="contetInfoRevConAdmin">
@@ -303,7 +302,10 @@ class ModalReservas extends Component {
         else if(this.props.tipoModal === 'Contacto'){
             return <>
                 <div className="btnCerrarModal">
-                    <button className="btnDelRes" onClick={this.props.eliminar}> <ion-icon name="trash-outline"></ion-icon> </button>
+                    <button className="btnDelRes" onClick={() => {
+                        this.props.borrarContacto(this.props.dato._id)
+                        this.props.abrirModal()
+                    }}> <ion-icon name="trash-outline"></ion-icon> </button>
                     <button onClick={this.props.abrirModal}> <ion-icon name="close-circle-outline"></ion-icon> </button>
                 </div>
                 <div className="contetInfoRevConAdmin">

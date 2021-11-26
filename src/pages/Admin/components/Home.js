@@ -5,6 +5,9 @@ import '../StyleAdmin/StyleGeneral.css'
 
 export default class Home extends Component {
     render(){
+
+        this.props.obtenerCompra()
+
         return  <>
             {/* cards */}
             <div className="cardBox">
