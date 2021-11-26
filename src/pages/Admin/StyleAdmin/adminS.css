@@ -25,7 +25,7 @@
     width: 100%;
 }
 
-.menu__icon {
+.sideBar__icon {
     width: 32px;
     height: 32px;
     padding: 5px;
@@ -445,7 +445,7 @@
 
 /* responsive design */
 @media screen and (min-width: 990px) {
-    .menu__icon {
+    .sideBar__icon {
         display: none;
     }
 
@@ -470,7 +470,7 @@
 
 
 @media (max-width: 991px){
-    .menu__icon {
+    .sideBar__icon {
         display: unset;
     }
 
