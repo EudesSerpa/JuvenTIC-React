@@ -74,6 +74,7 @@ export default function Admin(props) {
                 totalReservas = {reservas.length}
                 comprasRealizadas = {compras}
                 obtenerCompra = {obtenerCompra}
+                borrarCompra = {borrarCompra}
             />
         }
         else if(props.active === 'user'){

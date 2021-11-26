@@ -91,6 +91,7 @@ const PlatoState = props =>{
 
 	//Editar platos
 	const editarPlato = async (plato)=>{
+
 		const token = localStorage.getItem('token')
 		if(token){
 			try{
@@ -100,6 +101,7 @@ const PlatoState = props =>{
 					}
 				});
 
+				
 
 				dispatch({
 					type: EDITAR_PLATOS,
