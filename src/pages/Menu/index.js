@@ -170,7 +170,7 @@ class MenuClass extends Component{
         const datos = this.props.datos
         const rol = this.props.rol
         
-        this.props.obtenerPlatos()
+        //this.props.obtenerPlatos()
         this.props.obtenerComentarios()
 
         return <>
