@@ -31,14 +31,6 @@ export default class Reservas extends Component {
         this.props.obtenerContactos()
         return (
             <div className="contentMenuAdmin">
-                <div className="contectCantidad">
-                    <div className="cardTotalRAdmin">
-
-                    </div>
-                    <div className="cardTotalRAdmin">
-                    
-                    </div>
-                </div>
                 <div className="headerContentMenu">
                     <h2>Reservaciones</h2>
                 </div>

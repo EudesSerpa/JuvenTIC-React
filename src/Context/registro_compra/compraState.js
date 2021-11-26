@@ -19,18 +19,25 @@ const CompraState = props =>{
 
 	
 	const crearCompra = async (datos)=>{
-		//const token = localStorage.getItem('token')
+		const token = localStorage.getItem('token')
 		
-		try{
-			const res = await axios.post('https://api-restauran.herokuapp.com/api/compras', datos);
+		if(token){
+			try{
+				const res = await axios.post('https://api-restauran.herokuapp.com/api/compras', datos, {
+					headers: {
+					'x-token': token
+					}
+				});
 
-			dispatch({
-				type: AGREGAR_RCOMPRA,
-				payload: res.data.compra
-			})
-		}catch(error){
-			console.log(error)
-		}		
+				dispatch({
+					type: AGREGAR_RCOMPRA,
+					payload: res.data.compra
+				})
+			}catch(error){
+				console.log(error)
+			}	
+		}
+			
 	}
 
 	

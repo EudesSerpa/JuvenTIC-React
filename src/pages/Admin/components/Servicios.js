@@ -117,7 +117,7 @@ export default class Servicios extends Component {
             <div className="listServiceAdmin">
 
                 {this.props.servicios.map( servicio => {
-                    return <Servicio
+                    return <Servicio key = {servicio._id}
                         servicio = {servicio}
                     />
                 } )}

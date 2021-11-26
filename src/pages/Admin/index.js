@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useState, useContext, useEffect, Component} from 'react'
 
 import { ReactComponent as CloseMenu} from '../../assets/menuClose.svg';
 import { ReactComponent as MenuIcon} from '../../assets/menuHamburger.svg';
@@ -22,7 +22,7 @@ import { useServices } from '../../Hooks/useServices';
 import './StyleAdmin/adminS.css'
 
 export default function Admin(props) {
-    const [isMenuActive, setStateMenu] = useState(false);
+    //const [isMenuActive, setStateMenu] = useState(false);
 
     const platosContext = useContext(PlatosContext);
     const {crearPlatos, obtenerPlatos, borrarPlato, editarPlato, platos} = platosContext
@@ -50,13 +50,6 @@ export default function Admin(props) {
         obtenerComentarios();
     }, [])
 
-    const handleClick = () => {
-        setStateMenu(!isMenuActive);
-    }
-
-    const handleCloseMobileMenu = () => {
-        setStateMenu(false);
-    }
 
     function activeComponent(){
         if(props.active === 'menu'){
@@ -107,44 +100,62 @@ export default function Admin(props) {
         }
     }
 
-    return <>
-        <div className="body_Admin">
-            <div className="container_Admin">
-
-                <NavBar
-                    active={isMenuActive}
-                    handleCloseMobileMenu={handleCloseMobileMenu}
-                />
+    return <><ContenAdmin 
+        activeComponent = {activeComponent} 
+    /></>
+}
 
 
-                <div className="main">
-                    <div className="topbar">
-                        <div className="mobile__menu-icons" onClick={handleClick}>
-                            {
-                                isMenuActive
-                                    ? <CloseMenu className="sideBar__icon" />
-                                    : <MenuIcon className="sideBar__icon" />
-                            }
+class ContenAdmin extends Component{
+
+    state = {
+        isMenuActive: false
+    }
+
+    handleClick = () => {
+        this.setState({isMenuActive: !this.state.isMenuActive});
+    }
+
+    handleCloseMobileMenu = () => {
+        this.setState({isMenuActive: false});
+    }
+
+    render(){
+        return <>
+            <div className="body_Admin">
+                <div className="container_Admin">
+
+                    <NavBar
+                        active={this.state.isMenuActive}
+                        handleCloseMobileMenu = {this.handleCloseMobileMenu}
+                    />
+
+
+                    <div className={"main" + (this.state.isMenuActive ? " active" : "")}>
+                        <div className="topbar">
+                            <div className="toggle" onClick={this.handleClick}>
+                                <ion-icon name="menu-outline"></ion-icon>
+                            </div>
+
+                            {/* Search */}
+                            <div className="search">
+                                <label>
+                                    <input type="text" placeholder="Search here" />
+                                    <ion-icon name="search-outline"></ion-icon>
+                                </label>
+                            </div>
+
+                            {/* userImg */}
+                            <div className="user">
+                                <img src="https://i.postimg.cc/28JTJD92/Joe-Uriah-Commission-by-The-Zombie-Cat-on-Deviant-Art.png" />
+                            </div>
                         </div>
 
-                        {/* Search */}
-                        <div className="search">
-                            <label>
-                                <input type="text" placeholder="Search here" />
-                                <ion-icon name="search-outline"></ion-icon>
-                            </label>
-                        </div>
+                        {this.props.activeComponent()}
 
-                        {/* userImg */}
-                        <div className="user">
-                            <img src="https://i.postimg.cc/28JTJD92/Joe-Uriah-Commission-by-The-Zombie-Cat-on-Deviant-Art.png" />
-                        </div>
                     </div>
-
-                    {activeComponent()}
-
                 </div>
             </div>
-        </div>
-    </>
+        </>
+    }
 }

@@ -25,34 +25,18 @@
     width: 100%;
 }
 
-.sideBar__icon {
-    width: 32px;
-    height: 32px;
-    padding: 5px;
-    background-color: rgba(255, 255, 255, .5);
-    cursor: pointer;
-}
-
-.navigation {
+.container_Admin .navigation{
     position: fixed;
-    left: -100%;
     width: 250px;
-    max-width: 80%;
     height: 100%;
     background: var(--blue);
     border-left: 1px solid var(--blue);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 100;
-    transition: all .5s ease-in-out;
+    transition: 0.5s;
     overflow: hidden;
 }
 
-.navigation.active {
-    left: 0;
-    opacity: 1;
-    pointer-events: all;
-    transition: all .5s ease;
+.navigation.active{
+    width: 80px;
 }
 
 .navigation ul{
@@ -443,52 +427,8 @@
     color: var(--white);
 }
 
-
-.btnadminRole{
-    font-size: 1em;
-    padding: 6px 2px;
-    margin-right: 5px;
-    background: rgb(50, 155, 197);
-    color: white;
-}
-
-.btnadminRole:hover{
-    background: rgb(9, 49, 160);
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
 /* responsive design */
-@media screen and (min-width: 990px) {
-    .sideBar__icon {
-        display: none;
-    }
-
-    .navigation {
-        left: 0;
-        opacity: 1;
-        pointer-events: all;
-        transition: none;
-    }
-
-    .cardBox{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    .cardAdmin {
-        flex: 1;
-    }
-}
-
-
 @media (max-width: 991px){
-    .sideBar__icon {
-        display: unset;
-    }
-
     .navigation{
         left: -25px;
     }

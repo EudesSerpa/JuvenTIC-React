@@ -1,0 +1,33 @@
+.mantenimientoAdmin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.infoMantenimiento{
+    width: 100%;
+}
+
+.infoMantenimiento h1{
+    position: relative;
+    width: 100%;
+    font-size: 2.5em;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.infoMantenimiento p{
+    font-size: 0.8em;
+    color: rgb(127, 127, 129);
+}
+
+.contenImgMantenimineto{
+    width: 100%;
+}
+
+@media (max-width: 985px){
+    .mantenimientoAdmin{
+        flex-wrap: wrap;
+    }
+}
