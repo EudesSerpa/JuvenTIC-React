@@ -24,7 +24,7 @@ export default class Modal extends Component {
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = (e) => {
                 e.preventDefault();
-                this.setState({imagen: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
+                this.setState({imageMustra: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
             };
         }
     };
@@ -91,7 +91,7 @@ export default class Modal extends Component {
                         >
                         </textarea>
                         <div className="contentImagen">
-                            <img src={this.state.imagen} alt="...."/>
+                            <img src={this.state.imageMustra} alt="...."/>
                             <p>{this.state.nameImagen}</p>
                             <label className="custom-file-upload">
                                 <input 

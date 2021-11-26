@@ -40,24 +40,25 @@ class Productos extends Component {
     render(){
         const plato = this.props.dato
 
-        return <tr>
-            <td>{plato.nombre}</td>
-            <td>{'$'+plato.precio}</td>
-            <td>
-                <button className="btnVerAdm" onClick={this.verInformacion}>Ver</button>
-            </td>
-            <td>
-                <button className="btnMenu menuEdit" onClick={this.editarPlato}>
-                    <ion-icon name="create-outline"></ion-icon>
-                </button>
-                <button className="btnMenu menuDel" onClick = {() => this.props.deletePlato(plato._id)}>
-                    <ion-icon name="trash-outline"></ion-icon>
-                </button>
-            </td>
+        return <>
+            <tr key = {plato._id}>
+                <td>{plato.nombre}</td>
+                <td>{'$'+plato.precio}</td>
+                <td>
+                    <button className="btnVerAdm" onClick={this.verInformacion}>Ver</button>
+                </td>
+                <td>
+                    <button className="btnMenu menuEdit" onClick={this.editarPlato}>
+                        <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                    <button className="btnMenu menuDel" onClick = {() => this.props.deletePlato(plato._id)}>
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                    {this.modalInfo()}
+                </td>
 
-            {this.modalInfo()}
-
-        </tr>
+            </tr>
+        </>
     }
 
 }

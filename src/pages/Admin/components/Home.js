@@ -21,6 +21,7 @@ export default class Home extends Component {
             return <ModalCompras
                 isOpenModal = {this.isOpenModal}
                 datos = {this.props.comprasRealizadas}
+                borrarCompra = {this.props.borrarCompra}
             />
         }
         else{
@@ -94,7 +95,11 @@ export default class Home extends Component {
                         <tbody>
                             {this.props.comprasRealizadas.length > 0 
                                 ? this.props.comprasRealizadas.map( compra => {
-                                    return <Compras key={compra._id} compra = {compra}/>
+                                    return <Compras 
+                                        key={compra._id} 
+                                        compra = {compra}
+                                        borrarCompra = {this.props.borrarCompra}
+                                    />
                                 })
                                 : <Compras compra = {false}/> 
                             }
@@ -184,7 +189,11 @@ class ModalCompras extends Component{
                     <div className="contetDatosCompAdmin">
                         {this.props.datos.length > 0 
                             ? this.props.datos.map( compra => {
-                                return <CardCompraModal compra = {compra} />
+                                return <CardCompraModal 
+                                    key={compra._id} 
+                                    compra = {compra} 
+                                    borrarCompra = {this.props.borrarCompra}
+                                />
                             })
                             : <CardCompraModal compra = {false}/>
                         }
@@ -210,7 +219,7 @@ class CardCompraModal extends Component{
                         <p>{'$' + this.props.compra.total_pago}</p>
                         <p>{this.props.compra.metodo_pago}</p>
                     </div>
-                    <p className="mensajeCompraAdmin">{this.props.compra.mensaje}</p>
+                    <div className="mensajeCompraAdmin"><p >{this.props.compra.mensaje}</p></div>
                 </div>
                 <div className="btnCrudCrompaAdmin">
                     <div className="estadoCompraAdmin">
@@ -218,13 +227,10 @@ class CardCompraModal extends Component{
                     </div>
                     <div className="botonesCrudAdmin">
                         <button>
+                            <ion-icon name="checkmark-done-outline"></ion-icon>
+                        </button>
+                        <button onClick={() => this.props.borrarCompra(this.props.compra._id)}>
                             <ion-icon name="trash-outline"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="checkmark-done-outline"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="checkmark-done-outline"></ion-icon>
                         </button>
                     </div>
                 </div>
