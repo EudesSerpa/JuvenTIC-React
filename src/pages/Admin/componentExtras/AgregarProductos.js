@@ -32,8 +32,8 @@ export default class AgregarProductos extends Component {
         e.preventDefault()
         this.props.agregar()
 
-        const formData = new FormData()        
-        formData.append('image', this.state.imagen);
+        const formData = new FormData()      
+        formData.append('imgURL', this.state.imagen);
         formData.append('nombre', this.state.nombre);
         formData.append('descripcion', this.state.descripcion);
         formData.append('precio', this.state.precio);

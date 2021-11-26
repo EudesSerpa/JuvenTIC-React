@@ -8,14 +8,18 @@ export default class Comentarios extends Component {
 
     comentarios = () => {
         if(this.props.comentarios.length > 0){
+
             return this.props.comentarios.map( comment => {
+
+                const plato = this.props.platos.filter( plato._id === comment._id )
+
                 return <div className="cardComentAdmin" key={comment._id}>
                         <div className="headerCmonetAdmin">
                             <h2>{comment.usuario.nombre}</h2>
                             <span>00/00/00</span>
                         </div>
             
-                        <span className="namePlatoAdmin">{}</span>
+                        <span className="namePlatoAdmin">{ plato ? plato.nombre : "Nombre Plato"}</span>
                     
                         <div className="textcomentAdmin">
                             <p>{comment.texto}</p>

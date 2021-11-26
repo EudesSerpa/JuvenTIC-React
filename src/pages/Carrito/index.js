@@ -6,6 +6,8 @@ import AuthContext from '../../Context/autenticacion/authContext';
 import CarritoContext from '../../Context/carrtio/CarritoContext';
 import CompraContext from '../../Context/registro_compra/compraContext'
 
+import Swal from 'sweetalert2';
+
 import '../Styles/carritoS.css'
 import '../Styles/realizarCompra.css'
 
@@ -46,7 +48,28 @@ class CarritoClass extends Component {
     }
 
     doCompra = () => {
-        this.setState({comprar: !this.state.comprar})
+        if(this.props.rol === "USER_ROLE" || this.props.rol === "ADMIN_ROLE" || this.props.rol === "EMPLOYEE_ROLE"){
+            if(this.props.compras.length > 0){
+                this.setState({comprar: !this.state.comprar})
+            }
+            else{
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'El carrito esta vacio',
+                    showConfirmButton: false,
+                    timer: 2000,
+                });
+            }
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Inicia seccion para comprar',
+                showConfirmButton: false,
+                timer: 2000,
+            });
+        }
+        
     }
 
     doShowDetalles = () => {
@@ -262,6 +285,7 @@ export default function Carrito(){
         <CarritoClass 
             compras={compras} 
             usuario = {usuario ? usuario : null}
+            rol = {usuario ? usuario.rol : 'NONE_ROLE'} 
             actualizarCompras = {actualizarCompras}
         />
         <Footer/>

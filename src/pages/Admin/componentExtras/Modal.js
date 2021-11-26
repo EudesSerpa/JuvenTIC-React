@@ -40,11 +40,12 @@ export default class Modal extends Component {
 
         const formData = new FormData()    
         formData.append('_id', this.props.dato._id)    
-        formData.append('image', this.state.imagen);
+        formData.append('imgURL', this.state.imagen);
         formData.append('public_id', this.props.dato.public_id);
         formData.append('nombre', this.state.title);
         formData.append('descripcion', this.state.descricion);
         formData.append('precio', this.state.precio);
+        formData.append('usuario', this.props.dato.usuario)
 
         this.props.editPlato(formData)
 
