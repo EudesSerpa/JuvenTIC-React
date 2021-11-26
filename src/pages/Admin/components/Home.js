@@ -219,7 +219,7 @@ class CardCompraModal extends Component{
                         <p>{'$' + this.props.compra.total_pago}</p>
                         <p>{this.props.compra.metodo_pago}</p>
                     </div>
-                    <p className="mensajeCompraAdmin">{this.props.compra.mensaje}</p>
+                    <div className="mensajeCompraAdmin"><p >{this.props.compra.mensaje}</p></div>
                 </div>
                 <div className="btnCrudCrompaAdmin">
                     <div className="estadoCompraAdmin">
