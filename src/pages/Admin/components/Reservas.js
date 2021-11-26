@@ -49,8 +49,8 @@ export default class Reservas extends Component {
                             <div className="headerReservaAdmin generarTableAdmin">
                                 <p className="hN">Nombre</p>
                                 <p className="hS">Servicio</p>
-                                <p className="hT">Correo</p>
-                                <p className="hFR">Fecha Reservada</p>
+                                <p className="hEst">ESTADO</p>
+                                <p className="hFR">Correo</p>
                                 <p className="hA">Accion</p>
                             </div>
 
@@ -60,6 +60,7 @@ export default class Reservas extends Component {
                                         key = {reserva._id}
                                         reserva = {reserva} 
                                         borrarReserva = {this.props.borrarReserva}
+                                        editarReserva = {this.props.editarReserva}
                                     />
                                 } )
                                 : <ReservaDato reserva = {false}/>
@@ -81,8 +82,8 @@ export default class Reservas extends Component {
                                 <div className="headerReservaAdmin generarTableAdmin">
                                     <p className="hN">Nombre</p>
                                     <p className="hS">Servicio</p>
-                                    <p className="hT">Correo</p>
-                                    <p className="hFR">Fecha Reservada</p>
+                                    <p className="hT">Fecha Reservada</p>
+                                    <p className="hFR">Correo</p>
                                     <p className="hA">Accion</p>
                                 </div>
 
@@ -112,7 +113,20 @@ export default class Reservas extends Component {
 class ReservaDato extends Component{
 
     state = {
-        abrirModal: false
+        abrirModal: false,
+        estadoReserva: typeof this.props.reserva.estado === 'string' ? this.props.reserva.estado : 'Espera'
+    }
+
+    actualizarEstado = () => {
+        if(this.state.estadoReserva === 'Espera'){
+            this.setState({estadoReserva: 'Realizada'})
+        }
+        else if(this.state.estadoReserva === 'Realizada'){
+            this.setState({estadoReserva: 'Cancelada'})
+        }
+        if(this.state.estadoReserva === 'Cancelada'){
+            this.setState({estadoReserva: 'Espera'})
+        }
     }
 
     openModal = () => {
@@ -126,6 +140,9 @@ class ReservaDato extends Component{
                 tipoModal = {'Reservas'}
                 dato = {this.props.reserva}
                 borrarReserva = {this.props.borrarReserva}
+                editarReserva = {this.props.editarReserva}
+                estadoReserva = {this.state.estadoReserva}
+                actualizarEstado = {this.actualizarEstado}
             />
         }
         else{
@@ -138,7 +155,7 @@ class ReservaDato extends Component{
             return <div className="bodyReservaAdmin generarTableAdmin">
                 <p className="hN">{this.props.reserva.nombre_user}</p>
                 <p className="hS">{this.props.reserva.tipo_servicio}</p>
-                <p className="hFR">{this.props.reserva.fecha_reservada}</p>
+                <p className="hFR">{this.state.estadoReserva}</p>
                 <p className="hT">{this.props.reserva.correo}</p>
                 <p className="hA">
                     <button onClick={this.openModal}>Revisar</button>
@@ -151,7 +168,7 @@ class ReservaDato extends Component{
                 <div className="bodyReservaAdmin generarTableAdmin">
                     <p className="hN">Usuarios2002516L</p>
                     <p className="hS">Celebracion De Cumpleaños</p>
-                    <p className="hFR">00/00/0000</p>
+                    <p className="hFR">Espera</p>
                     <p className="hT">queTeImporta@gmail.com</p>
                     <p className="hA">
                         <button onClick={this.openModal}>Revisar</button>
@@ -160,7 +177,7 @@ class ReservaDato extends Component{
                 <div className="bodyReservaAdmin generarTableAdmin">
                     <p className="hN">Usuarios2002516L</p>
                     <p className="hS">Celebracion De Cumpleaños</p>
-                    <p className="hFR">00/00/0000</p>
+                    <p className="hFR">Espera</p>
                     <p className="hT">queTeImporta@gmail.com</p>
                     <p className="hA">
                         <button onClick={this.openModal}>Revisar</button>
@@ -169,7 +186,7 @@ class ReservaDato extends Component{
                 <div className="bodyReservaAdmin generarTableAdmin">
                     <p className="hN">Usuarios2002516L</p>
                     <p className="hS">Celebracion De Cumpleaños</p>
-                    <p className="hFR">00/00/0000</p>
+                    <p className="hFR">Espera</p>
                     <p className="hT">queTeImporta@gmail.com</p>
                     <p className="hA">
                         <button onClick={this.openModal}>Revisar</button>
@@ -263,9 +280,6 @@ class ContactoDato extends Component{
 
 class ModalReservas extends Component {
 
-    state = {
-    }
-
     verModal = () => {
         if(this.props.tipoModal === 'Reservas'){
             return <>
@@ -285,6 +299,9 @@ class ModalReservas extends Component {
                     <p className="fechaSoliRevCon"> <span>Realizada el</span> <span>{this.props.dato.fecha_envio}</span></p>
                     <p className="fechaReserRevCon"> <span>Fecha Reservada:</span> <span>{this.props.dato.fecha_reservada}</span></p>
                     <p className="mensajeRevCon mensajeRercCon"> <span>{this.props.dato.mensaje}</span></p>
+                    <div className="zonaEstadoButton">
+                        <button onClick={this.props.actualizarEstado}>{this.props.estadoReserva}</button>
+                    </div>
                 </div>
             </>
         }
@@ -311,7 +328,7 @@ class ModalReservas extends Component {
     render() {
         return <div className="containerModal modalOpen">
             <div className="contBM">
-                <div className="form modal modalAP">
+                <div className="form modal modalAP" style={{paddingTop: '35px'}}>
                     {this.verModal()}
                 </div>
             </div>

@@ -35,7 +35,7 @@ export default function Admin(props) {
     const {obtenerContactos, borrarContacto, contactos} = contactoContext
 
     const reservaContext = useContext(ReservaContext)
-    const {obtenerReserva, borrarReserva, reservas} = reservaContext
+    const {obtenerReserva, borrarReserva, editarReserva, reservas} = reservaContext
 
     const compraContext = useContext(CompraContext)
     const {obtenerCompra, borrarCompra, compras} = compraContext
@@ -77,7 +77,6 @@ export default function Admin(props) {
             />
         }
         else if(props.active === 'user'){
-            console.log(usuarios)
             return <Usuarios
                 usuarios = {usuarios}
                 obtenerUsuarios = {obtenerUsuarios}
@@ -100,6 +99,7 @@ export default function Admin(props) {
                 reservaciones = {reservas}
                 borrarReserva = {borrarReserva}
                 obtenerReserva = {obtenerReserva}
+                editarReserva = {editarReserva}
                 obtenerContactos = {obtenerContactos}
                 borrarContacto = {borrarContacto}
             />

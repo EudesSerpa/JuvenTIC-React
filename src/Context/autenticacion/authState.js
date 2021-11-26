@@ -116,6 +116,7 @@ const AuthState = props =>{
 				token: state.token,
 				autenticado: state.autenticado,
 				usuario: state.usuario,
+				usuarios: state.usuarios,
 				mensaje: state.mensaje,
 				obtenerUsuarios,
 				registrarUsuario,

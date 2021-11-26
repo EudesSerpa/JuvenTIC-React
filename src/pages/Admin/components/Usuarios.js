@@ -25,7 +25,7 @@ export default class Usuarios extends Component {
                     <tbody>
                         {this.props.usuarios.length > 0
                             ? this.props.usuarios.map( usuario => {
-                                return <Usuario
+                                return <Usuario key = {usuario._id}
                                     usuario = {usuario}
                                 />
                             } )
@@ -41,7 +41,7 @@ export default class Usuarios extends Component {
 class Usuario extends Component{
     
     state = {
-        rol: 'USER_ROLE'
+        rol: this.props.usuario.rol ? this.props.usuario.rol : 'USER_ROLE'
     }
 
     cambiarRol = () => {
@@ -53,12 +53,24 @@ class Usuario extends Component{
         }
     }
 
+    definirRol = () => {
+        if( this.state.rol === "ADMIN_ROLE" ){
+            return 'ADMINISTRADOR'
+        }
+        else if( this.state.rol === "USER_ROLE" ){
+            return 'USUARIO'
+        }
+        else if( this.state.rol === "EMPLOYEE_ROLE" ){
+            return 'EMPLEADO'
+        }
+    }
+
     datosAVer = () => {
         if(this.props.usuario){
             return <tr>
-                <td>David</td>
-                <td>salysalsa@gmail.com</td>
-                <td>Empleado</td>
+                <td>{this.props.usuario.nombre}</td>
+                <td>{this.props.usuario.correo}</td>
+                <td>{this.definirRol()}</td>
                 <td>
                     <button className="btnMenu btnadminRole" onClick={this.cambiarRol}>
                         {this.state.rol == "USER_ROLE" 

@@ -17,7 +17,7 @@ class Productos extends Component {
         this.setState({modalDesc: !this.state.modalDesc})
     }
 
-    editarPlatoFAdm = () => {
+    editarPlato = () => {
         this.setState({editarP: !this.state.editarP})
         this.verInformacion()
     }
@@ -30,7 +30,7 @@ class Productos extends Component {
                 estado = {this.state.modalDesc} 
                 editPlato = {this.props.editPlato}
                 abrirModal = {this.verInformacion} 
-                editarPlato = {this.editarPlatoFAdm}
+                editarPlato = {this.editarPlato}
             />
         }else{
             return <></>

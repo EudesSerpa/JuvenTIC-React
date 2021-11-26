@@ -9,7 +9,7 @@ export default class Home extends Component {
 
 
     state = {
-        abrirModal: true
+        abrirModal: false
     }
 
     isOpenModal = () => {
@@ -210,7 +210,7 @@ class CardCompraModal extends Component{
                         <p>{'$' + this.props.compra.total_pago}</p>
                         <p>{this.props.compra.metodo_pago}</p>
                     </div>
-                    <p>{this.props.compra.mensaje}</p>
+                    <p className="mensajeCompraAdmin">{this.props.compra.mensaje}</p>
                 </div>
                 <div className="btnCrudCrompaAdmin">
                     <div className="estadoCompraAdmin">
