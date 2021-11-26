@@ -77,8 +77,10 @@ export default function Admin(props) {
             />
         }
         else if(props.active === 'user'){
+            console.log(usuarios)
             return <Usuarios
                 usuarios = {usuarios}
+                obtenerUsuarios = {obtenerUsuarios}
             />
         }
         else if(props.active === 'servicios'){

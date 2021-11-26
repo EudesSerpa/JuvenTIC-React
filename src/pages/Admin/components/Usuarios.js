@@ -5,6 +5,9 @@ import '../StyleAdmin/StyleGeneral.css'
 
 export default class Usuarios extends Component {
     render() {
+
+        this.props.obtenerUsuarios()
+
         return <div className="contentMenuAdmin">
             <div className="headerContentMenu">
                 <h2>Usuarios Regitrados</h2>
@@ -20,7 +23,14 @@ export default class Usuarios extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <Usuario/>
+                        {this.props.usuarios.length > 0
+                            ? this.props.usuarios.map( usuario => {
+                                return <Usuario
+                                    usuario = {usuario}
+                                />
+                            } )
+                            : <Usuario usuario = {false} />
+                        }                        
                     </tbody>
                 </table>
             </div>
@@ -43,27 +53,55 @@ class Usuario extends Component{
         }
     }
 
+    datosAVer = () => {
+        if(this.props.usuario){
+            return <tr>
+                <td>David</td>
+                <td>salysalsa@gmail.com</td>
+                <td>Empleado</td>
+                <td>
+                    <button className="btnMenu btnadminRole" onClick={this.cambiarRol}>
+                        {this.state.rol == "USER_ROLE" 
+                            ? <ion-icon name="person-circle-outline"></ion-icon>
+                            : this.state.rol == "ADMIN_ROLE" 
+                                ? <ion-icon name="construct-outline"></ion-icon>
+                                : this.state.rol == "EMPLOYEE_ROLE" 
+                                    ? <ion-icon name="people-circle-outline"></ion-icon> 
+                                    : <ion-icon name="help-outline"></ion-icon>
+                        }
+                    </button>
+                    <button className="btnMenu menuDel">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </td>
+            </tr>
+        }
+        else {
+            return <tr>
+                <td>David</td>
+                <td>salysalsa@gmail.com</td>
+                <td>Empleado</td>
+                <td>
+                    <button className="btnMenu btnadminRole" onClick={this.cambiarRol}>
+                        {this.state.rol == "USER_ROLE" 
+                            ? <ion-icon name="person-circle-outline"></ion-icon>
+                            : this.state.rol == "ADMIN_ROLE" 
+                                ? <ion-icon name="construct-outline"></ion-icon>
+                                : this.state.rol == "EMPLOYEE_ROLE" 
+                                    ? <ion-icon name="people-circle-outline"></ion-icon> 
+                                    : <ion-icon name="help-outline"></ion-icon>
+                        }
+                    </button>
+                    <button className="btnMenu menuDel">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </td>
+            </tr>
+        }
+    }
+
     render(){
-        return <tr>
-            <td>David</td>
-            <td>salysalsa@gmail.com</td>
-            <td>Empleado</td>
-            <td>
-                <button className="btnMenu btnadminRole" onClick={this.cambiarRol}>
-                    {this.state.rol == "USER_ROLE" 
-                        ? <ion-icon name="person-circle-outline"></ion-icon>
-                        : this.state.rol == "ADMIN_ROLE" 
-                            ? <ion-icon name="construct-outline"></ion-icon>
-                            : this.state.rol == "EMPLOYEE_ROLE" 
-                                ? <ion-icon name="people-circle-outline"></ion-icon> 
-                                : <ion-icon name="help-outline"></ion-icon>
-                    }
-                </button>
-                <button className="btnMenu menuDel">
-                    <ion-icon name="trash-outline"></ion-icon>
-                </button>
-            </td>
-        </tr>
+        return <>{this.datosAVer()}</>
     }
 }
 
