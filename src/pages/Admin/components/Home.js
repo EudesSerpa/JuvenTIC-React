@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import '../StyleAdmin/adminS.css'
 import '../StyleAdmin/StyleGeneral.css'
+import '../StyleAdmin/homeAdmin.css'
+import '../../Styles/styleModal.css'
 
 export default class Home extends Component {
     render(){
@@ -76,7 +78,7 @@ export default class Home extends Component {
                             }
                         </tbody>
                     </table>
-                            
+                    <ModalCompras/>
                 </div>
 
                 {/* New Customers */}
@@ -138,5 +140,28 @@ class Compras extends Component{
 
     render(){
         return <>{this.datoAVer()}</>
+    }
+}
+
+
+class ModalCompras extends Component{
+    render(){
+        return <div className="containerModal modalOpen">
+                
+            <div className="contAdmiBM">
+                <div className="constComprasAdminModal">
+                    
+                    <div className="btnCerrarModalCompra">
+                        <button>
+                            <ion-icon name="close-circle-outline"></ion-icon>
+                        </button>
+                    </div>
+
+                    <div className="contetDatosCAdmin"></div>
+
+                </div>
+            </div>
+
+        </div>
     }
 }
