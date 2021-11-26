@@ -7,6 +7,7 @@ import {
 	REGISTRO_EXITOSO,
 	REGISTRO_ERROR,
 	OBTENER_USUARIO,
+	OBTENER_USUARIOS,
 	LOGIN_EXITOSO,
 	LOGIN_ERROR,
 	CERRAR_SESION
@@ -17,10 +18,25 @@ const AuthState = props =>{
 		token: localStorage.getItem('token'),
 		autenticado: null,
 		usuario: null,
+		usuarios: [],
 		mensaje: null
 	}
 
 	const [state, dispatch] = useReducer(AuthReducer, initialState);
+
+	// Obtener usuario
+	const obtenerUsuarios = async ()=>{
+		try{
+			const res = await axios.get('https://api-restauran.herokuapp.com/api/usuarios/');
+
+			dispatch({
+				type: OBTENER_USUARIOS,
+				payload: res.data
+			})
+		}catch(error){
+			console.log(error.message)
+		}
+	}
 
 	//Registrar usuarios
 	const registrarUsuario = async (datos)=>{
@@ -101,13 +117,14 @@ const AuthState = props =>{
 				autenticado: state.autenticado,
 				usuario: state.usuario,
 				mensaje: state.mensaje,
+				obtenerUsuarios,
 				registrarUsuario,
 				iniciarSesion,
 				usuarioAutenticado,
 				cerrarSesion
 			}}
-		>{props.children}
-			
+		>
+			{props.children}
 		</AuthContext.Provider>
 	);
 }
