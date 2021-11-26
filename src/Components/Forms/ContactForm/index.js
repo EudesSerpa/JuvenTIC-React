@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import emailjs from 'emailjs-com';
 
 import Swal from 'sweetalert2';
+
+import ContactoContext from '../../../Context/contacto/contactoContext';
 
 
 const regex = {
@@ -70,6 +72,13 @@ const ContactForm = () => {
     const [isSubmitted, setSubmitted] = useState(false);
     const formRef = useRef(null);
 
+    const { crearContacto } = useContext(ContactoContext);
+
+    const dateFormated = (date = new Date(Date.now()).toISOString()) => {
+        const formated = date.substring(0, (date.indexOf("T") | 0) + 9 | 0);
+        return formated.replace("T", " ");
+    }
+
     return (
         <Formik
             initialValues={initialValues}
@@ -78,9 +87,27 @@ const ContactForm = () => {
                 {
                     setSubmitting(true);
 
+                    const {
+                    name: nombre_user,
+                    email: correo,
+                    service: tipo_servicio,
+                    message: mensaje } = values;
+
+                    // Format of the BD required
+                    const data = {
+                        nombre_user,
+                        correo,
+                        tipo_servicio,
+                        fecha_envio: dateFormated(),
+                        mensaje
+                    };
+
                     emailjs.sendForm('service_t3774lw', 'template_d1nz07t', formRef.current, 'user_UXa6gReUctUZYFGVyen7Q')
                         .then(response => {
                             console.log(response);
+
+                            crearContacto(data);
+
                             resetForm();
                             setSubmitted(true);
                             setSubmitting(false);
@@ -100,7 +127,7 @@ const ContactForm = () => {
                                 showConfirmButton: false,
                                 timer: 3000,
                             });
-                        })
+                        });
 
                     setTimeout(() => {
                         setSubmitted(false)

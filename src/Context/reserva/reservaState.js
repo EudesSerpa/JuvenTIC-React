@@ -32,7 +32,7 @@ const ReservaState = props =>{
 			})
 		}catch(error){
 			console.log(error)
-		}		
+		}
 	}
 
 	

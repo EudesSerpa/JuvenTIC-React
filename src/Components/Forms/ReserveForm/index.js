@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import emailjs from 'emailjs-com';
 
 import Swal from 'sweetalert2';
+
+import ReservaContext from '../../../Context/reserva/reservaContext';
 
 const regex = {
     namePerson: /^([a-z]+)\s[a-z]+(\s[a-z]+|\s[a-z]+\s[a-z]+|\s[a-z]+\s[a-z]+\s[a-z]+)?$/,
@@ -92,9 +94,16 @@ const templateModalError = `
 
 
 export default function ReserveForm() {
-    const [isSubmitted, setSubmitted] = useState(false)
+    const [isSubmitted, setSubmitted] = useState(false);
     const formRef = useRef(null);
 
+    const reservaContext = useContext(ReservaContext);
+    const { crearReservas } = reservaContext;
+
+    const dateFormated = (date = new Date(Date.now()).toISOString()) => {
+        const formated = date.substring(0, (date.indexOf("T") | 0) + 9 | 0);
+        return formated.replace("T", " ");
+    }
 
     return (
         <Formik
@@ -103,9 +112,33 @@ export default function ReserveForm() {
             onSubmit={(values, { setSubmitting, resetForm }) => {
                 setSubmitting(true);
 
+                const {
+                    name: nombre_user,
+                    email: correo,
+                    phone: telefono,
+                    service: tipo_servicio,
+                    quantity: total_personas,
+                    dateOfReserve: fecha_reservada,
+                    indications: mensaje } = values;
+
+                // Format of the BD required
+                const data = {
+                    nombre_user,
+                    correo, telefono,
+                    tipo_servicio,
+                    total_personas,
+                    fecha_envio: dateFormated(),
+                    fecha_reservada: dateFormated(fecha_reservada),
+                    mensaje
+                };
+
+
                 emailjs.sendForm('service_t3774lw', 'template_f1nzm2g', formRef.current, 'user_UXa6gReUctUZYFGVyen7Q')
                     .then(response => {
                         console.log(response);
+
+                        crearReservas(data);
+
                         resetForm();
                         setSubmitted(true);
                         setSubmitting(false);
@@ -125,7 +158,7 @@ export default function ReserveForm() {
                             showConfirmButton: false,
                             timer: 3000,
                         });
-                    })
+                    });
 
                 setTimeout(() => {
                     setSubmitted(false)

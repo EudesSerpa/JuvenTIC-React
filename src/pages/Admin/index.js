@@ -12,7 +12,6 @@ import Comentarios from './components/Comentarios'
 import Nosotros from './components/Nosotros'
 import NavBar from './components/NavBar'
 
-import AuthContext from '../../Context/autenticacion/authContext';
 import ComentContext from '../../Context/comentarios/comentContext'
 import PlatosContext from '../../Context/platos/platosContext'
 import { useServices } from '../../Hooks/useServices';
@@ -101,13 +100,11 @@ export default function Admin(props) {
                         <div className="mobile__menu-icons" onClick={handleClick}>
                             {
                                 isMenuActive
-                                    ? <CloseMenu className="menu__icon" />
-                                    : <MenuIcon className="menu__icon" />
+                                    ? <CloseMenu className="sideBar__icon" />
+                                    : <MenuIcon className="sideBar__icon" />
                             }
                         </div>
-                        {/* <div className="toggle">
-                            <ion-icon name="menu-outline"></ion-icon>
-                        </div> */}
+
                         {/* Search */}
                         <div className="search">
                             <label>
@@ -115,6 +112,7 @@ export default function Admin(props) {
                                 <ion-icon name="search-outline"></ion-icon>
                             </label>
                         </div>
+
                         {/* userImg */}
                         <div className="user">
                             <img src="https://i.postimg.cc/28JTJD92/Joe-Uriah-Commission-by-The-Zombie-Cat-on-Deviant-Art.png" />
