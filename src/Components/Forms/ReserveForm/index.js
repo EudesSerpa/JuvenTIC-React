@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import emailjs from 'emailjs-com';
+
 import Swal from 'sweetalert2';
 
 const regex = {
@@ -93,25 +95,17 @@ export default function ReserveForm() {
     const [isSubmitted, setSubmitted] = useState(false)
     const formRef = useRef(null);
 
+
     return (
         <Formik
             initialValues={initialValues}
             validate={validateFields}
-            onSubmit={async (values, { setSubmitting, resetForm }) => {
-                try {
-                    setSubmitting(true);
-                    const formData = new FormData(formRef.current);
-                    formData.append('subject', 'Reservación');
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+                setSubmitting(true);
 
-                    const response = await fetch(formRef.current.action, {
-                        method: formRef.current.method,
-                        body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        },
-                    });
-
-                    if(response.ok) {
+                emailjs.sendForm('service_t3774lw', 'template_f1nzm2g', formRef.current, 'user_UXa6gReUctUZYFGVyen7Q')
+                    .then(response => {
+                        console.log(response);
                         resetForm();
                         setSubmitted(true);
                         setSubmitting(false);
@@ -122,7 +116,8 @@ export default function ReserveForm() {
                             showConfirmButton: false,
                             timer: 1800,
                         });
-                    } else {
+                    }).catch (error => {
+                        console.log(error.message);
                         Swal.fire({
                             icon: 'error',
                             title: 'Reserva fallida',
@@ -130,17 +125,7 @@ export default function ReserveForm() {
                             showConfirmButton: false,
                             timer: 3000,
                         });
-                    }
-                } catch (error) {
-                        console.log('No se pudo enviar el email', error.message);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Reserva fallida',
-                            html: templateModalError,
-                            showConfirmButton: false,
-                            timer: 3000,
-                        });
-                }
+                    })
 
                 setTimeout(() => {
                     setSubmitted(false)

@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import emailjs from 'emailjs-com';
+
 import Swal from 'sweetalert2';
 
 
@@ -72,21 +74,13 @@ const ContactForm = () => {
         <Formik
             initialValues={initialValues}
             validate={validateFields}
-            onSubmit={async (values, { setSubmitting, resetForm }) =>
+            onSubmit={(values, { setSubmitting, resetForm }) =>
                 {
-                    try {
-                        setSubmitting(true);
-                        const formData = new FormData(formRef.current);
+                    setSubmitting(true);
 
-                        const response = await fetch(formRef.current.action, {
-                            method: formRef.current.method,
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            },
-                        });
-
-                        if(response.ok) {
+                    emailjs.sendForm('service_t3774lw', 'template_d1nz07t', formRef.current, 'user_UXa6gReUctUZYFGVyen7Q')
+                        .then(response => {
+                            console.log(response);
                             resetForm();
                             setSubmitted(true);
                             setSubmitting(false);
@@ -97,18 +91,16 @@ const ContactForm = () => {
                                 showConfirmButton: false,
                                 timer: 2000,
                             });
-                        } else {
-                        }
-                    } catch (error) {
-                        console.log('No se pudo enviar el email', error.message);
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Envío fallido',
-                            html: templateModalError,
-                            showConfirmButton: false,
-                            timer: 3000,
-                        });
-                    }
+                        }).catch (error => {
+                            console.log(error.message);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Contacto fallido',
+                                html: templateModalError,
+                                showConfirmButton: false,
+                                timer: 3000,
+                            });
+                        })
 
                     setTimeout(() => {
                         setSubmitted(false)
@@ -156,7 +148,7 @@ const ContactForm = () => {
 
                     <Field id="message" component="textarea" name="message" cols="30" rows="5" placeholder="Escriba su mensaje aquí" aria-label="Escriba su mensaje aquí..." />
 
-                    <input type="submit" disabled={isSubmitting} value="Reservar" />
+                    <input type="submit" disabled={isSubmitting} value="Contactar" />
 
                     {isSubmitted &&
                         <div className="form-submitted--text">
