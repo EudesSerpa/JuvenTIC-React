@@ -9,7 +9,7 @@ import axios from 'axios';
 	ELIMINAR_RCOMPRA
 } from '../../types'
 
-const CompraState = props =>{
+const CompraState = props => {
 	const initialState = {
 		compra: null,
 		compras: []
@@ -17,10 +17,10 @@ const CompraState = props =>{
 
 	const [state, dispatch] = useReducer(CompraReducer, initialState);
 
-	
+
 	const crearCompra = async (datos)=>{
-		const token = localStorage.getItem('token')
-		
+		const token = localStorage.getItem('token');
+
 		if(token){
 			try{
 				const res = await axios.post('https://api-restauran.herokuapp.com/api/compras', datos, {
@@ -29,18 +29,17 @@ const CompraState = props =>{
 					}
 				});
 
-				dispatch({
-					type: AGREGAR_RCOMPRA,
-					payload: res.data.compra
-				})
+			dispatch({
+				type: AGREGAR_RCOMPRA,
+				payload: res.data.compra
+			})
 			}catch(error){
-				console.log(error)
-			}	
+				console.log(error.message)
+			}
 		}
-			
 	}
 
-	
+
 	const obtenerCompra = async ()=>{
 		try{
 			const res = await axios.get('https://api-restauran.herokuapp.com/api/compras');
@@ -50,14 +49,14 @@ const CompraState = props =>{
 				payload: res.data.compra
 			})
 		}catch(error){
-			console.log(error)
+			console.log(error.message)
 		}
 	}
 
-	
+
 	const borrarCompra = async (id)=>{
 		//const token = localStorage.getItem('token')
-		
+
 		try{
 			const res = await axios.delete(`https://api-restauran.herokuapp.com/api/compras/${id}`);
 
@@ -66,7 +65,7 @@ const CompraState = props =>{
 				payload: id
 			})
 		}catch(error){
-			console.log(error)
+			console.log(error.message)
 		}
 	}
 
