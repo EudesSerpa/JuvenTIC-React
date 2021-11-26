@@ -24,7 +24,7 @@ export default class Modal extends Component {
             reader.readAsDataURL(e.target.files[0]);
             reader.onload = (e) => {
                 e.preventDefault();
-                this.setState({imagen: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
+                this.setState({imageMustra: e.target.result}); // le damos el binario de la imagen para mostrarla en pantalla
             };
         }
     };
@@ -38,26 +38,26 @@ export default class Modal extends Component {
         e.preventDefault()
         this.editarF()
 
-        /*
+        
         var formData = new FormData();
         
         formData.append('_id', this.props.dato._id)    
-        formData.append('imgURL', this.state.imagen);
-        formData.append('public_id', this.props.dato.public_id);
+        formData.append('image', this.state.imagen);
+        //formData.append('public_id', this.props.dato.public_id);
         formData.append('nombre', this.state.title);
         formData.append('descripcion', this.state.descricion);
         formData.append('precio', this.state.precio);
-        formData.append('usuario', this.props.dato.usuario)*/
-        
+        formData.append('usuario', this.props.dato.usuario)
+        /*
         const formData = {
             _id: this.props.dato._id,
-            imgURL: this.state.imagen,
-            public_id: this.props.dato.public_id,
+            image: this.state.imagen,
+            //public_id: this.props.dato.public_id,
             nombre: this.state.title,
             descripcion: this.state.descricion,
             precio: this.state.precio,
             usuario: this.props.dato.usuario
-        }
+        }*/
 
         console.log(formData)
 
@@ -106,7 +106,7 @@ export default class Modal extends Component {
                         >
                         </textarea>
                         <div className="contentImagen">
-                            <img src={this.state.imagen} alt="...."/>
+                            <img src={this.state.imageMustra} alt="...."/>
                             <p>{this.state.nameImagen}</p>
                             <label className="custom-file-upload">
                                 <input 
