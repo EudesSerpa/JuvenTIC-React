@@ -64,7 +64,7 @@ const ContactoState = props =>{
 		}
 	}
 
-	}
+	
 
 	return(
 		<ContactoContext.Provider
