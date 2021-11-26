@@ -4,6 +4,7 @@ import Footer from '../../Components/Footer'
 import RealizarComprar from './RealizarComprar'
 import AuthContext from '../../Context/autenticacion/authContext';
 import CarritoContext from '../../Context/carrtio/CarritoContext';
+import CompraContext from '../../Context/registro_compra/compraContext'
 
 import '../Styles/carritoS.css'
 import '../Styles/realizarCompra.css'
@@ -218,6 +219,9 @@ export default function Carrito(){
     const {usuario, usuarioAutenticado} = authContext;
     const {compras, eliminar, actualizar, vaciar} = carritoContext
 
+    const compraContext = useContext(CompraContext)
+    const {crearCompra} = compraContext
+
 
     useEffect(()=>{
         // Es asincrono? El nombre no aparece en la 1° ejecucion per se
@@ -225,14 +229,17 @@ export default function Carrito(){
     }, [])
 
     const actualizarCompras = (typefunction, dato) => {
-        if(typefunction == 'elim'){
+        if(typefunction === 'elim'){
             eliminar(dato)
         }
-        else if(typefunction == 'act') {
+        else if(typefunction === 'act') {
             actualizar(dato)
         }
-        else if(typefunction == 'vac') {
+        else if(typefunction === 'vac') {
             vaciar()
+        }
+        else if(typefunction === 'finCompra'){
+            crearCompra(dato)
         }
     }
 

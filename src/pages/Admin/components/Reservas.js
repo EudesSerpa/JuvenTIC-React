@@ -136,10 +136,10 @@ class ReservaDato extends Component{
     datosAMostrar = () => {
         if(this.props.reserva){
             return <div className="bodyReservaAdmin generarTableAdmin">
-                <p className="hN">Usuarios2002516L</p>
-                <p className="hS">Celebracion De Cumpleaños</p>
-                <p className="hFR">00/00/0000</p>
-                <p className="hT">queTeImporta@gmail.com</p>
+                <p className="hN">{this.props.reserva.nombre_user}</p>
+                <p className="hS">{this.props.reserva.tipo_servicio}</p>
+                <p className="hFR">{this.props.reserva.fecha_reservada}</p>
+                <p className="hT">{this.props.reserva.correo}</p>
                 <p className="hA">
                     <button onClick={this.openModal}>Revisar</button>
                 </p>
@@ -211,10 +211,10 @@ class ContactoDato extends Component{
     datosAMostrar = () => {
         if(this.props.pregunta){
             return <div className="bodyReservaAdmin generarTableAdmin">
-                <p className="hN">Usuarios2002516L</p>
-                <p className="hS">Celebracion De Cumpleaños</p>
-                <p className="hFR">00/00/0000</p>
-                <p className="hT">queTeImporta@gmail.com</p>
+                <p className="hN">{this.props.pregunta.nombre_user}</p>
+                <p className="hS">{this.props.pregunta.tipo_servicio}</p>
+                <p className="hFR">{this.props.pregunta.fecha_envio}</p>
+                <p className="hT">{this.props.pregunta.correo}</p>
                 <p className="hA">
                     <button onClick={this.openModal}>Revisar</button>
                 </p>
@@ -269,34 +269,33 @@ class ModalReservas extends Component {
         if(this.props.tipoModal === 'Reservas'){
             return <>
                 <div className="btnCerrarModal">
+                    <button className="btnDelRes" onClick={this.props.abrirModal}> <ion-icon name="trash-outline"></ion-icon> </button>
                     <button onClick={this.props.abrirModal}> <ion-icon name="close-circle-outline"></ion-icon> </button>
                 </div>
                 <div className="contetInfoRevConAdmin">
-                    <h2>Nombre Usuario</h2>
-                    <p className="correoRevCon"> <span>Correo:</span> <span> test5@gmail.com </span></p>
-                    <p className="telefonoRevCon"> <span>Telefono:</span> <span>3255468216</span></p>
-                    <h4>Tipo de Servicio Solicitado</h4>
-                    <p className="cantidaPerRevCon"><span>Cantidad De Personas</span> <span>8</span></p>
-                    <p className="fechaSoliRevCon"> <span>Solicictud Hecha  el</span> <span>25/11/2021</span></p>
-                    <p className="fechaReserRevCon"> <span>Fecha Reservada:</span> <span>28/11/2021</span></p>
-                    <p className="mensajeRevCon"> <span>mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m</span></p>
+                    <h2>{this.props.dato.nombre_user}</h2>
+                    <p className="correoRevCon"> <span>Correo:</span> <span> {this.props.dato.correo} </span></p>
+                    <p className="telefonoRevCon"> <span>Telefono:</span> <span>{this.props.dato.telefono}</span></p>
+                    <h4>{this.props.dato.tipo_servicio}</h4>
+                    <p className="cantidaPerRevCon"><span>Cantidad De Personas</span> <span>{this.props.dato.total_personas}</span></p>
+                    <p className="fechaSoliRevCon"> <span>Realizada el</span> <span>{this.props.dato.fecha_envio}</span></p>
+                    <p className="fechaReserRevCon"> <span>Fecha Reservada:</span> <span>{this.props.dato.fecha_reservada}</span></p>
+                    <p className="mensajeRevCon"> <span>{this.props.dato.mensaje}</span></p>
                 </div>
             </>
         }
         else if(this.props.tipoModal === 'Contacto'){
             return <>
                 <div className="btnCerrarModal">
+                    <button className="btnDelRes" onClick={this.props.abrirModal}> <ion-icon name="trash-outline"></ion-icon> </button>
                     <button onClick={this.props.abrirModal}> <ion-icon name="close-circle-outline"></ion-icon> </button>
                 </div>
                 <div className="contetInfoRevConAdmin">
-                    <h2>Nombre Usuario</h2>
-                    <p className="correoRevCon"> <span>Correo:</span> <span> test5@gmail.com </span></p>
-                    <p className="telefonoRevCon"> <span>Telefono:</span> <span>3255468216</span></p>
-                    <h4>Tipo de Servicio Solicitado</h4>
-                    <p className="cantidaPerRevCon"><span>Cantidad De Personas</span> <span>8</span></p>
-                    <p className="fechaSoliRevCon"> <span>Solicictud Hecha  el</span> <span>25/11/2021</span></p>
-                    <p className="fechaReserRevCon"> <span>Fecha Reservada:</span> <span>28/11/2021</span></p>
-                    <p className="mensajeRevCon"> <span>mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m mensaje lorem lre m</span></p>
+                    <h2>{this.props.dato.nombre_user}</h2>
+                    <p className="correoRevCon"> <span>Correo:</span> <span> {this.props.dato.correo} </span></p>
+                    <h4>{this.props.dato.tipo_servicio}</h4>
+                    <p className="fechaSoliRevCon"> <span>Realizada el</span> <span>{this.props.dato.fecha_envio}</span></p>
+                    <p className="mensajeRevCon mensajeServCon"> <span>{this.props.dato.mensaje}</span></p>
                 </div>
             </>
         }
