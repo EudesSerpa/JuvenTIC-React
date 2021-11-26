@@ -201,17 +201,16 @@ export default function Menu() {
     const {compras, actualizar, add} = carritoContext
 
     useEffect(()=>{
-        // Es asincrono? El nombre no aparece en la 1° ejecucion per se
         usuarioAutenticado();
         obtenerPlatos();
         obtenerComentarios();
     }, [])
 
     let actualizarCompras = (typeFunction, dato) => {
-        if(typeFunction == 'add'){
+        if(typeFunction === 'add'){
             add(dato)
         }
-        else if(typeFunction == 'act'){
+        else if(typeFunction === 'act'){
             actualizar(dato)
         }
     }

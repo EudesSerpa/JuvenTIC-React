@@ -143,7 +143,11 @@ class ContenAdmin extends Component{
                     <div className={"main" + (this.state.isMenuActive ? " active" : "")}>
                         <div className="topbar">
                             <div className="toggle" onClick={this.handleClick}>
-                                <ion-icon name="menu-outline"></ion-icon>
+                                {
+                                    this.state.isMenuActive
+                                        ? <CloseMenu className="close-icon__menu" />
+                                        : <MenuIcon />
+                                }
                             </div>
 
                             {/* Search */}

@@ -25,6 +25,14 @@
     width: 100%;
 }
 
+.close-icon__menu {
+    width: 18px;
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    z-index: 200;
+}
+
 .container_Admin .navigation{
     position: fixed;
     width: 250px;
@@ -60,8 +68,8 @@
 }
 
 .navigation ul li:nth-child(1) {
+    margin-top: 10px;
     margin-bottom: 30px;
-    pointer-events: none;
 }
 
 .navigation ul li a{
@@ -484,6 +492,10 @@
         width: 100%;
         left: -100%;
         z-index: 1000;
+    }
+
+    .close-icon__menu {
+        fill: var(--white);
     }
 
     .navigation.active{
